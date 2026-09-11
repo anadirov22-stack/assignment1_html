@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Order page of Doner na Abaya">
+    <meta name="author" content="Mazhit Nurasyl">
+    <title>Order | Doner na Abaya</title>
+</head>
+<body>  
+
+    <!-- Author: Mazhit Nurasyl -->
+<header>
+    <p>Doner na Abaya</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="order.html">Order</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="colophon.html">Colophon</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h1>Order</h1>
+    <figure>
+    <img src="images/photo_4_2026-09-11_18-56-40.jpg"
+         width="300"
+         alt="Doner na Abaya restaurant">
+    <figcaption>Doner na Abaya in Astana</figcaption>
+</figure>
+    <section id="info">
+        <h2>Order Information</h2>
+        <p>
+            First, open the Menu page and choose the food you want.
+    You can check the available doners, sizes and prices there.
+    After choosing your food, return to the Order page.
+    
+    <br>
+    Want to know about more?
+    <br>
+    You need to write your name and phone number first. How to do it? first scroll down and find Order Form, after that you need to fill in the fields blanks
+    <br>
+    Want to order a lot of Doners, then you need to fill in the fields the blank at the bottom of that information
+    <br>
+    To select the day and time just press the date button and put the day of your requirement.
+    <br>
+    Need to delivery to home or somewhere else, then you need to just press the button delivery, if dont need to deliver just press pickup.
+    <br>
+    Write your requirements for your service, what you want more of ingredients or how you will have a better inner expression about that place.
+    <br>
+    When you press Submit, the browser processes the form, but the order is not sent to the restaurant yet because our website does not have a server.
+        </p>
+    <figure>
+    <img src="images/photo_2_2026-09-11_18-56-40.jpg"
+         width="300"
+         alt="Doner na Abaya restaurant">
+    <figcaption>Doner na Abaya in Astana</figcaption>
+</figure>
+        <a href="#form">Go to order form</a>
+    </section>
+    <section>
+        <h2>Popular Food</h2>
+        <!-- I used a table here because it is easier to compare food names and prices. -->
+        <table>
+            <caption>Popular items</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Food</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Doner(1x)ch</td>
+                    <td>1895</td>
+                </tr>
+
+                <tr>
+                    <td>Doner (1.5x)beef</td>
+                    <td>2595 ₸</td>    
+                </tr>
+                <tr>
+                    <td>Doner(1x)beef</td>
+                    <td>2295</td>
+                </tr>
+
+                <tr>
+                    <td>Doner (1.5x)ch</td>
+                    <td>2295 ₸</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+    <section id="form">
+        <h2>Order Form</h2>
+        <!-- I used a form here because customers need to enter their order information. -->
+        <form method="get" action="order.html">
+            <!-- This form does not send an order to a server because there is no backend yet. -->
+            <fieldset>
+                <legend>Customer Information</legend>
+                <p>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name"
+                           placeholder="Your name" required>
+                </p>
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email"
+                           placeholder="Your email" required>
+                </p>
+                <p>
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone"
+                           placeholder="+7..." required>
+                </p>
+                <p>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity"
+                           name="quantity" min="1" required>
+                </p>
+                <p>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </p>
+                <p>Order type:</p>
+                <input type="radio" id="pickup"
+                       name="type" value="pickup" required>
+                <label for="pickup">Pickup</label>
+                <input type="radio" id="delivery"
+                       name="type" value="delivery">
+                <label for="delivery">Delivery</label>
+                <p>
+                    <label for="food">Food:</label>
+                    <select id="food" name="food" required>
+                        <option value="">Choose food</option>
+                        <option value="food1">Doner(1x)ch</option>
+                        <option value="food2">Doner(1x)beef</option>
+                        <option value="food3">Doner(1.5x)ch</option>
+                        <option value="food4">Doner(1.5x)beef</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="comment">Comment:</label><br>
+                    <textarea id="comment" name="comment"
+                              placeholder="Your comment"></textarea>
+                </p>
+                <p>
+                    <input type="checkbox" id="confirm"
+                           name="confirm" required>
+                    <label for="confirm">I confirm my order</label>
+                </p>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+
+            </fieldset>
+        </form>
+    </section>
+    <p>
+        <a href="#info">Back to information</a>
+    </p>
+    <p>
+        Visit the
+        <a href="https://doner-na-abaya.kz/ru"
+           target="_blank"
+           rel="noopener noreferrer">
+            official website
+        </a>.
+    </p>
+    
+</main>
+ <!-- Footer is used for contact information because it is the end of the page. -->
+<footer>
+    <p>
+    Phone:
+    <a href="tel:+77088043937">+7 708 804 39 37</a>
+</p>
+<p>
+    <a href="https://api.whatsapp.com/send/?phone=77088043937"
+       target="_blank"
+       rel="noopener noreferrer">
+        WhatsApp
+    </a>
+</p>
+    <p>&copy; 2026 Doner na Abaya</p>
+</footer>
+</body>
+</html>
