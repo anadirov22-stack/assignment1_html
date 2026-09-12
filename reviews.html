@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Real customer reviews of Doner na Abaya in Astana and a form to leave your own review.">
+    <meta name="author" content="Alikhan Kuttybayev">
+    <title>Reviews | Doner na Abaya</title>
+</head>
+<body>
+    <!-- Author: Alikhan Kuttybayev -->
+    <header>
+        <p><b>Doner na Abaya</b></p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="colophon.html">Colophon</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Customer Reviews</h1>
+        <p>
+            These are real opinions about the branch at 51 Mangilik El Avenue.
+            Read the <a href="#customer-reviews">reviews</a> or go to the
+            <a href="#review-form">review form</a> to add yours.
+        </p>
+        <section id="customer-reviews">
+            <h2>What Visitors Say</h2>
+            <!-- Each review is an article because it is a complete opinion that still makes sense if it is shown alone on another page. -->
+            <article>
+                <h3>Arman</h3>
+                <blockquote>
+                    <p>I liked this branch. The doner was fresh and filling, the order was prepared quickly, and the place was clean. I especially liked the sauce.</p>
+                </blockquote>
+                <p>Told to our team on 10<sup>th</sup> September 2026.</p>
+            </article>
+            <article>
+                <h3>Araylym, staff member</h3>
+                <blockquote>
+                    <p>All our meat is halal. A lot of people come to us exactly for this reason..</p>
+                </blockquote>
+                <p>Told to me at the branch on 11<sup>th</sup> September 2026.</p>
+            </article>
+            <article>
+                <h3>Our Team's Visit</h3>
+                <p>
+                    The place was clean and cozy, and the staff were polite.
+                    We liked the doner and especially the special sauce.
+                    Like Arman, we found the doner <q>fresh and filling</q>.
+                    Preparation usually takes 15&ndash;20 minutes and longer
+                    at busy hours, so <em>order before you get too hungry</em>.
+                </p>
+            </article>
+            <figure>
+                <img src="images/order-counter.jpg" width="400"
+                     alt="Order counter at Doner na Abaya where customers order, pay and pick up their food">
+                <figcaption>The counter where customers order</figcaption>
+            </figure>
+        </section>
+        <section id="review-form">
+            <h2>Leave a Review</h2>
+            <!-- I used a form here because visitors need to type their own opinion, and a form collects each answer in its own field. -->
+            <form method="get" action="reviews.html">
+                <!-- This form does not send anything yet: the site has no server, so pressing Submit only reloads this page with the answers in the address bar. Server-side handling comes later in the course. -->
+                <fieldset>
+                    <legend>Your review</legend>
+                    <p>
+                        <label for="reviewer-name">Name:</label>
+                        <input type="text" id="reviewer-name" name="name"
+                               placeholder="Your first name" required>
+                    </p>
+                    <p>
+                        <label for="reviewer-email">Email:</label>
+                        <input type="email" id="reviewer-email" name="email"
+                               placeholder="name@mail.kz" required>
+                    </p>
+                    <p>
+                        <label for="reviewer-phone">Phone:</label>
+                        <input type="tel" id="reviewer-phone" name="phone"
+                               placeholder="+7 700 000 00 00">
+                    </p>
+                    <p>
+                        <label for="visit-date">Date of your visit:</label>
+                        <input type="date" id="visit-date" name="visit_date" required>
+                    </p>
+                    <p>
+                        <label for="wait-minutes">Minutes you waited:</label>
+                        <input type="number" id="wait-minutes" name="wait_minutes"
+                               min="0" max="120" placeholder="15">
+                    </p>
+                    <p>
+                        <label for="doner-choice">Doner you tried:</label>
+                        <select id="doner-choice" name="doner" required>
+                            <option value="">Choose a doner</option>
+                            <option value="chicken-1">Chicken doner 1&times;</option>
+                            <option value="chicken-1.5">Chicken doner 1.5&times;</option>
+                            <option value="beef-1">Beef doner 1&times;</option>
+                            <option value="beef-1.5">Beef doner 1.5&times;</option>
+                            <option value="assorted">Assorted doner</option>
+                        </select>
+                    </p>
+                    <fieldset>
+                        <legend>Your rating:</legend>
+                        <input type="radio" id="rating-5" name="rating" value="5" required>
+                        <label for="rating-5">5 Excellent</label>
+                        <input type="radio" id="rating-4" name="rating" value="4">
+                        <label for="rating-4">4 Good</label>
+                        <input type="radio" id="rating-3" name="rating" value="3">
+                        <label for="rating-3">3 Okay</label>
+                        <input type="radio" id="rating-2" name="rating" value="2">
+                        <label for="rating-2">2 Bad</label>
+                        <input type="radio" id="rating-1" name="rating" value="1">
+                        <label for="rating-1">1 Very bad</label>
+                    </fieldset>
+                    <p>
+                        <label for="review-text">Your review:</label>
+                        <br>
+                        <textarea id="review-text" name="review" rows="5" cols="40"
+                                  placeholder="What did you like, and what can be better?" required></textarea>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="publish-ok" name="publish_ok" required>
+                        <label for="publish-ok">My name and review can be shown on this page.</label>
+                    </p>
+                    <!-- I used div because the two buttons are not a paragraph (p), not a group of related answers (fieldset) and not a separate part of the page (section). -->
+                    <div>
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+        <section id="form-help">
+            <h2>How the Form Works</h2>
+            <p>
+                Press <kbd>Tab</kbd> to go to the next field. An empty required
+                field shows <samp>Please fill out this field.</samp>
+                Because of <code>method="get"</code>, Submit only puts all
+                answers in the address bar, like this:
+            </p>
+            <pre><samp>reviews.html?name=Aigerim&amp;email=aigerim%40mail.kz&amp;phone=&amp;visit_date=2026-09-12&amp;wait_minutes=15&amp;doner=chicken-1&amp;rating=5&amp;review=Tasty&amp;publish_ok=on</samp></pre>
+            <p>
+                <strong>Nothing reaches the restaurant.</strong> Email the page author at
+                <a href="mailto:alik.kuttybayev@gmail.com">alik.kuttybayev@gmail.com</a>
+                or tell the staff in person.
+            </p>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p>
+            Phone: <a href="tel:+77088043937">+7 708 804 39 37</a>
+            <br>
+            Instagram:
+            <a href="https://www.instagram.com/doner_na_abaya_astanaa/" target="_blank" rel="noopener noreferrer">@doner_na_abaya_astanaa</a>
+            <br>
+            Address: 51 Mangilik El Avenue, Astana
+        </p>
+        <p>&copy; 2026 Doner na Abaya</p>
+    </footer>
+</body>
+</html>
