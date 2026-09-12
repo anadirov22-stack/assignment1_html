@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photos and information about Doner na Abaya.">
+    <meta name="author" content="Ali Nadirov">
+    <title>Gallery of Doner na Abaya</title>
+</head>
+<body>
+    <!--Author: Ali Nadirov-->
+    <header>
+    <p><b>Doner na Abaya</b></p> 
+       <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="colophon.html">Project</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+</header> 
+<main>
+    <h1>Gallery</h1>
+    <p>
+   This gallery shows photos from a visit 
+   to Doner na Abaya and the branch interior.
+    </p>
+<section>
+        <h2>Photos</h2>     
+<figure>
+        <img src="food.jpeg" 
+             width="500"
+             height="400"
+             alt="Doners ordered during a visit to Doner na Abaya">
+
+        <figcaption>&quot;Freshly prepared doners&quot;</figcaption>
+    </figure>
+    <figure>      <!-- I use separate figures so each photo can have its own meaningful caption. -->
+
+        <img src="interior.jpeg"
+             width="300"
+             height="500"
+             alt="Interior of Doner na Abaya at Mangilik El Avenue, 51">
+        <figcaption>Modern and comfortable interior </figcaption>
+    </figure>
+    </section>
+    <section>
+    <h2>How the Visit Goes</h2>
+    <ol start="1">
+        <li>The visitor enters and looks at the menu.</li>
+        <li>The visitor chooses food and places an order.</li>
+        <li>The visitor waits while the order is prepared.</li>
+        <li>The visitor receives the order and finds a table.</li>
+        <li>The visitor eats and then leaves.</li>
+    </ol>
+</section>
+    <section>
+    <h2>Additional Information</h2>
+    <p>  
+        <q>The <mark>clean dining area and fast service</mark> 
+        were noticeable during the visit.</q>
+
+        </p>
+        <p>
+       <small>Photos were taken during the visit.</small>
+    </p>
+    <p> 
+        A visitor said:
+    <q>
+       The doner was very tasty, and the order was 
+       ready faster than I expected.
+    </q>
+    </p>
+    <p>
+        The restaurant is near Mangilik El Avenue.<br> 
+        There are comfortable places for dining inside.
+         The branch works <abbr title="24 hours, 7 days a week">24/7</abbr>.
+    </p>
+    <p>
+    For more information, see the 
+    <abbr title="Frequently Asked Questions">FAQ</abbr> section.
+    </p>   
+</section>
+<section>
+    <h2>Key Terms</h2>
+    <dl>
+        <dt>Doner</dt>
+        <dd>A dish with meat, vegetables and sauce in lavash.</dd>
+        <dt>Takeaway</dt>
+        <dd>Food ordered to take away.</dd>
+        <dt>Delivery</dt>
+        <dd>Food brought to a specified address.</dd>
+    </dl>
+</section>
+<section><hr>
+    <h2>Leave a Review</h2>
+    <form method="post" action="gallery.html">  <!-- No server-side handling is available yet, so the form does not send data to a real server. -->
+        <fieldset>
+            <legend>Visitor Information</legend>
+
+            <label for="visitor-name">Your name:</label>
+            <input type="text"
+                   id="visitor-name"
+                   name="visitor-name"
+                   placeholder="Enter your name"
+                   required> 
+            <label for="visitor-email">Your email:</label> 
+            <input type="email"
+       id="visitor-email"
+       name="visitor-email"
+       placeholder="Enter your email"
+       required>
+            <label for="visitor-phone">Phone number:</label>
+<input type="tel"
+       id="visitor-phone"
+       name="visitor-phone"
+       placeholder="+7 (___) ___-__-__"
+       required>
+       <label for="rating" >Your rating from 
+        <span>1 to 5</span>:</label>   <!-- I use span here because this short text needs inline grouping and does not form a separate semantic section. -->
+
+<input type="number"
+       id="rating"
+       name="rating"
+       min="1"
+       max="5"
+       placeholder="Enter your rating"
+       required>
+       <label for="visit-date">Visit date:</label>
+<input type="date"
+       id="visit-date"
+       name="visit-date"
+       required>
+       <p>How did you receive your order?</p>
+<input type="radio"
+       id="visit-place"
+       name="order-type"
+       value="in-place"
+       required>
+<label for="visit-place">At the restaurant</label>
+<input type="radio"
+       id="takeaway"
+       name="order-type"
+       value="takeaway">
+<label for="takeaway">Takeaway</label>
+<input type="radio"
+       id="delivery"
+       name="order-type"
+       value="delivery">
+<label for="delivery">Delivery</label>
+<br>
+<br>
+<label for="food-choice">What did you order?</label>
+<select id="food-choice" name="food-choice" required>
+    <option value="">Choose an option</option>
+    <option value="chicken-doner">Chicken doner</option>
+    <option value="beef-doner">Beef doner</option>
+    <option value="assorted-doner">Assorted doner</option>
+    <option value="drink">Drink</option>
+</select> 
+<br>
+<br>
+<label for="publish-review">
+    <input type="checkbox"
+           id="publish-review"
+           name="publish-review"
+           value="yes">
+    I agree to use my review on the educational website.
+</label>
+<p>
+    <label for="review">Your review:</label><br>
+    <textarea id="review"
+              name="review"
+              rows="5"
+              cols="40"
+              placeholder="Write your review"
+              required></textarea>
+</p>
+        </fieldset>
+        <div>  <!-- I use div here because the two buttons need a simple grouping, and no semantic sectioning element is appropriate for them. -->
+            <button type="submit">Submit Review</button>
+            <button type="reset">Clear Form</button>
+        </div>
+    </form>
+</section>
+</main>
+<footer>
+    <p>
+            <strong>Phone:</strong>
+            <br>
+            <a href="tel:+77088043937">
+                +7 708 804 39 37
+            </a>
+        </p>
+        <p>
+          <strong>Instagram:</strong>
+<a href="https://www.instagram.com/doner_na_abaya_astanaa/"
+   target="_blank"
+   rel="noopener noreferrer">
+    @doner_na_abaya_astanaa
+</a>
+    </p>
+    <p>
+    <strong>Email:</strong> Not Available. <!-- I did not add a mailto link because the restaurant does not provide a real email address for this branch. -->
+</p>
+    <p>&copy; 2026 Doner na Abaya</p>
+</footer>
+</body>
+</html>
