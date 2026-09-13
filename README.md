@@ -92,9 +92,7 @@ There is no backend server, so the forms do not send data to the restaurant.
 Before submission, all HTML pages should be checked using the W3C HTML Validator and should have zero errors.
 
 ## Additional Files
-
-- `AI_LOG.md` — questions and AI usage log
-- `Assignment1_Report_DonerNaAbaya.pdf` — project report with Task A and Task B, with checklist in it
+- `Assignment1_Report_DonerNaAbaya.pdf` — project report with Task A and Task B, with checklist and AI log in it
 
 ## Contact
 
