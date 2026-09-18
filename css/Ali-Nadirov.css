@@ -1,0 +1,192 @@
+/* Personal styles for Ali Nadirov's about and gallery pages. */
+
+/* Grid is suitable here because the introduction has a heading and text blocks that can be arranged in clear columns. */
+/* Margin collapse note: the section padding prevents a first child's top margin from collapsing with the section's margin. */
+.restaurant-intro {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 2px solid #D32F2F;
+    background-color: #F5F5F5;
+}
+
+/* The heading spans both grid columns to create a clear section title. */
+.restaurant-intro h1 {
+    grid-column: 1 / -1;
+}
+
+/* Relative positioning makes this article the containing block for the absolute working-time badge inside it. */
+.branch-details {
+    position: relative;
+    padding: 25px;
+    margin-bottom: 25px;
+    border: 1px solid #D32F2F;
+    background-color: #FFFFFF;
+}
+
+/* Absolute positioning places the working-time badge inside the relative branch-details article. */
+.opening-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #D32F2F;
+    font-weight: 700;
+}
+
+/* This class styles the section containing the restaurant offers. */
+.offers-section {
+    padding: 25px;
+    margin-bottom: 25px;
+    background-color: #F5F5F5;
+}
+
+/* Flexbox is suitable for the offer cards because they form a row of similar items that can wrap when needed. */
+.offer-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* The flex value lets each offer card grow and shrink while keeping a reasonable base width. */
+.offer-card {
+    flex: 1 1 250px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #D32F2F;
+    background-color: #FFFFFF;
+}
+
+/* Float places the branch photo to the left so nearby text can flow around it. */
+.branch-photo {
+    float: left;
+    width: 300px;
+    margin: 10px 25px 20px 0;
+}
+/* This paragraph contains the floated branch image and text about our visit. */
+.branch-photo-text {
+    margin-bottom: 30px;
+}
+/* Clear prevents the branch information block from moving beside the floated image. Without clear, the block could flow alongside the image instead of starting below it. */
+.branch-info {
+    clear: both;
+    margin-bottom: 30px;
+}
+
+/* This class styles the customer opinion section. */
+.customer-opinion {
+    margin-bottom: 30px;
+}
+
+/* Grid is suitable for the photo gallery because the images can be arranged in clear columns with consistent gaps. */
+.gallery-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    background-color: #F5F5F5;
+}
+
+/* The gallery heading spans both columns to introduce the whole photo grid. */
+.gallery-section h2 {
+    grid-column: 1 / -1;
+}
+
+/* Each gallery item fills its grid cell and keeps the photo and caption together as one visual card. */
+.gallery-item {
+    width: 100%;
+    max-width: 500px;
+    justify-self: center;
+    padding: 15px;
+    margin: 0;
+    border: 1px solid #D32F2F;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+/* Images stay inside their grid cards without exceeding the available width. */
+.gallery-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* This class gives all form controls a consistent size and spacing. */
+.form-control {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 8px 0 18px;
+    border: 1px solid #1F1F1F;
+}
+
+/* Flexbox centers the form buttons because they form a small horizontal group. */
+.form-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+/* Attribute selector matches links inside branch-info whose href starts with "https://". Fixed positioning keeps the official website link visible while the user scrolls. */
+.branch-info a[href^="https://"] {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 15px;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    text-decoration: none;
+    border: 2px solid #D32F2F;
+    z-index: 10;
+}
+/* Static positioning keeps the main content in the normal document flow because it does not need to be moved or used as a positioning container. */
+main {
+    position: static;
+}
+/* Margin auto centers the information table horizontally because its width can be smaller than its container. */
+.information-table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+/* Adjacent sibling selector matches the first paragraph placed directly after a section heading. */
+h2 + p {
+    margin-top: 5px;
+}
+/* This pseudo-class matches every even row in the branch information table. */
+.information-table tr:nth-child(even) {
+    background-color: rgb(245, 245, 245);
+}
+/* !important is used once to keep the keyboard focus outline visible if another rule changes the outline. */
+.form-actions button:focus {
+    outline: 3px solid orange !important;
+}
+/* Specificity (0,1,0): this class selector conflicts with the next rule. */
+.offer-card {
+    border-color: #1F1F1F;
+}
+
+/* Specificity (0,2,0): this rule wins because it has two class selectors. No !important is needed. */
+.offers-section .offer-card {
+    border-color: #D32F2F;
+}
+/* ID selector targets the unique introduction section on the About page. */
+#about-restaurant {
+    text-align: left;
+}
+/* This pseudo-element adds a small marker before each gallery heading without adding a new HTML element. */
+.gallery-section h2::before {
+    content: "• ";
+}
