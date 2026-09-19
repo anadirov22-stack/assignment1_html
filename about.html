@@ -6,6 +6,14 @@
     <meta name="description" content="Information about Doner na Abaya and our selected branch.">
     <meta name="author" content="Ali Nadirov">
     <title>About Doner na Abaya</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Ali-Nadirov.css">
+    <!-- This internal style demonstrates the cascade by overriding the external h1 color on this page. -->
+<style>
+    .restaurant-intro h1 {
+        color: #1F1F1F;
+    }
+</style>
 </head>
 <body>
     <!-- Author: Ali Nadirov -->
@@ -25,7 +33,7 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section class="restaurant-intro" id="about-restaurant"> <!-- The ID identifies this unique introduction section, while the class provides styling for the restaurant introduction. -->
             <h1>About the Restaurant</h1>
             <p>
                 Doner na Abaya is a fast-food restaurant. 
@@ -41,9 +49,10 @@
                 The staff were polite, and I liked the doner and special sauce.
             </p>
         </section>
-        <article>
+        <article class="branch-details">
             <!-- I use article because this part describes our specific branch separately from the general information. -->
             <h2>About the Branch</h2>
+            <span class="opening-badge">24/7</span>
             <p>
                 The branch is easy to find.
                 Customers can order at the counter or take food away.
@@ -51,13 +60,13 @@
                 but waiting can be longer during busy hours.
             </p>
         </article>
-        <section id="offers">
+        <section id="offers" class="offers-section">
             <h2>What the Restaurant Offers</h2>
             <p>
                 The restaurant offers doners, drinks &amp; additions:
             </p>
-            <ul>
-                <li>
+            <ul class="offer-list">
+                <li class="offer-card">
                     Doners
                     <ul>
                         <li>M chicken</li>
@@ -68,7 +77,7 @@
                         <li>S assorted</li>
                     </ul>
                 </li>
-                <li>
+                <li class="offer-card">
                     Drinks
                     <ul>
                         <li>Coca-Cola Zero Sugar 450 ml</li>
@@ -85,7 +94,7 @@
                         <li>Airyan 300 ml</li>
                     </ul>
                 </li>
-                <li>
+                <li class="offer-card">
                     Additions
                     <ul>
                         <li>Extra beef</li>
@@ -97,20 +106,20 @@
                 </li>
             </ul>
         </section>
-        <figure>
-            <!-- I use figure because the photo shows the branch mentioned in the text above. -->
-            <img src="images/doner-na-abaya.jpeg"
-                 width="300"
-                 height="400"
-                 alt="Doner na Abaya logo at 51 Mangilik El Avenue">
-            <figcaption>
-                Doner na Abaya logo
-            </figcaption>
-        </figure>
-        <aside>
+        <p class="branch-photo-text">
+    <img class="branch-photo"
+         src="images/doner-na-abaya.jpeg"
+         width="300"
+         height="400"
+         alt="Doner na Abaya logo at 51 Mangilik El Avenue">
+    During our visit, we also looked at the restaurant entrance and the surrounding area.
+    The branch is easy to recognize, and the logo is clearly visible from the entrance.
+    This photo shows the Doner na Abaya branch that we visited.
+</p>
+        <aside class="branch-info content-card">
             <h2>Additional Information</h2>
             <hr>
-            <table>
+            <table class="information-table">
                 <caption id="branch">Branch information</caption>
                 <thead>
                     <tr>
@@ -140,7 +149,7 @@
                 </tfoot>
             </table>
             <p>
-                More information is available on the
+                More information is available on the 
                 <a href="https://doner-na-abaya.kz/"
    target="_blank"
    rel="noopener noreferrer">
@@ -148,7 +157,7 @@
 </a>
             </p>
         </aside>
-        <section>
+        <section class="customer-opinion content-card">
             <h2>Customer Opinion</h2>
             <hr>
             <p>
