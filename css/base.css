@@ -1,0 +1,145 @@
+ /*
+    Color palette:
+    #1F1F1F - dark color for readable text and header elements.
+    #F5F5F5 - light background for comfortable reading.
+    #D32F2F - red accent related to the restaurant theme.
+    #FFFFFF - clean background for content areas.
+    orange - named color for a small accent.
+*/
+
+/* The universal selector makes box sizing predictable for all elements. */
+* {
+    box-sizing: border-box;
+}
+
+/* The body uses the main font and sets the basic typography for the website. */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(245, 245, 245);
+    color: #1F1F1F;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.2px;
+}
+
+/* Headings use a second font family to make the page structure easier to see. */
+h1,
+h2,
+h3 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.3px;
+}
+/* The header provides a consistent dark area for the site name and navigation. */
+header {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    padding: 20px 30px;
+    border-bottom: 4px solid #D32F2F;
+}
+
+/* This descendant selector matches the paragraph inside the header. */
+header p {
+    margin: 0 0 15px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* This child selector matches only the ul that is a direct child of nav. */
+nav > ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Grouping selector gives navigation and footer links a consistent basic style. */
+nav a,
+footer a {
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Navigation links stay white so they are readable against the dark header. */
+nav a {
+    color: #FFFFFF;
+}
+
+/* This class will be reused for common content cards later. */
+.content-card {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #D32F2F;
+}
+
+/* This pseudo-class changes a navigation link when the pointer is over it. */
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* This pseudo-class shows which navigation link currently has keyboard focus. */
+nav a:focus {
+    outline: 3px solid orange;
+    outline-offset: 3px;
+}
+/* The main element contains the primary content of every page. */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #FFFFFF;
+}
+
+/* This margin creates space between the main content and the sections. */
+main > section,
+main > article,
+main > aside,
+main > figure {
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #D32F2F;
+}
+
+h2 {
+    margin-top: 25px;
+    color: #1F1F1F;
+}
+
+p {
+    margin: 0 0 16px;
+}
+
+a {
+    color: #D32F2F;
+}
+
+footer {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    padding: 25px 30px;
+    text-align: center;
+    border-top: 4px solid #D32F2F;
+}
+
+footer p {
+    margin: 8px 0;
+}
+
+/*
+Margin collapse:
+The top and bottom margins of neighboring block elements can collapse into one margin.
+We avoid relying on that behavior for the main layout by using padding on main and
+a consistent bottom margin for its direct content blocks.
+*/  
