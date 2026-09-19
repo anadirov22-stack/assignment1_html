@@ -6,6 +6,8 @@
     <meta name="description" content="Photos and information about Doner na Abaya.">
     <meta name="author" content="Ali Nadirov">
     <title>Gallery of Doner na Abaya</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Ali-Nadirov.css">
 </head>
 <body>
     <!--Author: Ali Nadirov-->
@@ -30,9 +32,9 @@
    This gallery shows photos from a visit 
    to Doner na Abaya and the branch interior.
     </p>
-<section>
+<section class="gallery-section" id="photos">
         <h2>Photos</h2>     
-<figure>
+<figure class="gallery-item">
         <img src="images/food.jpeg" 
              width="500"
              height="400"
@@ -40,7 +42,7 @@
 
         <figcaption>&quot;Freshly prepared doners&quot;</figcaption>
     </figure>
-    <figure>      <!-- I use separate figures so each photo can have its own meaningful caption. -->
+    <figure class="gallery-item">      <!-- I use separate figures so each photo can have its own meaningful caption. -->
 
         <img src="images/interior.jpeg"
              width="300"
@@ -67,7 +69,9 @@
 
         </p>
         <p>
-       <small>Photos were taken during the visit.</small>
+         <!-- This inline style demonstrates the cascade by overriding the inherited letter spacing for this note. -->
+       <small style="letter-spacing: 1px;">
+        Photos were taken during the visit  </small>
     </p>
     <p> 
         A visitor said:
@@ -99,25 +103,28 @@
 </section>
 <section><hr>
     <h2>Leave a Review</h2>
-    <form method="post" action="gallery.html">  <!-- No server-side handling is available yet, so the form does not send data to a real server. -->
+    <form class="review-form" method="post" action="gallery.html">  <!-- No server-side handling is available yet, so the form does not send data to a real server. -->
         <fieldset>
             <legend>Visitor Information</legend>
 
             <label for="visitor-name">Your name:</label>
             <input type="text"
                    id="visitor-name"
+                   class="form-control"
                    name="visitor-name"
                    placeholder="Enter your name" 
                    required> 
             <label for="visitor-email">Your email:</label> 
             <input type="email"
        id="visitor-email"
+       class="form-control"
        name="visitor-email"
        placeholder="Enter your email" 
        required>
             <label for="visitor-phone">Phone number:</label>
 <input type="tel"
        id="visitor-phone"
+       class="form-control"
        name="visitor-phone"
        placeholder="+7 (___) ___-__-__"
        required>
@@ -125,6 +132,7 @@
         <span>1 to 5</span>:</label>   <!-- I use span here because this short text needs inline grouping and does not form a separate semantic section. -->
 <input type="number"
        id="rating"
+       class="form-control"
        name="rating"
        min="1"
        max="5"
@@ -133,6 +141,7 @@
        <label for="visit-date">Visit date:</label>
 <input type="date"
        id="visit-date"
+       class="form-control"
        name="visit-date"
        required>
        <p>How did you receive your order?</p>
@@ -155,7 +164,7 @@
 <br>
 <br>
 <label for="food-choice">What did you order?</label>
-<select id="food-choice" name="food-choice" required>
+<select id="food-choice" class="form-control" name="food-choice" required>
     <option value="">Choose an option</option>
     <option value="chicken-doner">Chicken doner</option>
     <option value="beef-doner">Beef doner</option>
@@ -174,6 +183,7 @@
 <p>
     <label for="review">Your review:</label><br>
     <textarea id="review"
+    class="form-control"
               name="review"
               rows="5"
               cols="40"
@@ -181,7 +191,7 @@
               required></textarea>
 </p>
         </fieldset>
-        <div>  <!-- I use div here because the two buttons need a simple grouping, and no semantic sectioning element is appropriate for them. -->
+        <div class="form-actions">  <!-- I use div here because the two buttons need a simple grouping, and no semantic sectioning element is appropriate for them. -->
             <button type="submit">Submit Review</button>
             <button type="reset">Clear Form</button>
         </div>
@@ -210,4 +220,4 @@
     <p>&copy; 2026 Doner na Abaya</p>
 </footer>
 </body>
-</html> 
+</html>     
