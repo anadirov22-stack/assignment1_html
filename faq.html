@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FAQ page of Doner na Abaya">
-    <meta name="author" content="Mazhit Nurasyl">
-    <title>FAQ | Doner na Abaya</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="FAQ page of Doner na Abaya">
+    <meta
+        name="author"
+        content="Mazhit Nurasyl">
+    <title>
+        FAQ | Doner na Abaya
+    </title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Nurasyl.css">
 </head>
 <body>
 <!-- Author: Mazhit Nurasyl -->
@@ -26,125 +35,190 @@
     </nav>
 </header>
 <main>
-    <h1>Frequently Asked Questions</h1>
-    <figure>
-        <img src="images/photo_4_2026-09-11_18-56-40.jpg"
-             width="300"
-             alt="Doner na Abaya restaurant">
-        <figcaption>
-            Doner na Abaya in Astana
-        </figcaption>
+    <h1>
+        Frequently Asked Questions
+    </h1>
+    <nav class="faq-actions" aria-label="FAQ quick links">
+        <a href="order.html">
+            Order Food
+        </a>
+        <a href="menu.html">
+            View Menu
+        </a>
+    </nav>
+    <!--
+        CSS Grid centers this real figure element.
+    -->
+    <figure class="photo-center-grid">
+            <img
+                src="images/photo_4_2026-09-11_18-56-40.jpg"
+                width="300"
+                alt="Doner na Abaya restaurant">
+            <figcaption>
+                Doner na Abaya in Astana
+            </figcaption>
     </figure>
-    <section>
-        <h2>About Orders</h2>
-        <!-- I used a definition list because each question has its own answer. -->
-        <dl>
-            <dt>
-                <strong>Can I order online?</strong>
-            </dt>
-            <!-- I added links here so users can quickly open the Order and Menu pages. -->
-            <dd>
-                Yes, you can use our
-                <a href="order.html">Order page</a>
-                and check food on the
-                <a href="menu.html">Menu page</a>.
-            </dd>
-            <dt>
-                <strong>Do you have delivery?</strong>
-            </dt>
-            <dd>
-                Yes, delivery is <em>available</em>.
-                You can choose it on the
-                <a href="order.html">Order page</a>.
-            </dd>
-            <dt>
-                <strong>Where can I see the menu?</strong>
-            </dt>
-            <dd>
-                You can see food and prices on our
-                <a href="menu.html">Menu page</a>.
-                Prices are shown in
-                <abbr title="Kazakhstani tenge">KZT</abbr>.
-            </dd>
-            <dt>
-                <strong>What are your opening hours?</strong>
-            </dt>
-            <dd>
-                <mark>Open 24/7.</mark>
-                Break: 12:30-14:00.
-
-                <small>
-                    Working hours may change on special days.
-                </small>
-            </dd>
-        </dl>
+    <section class="faq-grid-container" aria-label="FAQ content">
+        <section>
+            <h2>
+                About Orders
+            </h2>
+            <!--
+                I use a definition list because
+                each question has its own answer.
+            -->
+            <dl>
+                <dt>
+                    <strong>
+                        Can I order online?
+                    </strong>
+                </dt>
+                <dd>
+                    Yes, you can use our
+                    <a href="order.html">
+                        Order page
+                    </a>
+                    and check food on the
+                    <a href="menu.html">
+                        Menu page
+                    </a>.
+                </dd>
+                <dt>
+                    <strong>
+                        Do you have delivery?
+                    </strong>
+                </dt>
+                <dd>
+                    Yes, delivery is
+                    <em>available</em>.
+                    You can choose it on the
+                    <a href="order.html">
+                        Order page
+                    </a>.
+                </dd>
+                <dt>
+                    <strong>
+                        Where can I see the menu?
+                    </strong>
+                </dt>
+                <dd>
+                    You can see food and prices on our
+                    <a href="menu.html">
+                        Menu page
+                    </a>.
+                    Prices are shown in
+                    <abbr title="Kazakhstani tenge">
+                        KZT
+                    </abbr>.
+                </dd>
+                <dt>
+                    <strong>
+                        What are your opening hours?
+                    </strong>
+                </dt>
+                <dd>
+                    <mark>
+                        Open 24/7.
+                    </mark>
+                    Break: 12:30-14:00.
+                    <small>
+                        Working hours may change on special days.
+                    </small>
+                </dd>
+            </dl>
+        </section>
+        <article>
+            <h2>
+                Food Information
+            </h2>
+            <p>
+                Our <b>doner</b> is made with meat,
+                vegetables and sauce.
+                We try to make the service comfortable
+                for customers.
+                Ingredients can include lavash,
+                chicken or beef, tomatoes,
+                cucumbers, fries and sauce.
+                One of the spicy additions is
+                <i>lazjan</i>.
+                You can check our
+                <abbr title="Frequently Asked Questions">
+                    FAQ
+                </abbr>
+                before ordering if you need more information.
+            </p>
+            <ul>
+                <li>
+                    Doner
+                    <ul>
+                        <li>Beef</li>
+                        <li>Chicken</li>
+                    </ul>
+                </li>
+                <li>
+                    Supplements
+                    <ul>
+                        <li>
+                            Marinated halal beef 50g
+                        </li>
+                        <li>
+                            Marinated halal chicken 50g
+                        </li>
+                        <li>
+                            Spicy additive
+                        </li>
+                        <li>
+                            Red Sauce
+                        </li>
+                        <li>
+                            White Sauce
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
+        <section class="customer-opinion">
+            <h2>
+                Customer Information
+            </h2>
+            <blockquote>
+                One of the most delicious doners in Astana
+                is juicy meat, fresh vegetables and a very
+                tasty signature sauce.
+                The portions are good and the staff is polite.
+            </blockquote>
+            <p>
+                One customer described the doner as
+                <q>fresh and filling</q>.
+            </p>
+            <p>
+                <cite>
+                    Bekzhan Bekbosyn,
+                    24<sup>th</sup> July 2026
+                </cite>
+            </p>
+        </section>
+        <aside class="important-note">
+            <h2>
+                Important Note
+            </h2>
+            <p>
+                Doner na Abaya is a popular fast-food place
+                in Astana.
+                The restaurant is known for doners,
+                sauces and late working hours.
+            </p>
+        </aside>
+        <figure class="photo-center-grid grid-full-width">
+                <img
+                    src="images/photo_3_2026-09-11_18-56-40.jpg"
+                    width="300"
+                    alt="Food at Doner na Abaya">
+                <figcaption>
+                    Food at Doner na Abaya in Astana
+                </figcaption>
+        </figure>
     </section>
-    <article>
-        <h2>Food Information</h2>
-        <p>
-            Our <b>doner</b> is made with meat, vegetables and sauce.
-            We try to make the service comfortable for customers.
-            Ingredients can include lavash, chicken or beef, tomatoes,
-            cucumbers, fries and sauce.
-            One of the spicy additions is <i>lazjan</i>.
-            You can check our
-            <abbr title="Frequently Asked Questions">FAQ</abbr>
-            before ordering if you need more information.
-        </p>
-        <ul>
-            <li>
-                Doner
-                <ul>
-                    <li>Beef</li>
-                    <li>Chicken</li>
-                </ul>
-            </li>
-            <li>
-                Supplements
-                <ul>
-                    <li>Marinated halal beef 50g</li>
-                    <li>Marinated halal chicken 50g</li>
-                    <li>Spicy additive</li>
-                    <li>Red Sauce</li>
-                    <li>White Sauce</li>
-                </ul>
-            </li>
-        </ul>
-    </article>
-    <hr>
-    <section>
-        <h2>Customer Information</h2>
-        <blockquote>
-            One of the most delicious doners in Astana is juicy meat,
-            fresh vegetables and a very tasty signature sauce.
-            The portions are good and the staff is polite.
-        </blockquote>
-        <p>
-            One customer described the doner as
-            <q>fresh and filling</q>.
-        </p>
-        <p>
-            <cite>
-                Bekzhan Bekbosyn,
-                24<sup>th</sup> July 2026
-            </cite>
-        </p>
-    </section>
-    <figure>
-        <img src="images/photo_3_2026-09-11_18-56-40.jpg"
-             width="300"
-             alt="Food at Doner na Abaya">
-        <figcaption>
-            Food at Doner na Abaya in Astana
-        </figcaption>
-    </figure>
-    <aside>
-        <h2>Important Note</h2>
-        <p>
-            Doner na Abaya is a popular fast-food place in Astana.
-            The restaurant is known for doners, sauces and late working hours.
-        </p>
-    </aside>
 </main>
 <footer>
     <p>
@@ -161,13 +235,16 @@
     </p>
     <p>
         Visit the
-        <a href="https://doner-na-abaya.kz/ru"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+            href="https://doner-na-abaya.kz/ru"
+            target="_blank"
+            rel="noopener noreferrer">
             official website
         </a>.
     </p>
-    <p>&copy; 2026 Doner na Abaya</p>
+    <p>
+        &copy; 2026 Doner na Abaya
+    </p>
 </footer>
 </body>
 </html>

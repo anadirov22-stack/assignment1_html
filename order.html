@@ -6,6 +6,18 @@
     <meta name="description" content="Order page of Doner na Abaya">
     <meta name="author" content="Mazhit Nurasyl">
     <title>Order | Doner na Abaya</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Nurasyl.css">
+    <!--
+        Internal CSS cascade demonstration:
+        this internal rule has the same specificity as the external
+        .cascade-demo rule, but it appears later, so it overrides the colour.
+    -->
+    <style>
+        .cascade-demo {
+            color: #D32F2F;
+        }
+    </style>
 </head>
 <body>
 <!-- Author: Mazhit Nurasyl -->
@@ -26,15 +38,16 @@
 </header>
 <main>
     <h1>Order</h1>
-    <figure>
-        <img src="images/photo_4_2026-09-11_18-56-40.jpg"
-             width="300"
-             alt="Doner na Abaya restaurant">
-        <figcaption>Doner na Abaya in Astana</figcaption>
-    </figure>
-    <section id="info">
-        <h2>Order Information</h2>
-        <p>
+    <section id="info" class="order-info order-grid-container">
+        <span class="order-badge">ORDER GUIDE</span>
+        <h2 class="grid-full-width">Order Information</h2>
+        <p class="grid-full-width">
+                The image is inside this paragraph so the text can flow
+                around the floated image.
+            <img
+                class="order-photo"
+                src="images/photo_4_2026-09-11_18-56-40.jpg"
+                alt="Doner na Abaya restaurant">
             First, open the Menu page and choose the food you want.
             You can check the available doners, sizes and prices there.
             After choosing your food, return to the Order page.
@@ -48,26 +61,43 @@
             but the order is not sent to the restaurant because this
             project does not have a server yet.
         </p>
-        <h2>How to Order</h2>
-        <ol type="1">
-            <li>Choose food from the Menu page.</li>
-            <li>Fill in your name, email and phone number.</li>
-            <li>Choose the quantity and date.</li>
-            <li>Select Pickup or Delivery.</li>
-            <li>Check your information and press Submit.</li>
-        </ol>
+        <section>
+            <h2>How to Order</h2>
+            <ol>
+                <li>Choose food from the Menu page.</li>
+                <li>Fill in your name, email and phone number.</li>
+                <li>Choose the quantity and date.</li>
+                <li>Select Pickup or Delivery.</li>
+                <li>Check your information and press Submit.</li>
+            </ol>
+        </section>
         <figure>
-            <img src="images/photo_2_2026-09-11_18-56-40.jpg"
-                 width="300"
-                 alt="Food from Doner na Abaya">
-            <figcaption>Food from Doner na Abaya in Astana</figcaption>
+            <img
+                src="images/photo_2_2026-09-11_18-56-40.jpg"
+                width="300"
+                alt="Food from Doner na Abaya">
+            <figcaption>
+                Food from Doner na Abaya in Astana
+            </figcaption>
         </figure>
-        <a href="#form">Go to order form</a>
+        <p class="cascade-demo grid-full-width">
+            Online ordering information is available on this page.
+        </p>
+        <p class="grid-full-width">
+            <a href="#form">Go to order form</a>
+        </p>
     </section>
-    <section>
+    <!--
+        clear-section makes sure this section starts after
+        the previous floated image.
+    -->
+    <section class="popular-food clear-section">
         <h2>Popular Food</h2>
-        <!-- I used a table here because it is easier to compare food names and prices. -->
-        <table>
+        <!--
+            I use a table because it is easier to compare
+            food names and prices.
+        -->
+        <table class="food-table">
             <caption>Popular items</caption>
             <thead>
                 <tr>
@@ -97,118 +127,167 @@
     </section>
     <section id="form">
         <h2>Order Form</h2>
-        <!-- I used a form here because customers need to enter their order information. -->
-        <form method="get" action="order.html">
-            <!-- This form does not send an order to a server because there is no backend yet. -->
+        <!--
+            I use a form because customers need
+            to enter their order information.
+        -->
+        <form
+            class="order-form"
+            method="get"
+            action="order.html">
+            <!--
+                This form does not send an order to a server
+                because there is no backend yet.
+            -->
             <fieldset>
                 <legend>Customer Information</legend>
-                <p>
+                <p class="form-control">
                     <label for="name">Name:</label>
-                    <input type="text"
-                           id="name"
-                           name="name"
-                           placeholder="Your name"
-                           required>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required>
                 </p>
-                <p>
+                <p class="form-control">
                     <label for="email">Email:</label>
-                    <input type="email"
-                           id="email"
-                           name="email"
-                           placeholder="Your email"
-                           required>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Your email"
+                        required>
                 </p>
-                <p>
+                <p class="form-control">
                     <label for="phone">Phone:</label>
-                    <input type="tel"
-                           id="phone"
-                           name="phone"
-                           placeholder="+7..."
-                           required>
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="+7..."
+                        required>
                 </p>
-                <p>
-                    <!-- I use span because this is only a short note inside the label. -->
+                <p class="form-control">
                     <label for="quantity">
                         Quantity <span>(1 or more)</span>:
                     </label>
-                    <input type="number"
-                           id="quantity"
-                           name="quantity"
-                           min="1"
-                           required>
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        min="1"
+                        required>
                 </p>
-                <p>
+                <p class="form-control">
                     <label for="date">Date:</label>
-                    <input type="date"
-                           id="date"
-                           name="date"
-                           required>
+                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        required>
                 </p>
-                <p>Order type:</p>
-                <input type="radio"
-                       id="pickup"
-                       name="type"
-                       value="pickup"
-                       required>
-
-                <label for="pickup">Pickup</label>
-                <input type="radio"
-                       id="delivery"
-                       name="type"
-                       value="delivery">
-
-                <label for="delivery">Delivery</label>
-                <p>
-                    <label for="food">Food:</label>
-                    <select id="food"
-                            name="food"
-                            required>
-                        <option value="">Choose food</option>
-                        <option value="food1">Doner (1x) chicken</option>
-                        <option value="food2">Doner (1x) beef</option>
-                        <option value="food3">Doner (1.5x) chicken</option>
-                        <option value="food4">Doner (1.5x) beef</option>
+                <p class="form-control">
+                    Order type:
+                </p>
+                <p class="form-control">
+                    <input
+                        type="radio"
+                        id="pickup"
+                        name="type"
+                        value="pickup"
+                        required>
+                    <label for="pickup">
+                        <!--
+                            Inline CSS cascade demonstration:
+                            this is the only inline style in the project and it
+                            overrides the external .inline-demo colour.
+                        -->
+                        <span
+                            class="inline-demo"
+                            style="color: #D32F2F;">
+                            Pickup
+                        </span>
+                    </label>
+                    <input
+                        type="radio"
+                        id="delivery"
+                        name="type"
+                        value="delivery">
+                    <label for="delivery">
+                        Delivery
+                    </label>
+                </p>
+                <p class="form-control">
+                    <label for="food">
+                        Food:
+                    </label>
+                    <select
+                        id="food"
+                        name="food"
+                        required>
+                        <option value="">
+                            Choose food
+                        </option>
+                        <option value="food1">
+                            Doner (1x) chicken
+                        </option>
+                        <option value="food2">
+                            Doner (1x) beef
+                        </option>
+                        <option value="food3">
+                            Doner (1.5x) chicken
+                        </option>
+                        <option value="food4">
+                            Doner (1.5x) beef
+                        </option>
                     </select>
                 </p>
-                <p>
-                    <label for="comment">Comment:</label>
+                <p class="form-control">
+                    <label for="comment">
+                        Comment:
+                    </label>
                     <br>
-                    <textarea id="comment"
-                              name="comment"
-                              placeholder="Your comment"></textarea>
+                    <textarea
+                        id="comment"
+                        name="comment"
+                        placeholder="Your comment"></textarea>
                 </p>
-                <p>
-                    <input type="checkbox"
-                           id="confirm"
-                           name="confirm"
-                           required>
-
+                <p class="form-control">
+                    <input
+                        type="checkbox"
+                        id="confirm"
+                        name="confirm"
+                        required>
                     <label for="confirm">
                         I confirm my order
                     </label>
                 </p>
-                <!-- I use div because the two buttons need simple grouping and no semantic section is needed. -->
-                <div>
-                    <button type="submit">Submit</button>
-                    <button type="reset">Reset</button>
-                </div>
+                <p class="form-actions">
+                    <button type="submit">
+                        Submit
+                    </button>
+                    <button type="reset">
+                        Reset
+                    </button>
+                </p>
             </fieldset>
         </form>
     </section>
     <p>
-        <a href="#info">Back to information</a>
-    </p>
-    <p>
         Visit the
-        <a href="https://doner-na-abaya.kz/ru"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+            href="https://doner-na-abaya.kz/ru"
+            target="_blank"
+            rel="noopener noreferrer">
             official website
         </a>.
     </p>
+    <a class="back-link" href="#info">
+        Back to information
+    </a>
 </main>
 <footer>
-    <!-- Footer is used for contact information because it is the end of the page. -->
     <p>
         Phone:
         <a href="tel:+77088043937">
@@ -216,13 +295,16 @@
         </a>
     </p>
     <p>
-        <a href="https://api.whatsapp.com/send/?phone=77088043937"
-           target="_blank"
-           rel="noopener noreferrer">
+        <a
+            href="https://api.whatsapp.com/send/?phone=77088043937"
+            target="_blank"
+            rel="noopener noreferrer">
             WhatsApp
         </a>
     </p>
-    <p>&copy; 2026 Doner na Abaya</p>
+    <p>
+        &copy; 2026 Doner na Abaya
+    </p>
 </footer>
 </body>
 </html>

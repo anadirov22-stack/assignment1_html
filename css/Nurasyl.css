@@ -1,0 +1,236 @@
+/* main uses normal page position */
+main {
+    position: static;
+}
+/* this section is relative because the badge is inside it */
+.order-info {
+    position: relative;
+    background-color: #FFFFFF;
+    border: 1px solid #D32F2F;
+    margin-bottom: 30px;
+    padding: 55px 15px 15px;
+}
+/* badge is placed inside the order-info section */
+.order-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    background-color: #D32F2F;
+    color: #1F1F1F;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+/* this link stays on the screen while scrolling */
+.back-link {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    padding: 10px 15px;
+    background-color: #1F1F1F;
+    color: #D32F2F;
+    text-decoration: none;
+    border: 2px solid #D32F2F;
+    z-index: 1000;
+}
+/* image goes to the left and text goes around it */
+.order-photo {
+    float: left;
+    width: 220px;
+    height: auto;
+    margin: 0 20px 15px 0;
+}
+/* this makes the next section start below the image */
+.clear-section {
+    clear: both;
+}
+/* I use Grid here because I want content in columns */
+.order-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+/* FAQ also uses Grid for two columns */
+.faq-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+/* makes one Grid item take the full row */
+.grid-full-width {
+    grid-column: 1 / -1;
+}
+/* styles the main blocks inside FAQ Grid */
+.faq-grid-container > section,
+.faq-grid-container > article,
+.faq-grid-container > aside {
+    background-color: #FFFFFF;
+    border: 1px solid #D32F2F;
+    padding: 15px;
+}
+/*
+   CENTERING TECHNIQUE 3:
+   CSS Grid with place-items centers the figure horizontally and vertically.
+*/
+.photo-center-grid {
+    display: grid;
+    place-items: center;
+    margin: 20px 0;
+}
+/* #info is used because this section is unique */
+#info {
+    position: relative;
+}
+/* #form is used because there is only one order form */
+#form {
+    background-color: rgb(245, 245, 245);
+    padding: 20px;
+    border: 1px solid #D32F2F;
+}
+/* Flexbox helps put the buttons in one row */
+.form-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.form-actions button {
+    flex: 1 1 140px;
+    max-width: 200px;
+    padding: 10px 15px;
+    border: 1px solid #1F1F1F;
+    background-color: #D32F2F;
+    color: #1F1F1F;
+    font-weight: 700;
+}
+.form-actions button:hover {
+    background-color: #1F1F1F;
+    color: #D32F2F;
+    cursor: pointer;
+}
+/* Flexbox puts FAQ links in one row and allows them to wrap */
+.faq-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+.faq-actions a {
+    flex: 1 1 140px;
+    max-width: 220px;
+    text-align: center;
+    padding: 10px 15px;
+    background-color: #D32F2F;
+    color: #1F1F1F;
+    text-decoration: none;
+    border: 1px solid #1F1F1F;
+    font-weight: 700;
+}
+.faq-actions a:hover {
+    background-color: #1F1F1F;
+    color: #D32F2F;
+}
+/* specificity (0,1,0) - one class */
+.food-table {
+    border: 1px solid #D32F2F;
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+/* specificity (0,2,0) - two classes, so this rule wins */
+.popular-food .food-table {
+    border: 2px solid #D32F2F;
+}
+
+.food-table th,
+.food-table td {
+    padding: 10px;
+    border: 1px solid #D32F2F;
+    text-align: left;
+}
+/* :nth-child matches every even row in the food table body. */
+.food-table tbody tr:nth-child(even) {
+    background-color: rgb(245, 245, 245);
+}
+/* Universal selector in context: matches every element inside .order-form. */
+.order-form * {
+    font-family: inherit;
+}
+/* selects all inputs inside the order form */
+.order-form input {
+    padding: 8px 12px;
+}
+/* selects only direct fieldset child */
+.order-form > fieldset {
+    border: 2px solid #D32F2F;
+    padding: 15px;
+}
+/* Adjacent sibling selector: matches a paragraph immediately after an h2. */
+h2 + p {
+    margin-top: 5px;
+}
+/* selects email input */
+input[type="email"] {
+    background-color: rgb(245, 245, 245);
+}
+/* changes style when user clicks into the field */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #D32F2F;
+}
+/* adds a small symbol before the heading */
+.important-note h2::before {
+    content: "• ";
+}
+.popular-food {
+    margin-bottom: 30px;
+    padding: 15px;
+}
+.form-control {
+    margin-bottom: 12px;
+}
+.customer-opinion {
+    background-color: rgb(245, 245, 245);
+    border-left: 4px solid #D32F2F;
+    padding: 15px;
+}
+.important-note {
+    background-color: rgb(245, 245, 245);
+    border: 1px solid #D32F2F;
+    padding: 15px;
+}
+/*
+This is the external rule.
+The internal style in order.html comes later,
+so the internal rule wins.
+*/
+.cascade-demo {
+    color: #1F1F1F;
+    font-weight: 700;
+}
+/*
+This is the external rule.
+The inline style in order.html has higher priority,
+so the inline color wins.
+*/
+.inline-demo {
+    color: #1F1F1F;
+}
+.faq-grid-container dt {
+    margin-top: 12px;
+}
+.faq-grid-container dd {
+    margin-bottom: 10px;
+}
+.faq-grid-container ul {
+    margin-left: 20px;
+}
