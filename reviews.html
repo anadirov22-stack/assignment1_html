@@ -6,6 +6,10 @@
     <meta name="description" content="Real customer reviews of Doner na Abaya in Astana and a form to leave your own review.">
     <meta name="author" content="Alikhan Kuttybayev">
     <title>Reviews | Doner na Abaya</title>
+    <!-- base.css is linked first and my personal stylesheet second, so the
+         later file wins whenever two rules have the same specificity. -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Alikhan-Kuttybayev.css">
 </head>
 <body>
     <!-- Author: Alikhan Kuttybayev -->
@@ -26,29 +30,29 @@
     </header>
     <main>
         <h1>Customer Reviews</h1>
-        <p>
+        <p class="section-intro">
             These are real opinions about the branch at 51 Mangilik El Avenue.
             Read the <a href="#customer-reviews">reviews</a> or go to the
             <a href="#review-form">review form</a> to add yours.
         </p>
-        <section id="customer-reviews">
+        <section id="customer-reviews" class="reviews-section">
             <h2>What Visitors Say</h2>
             <!-- Each review is an article because it is a complete opinion that still makes sense if it is shown alone on another page. -->
-            <article>
+            <article class="review-card">
                 <h3>Arman</h3>
                 <blockquote>
                     <p>I liked this branch. The doner was fresh and filling, the order was prepared quickly, and the place was clean. I especially liked the sauce.</p>
                 </blockquote>
                 <p>Told to our team on 10<sup>th</sup> September 2026.</p>
             </article>
-            <article>
+            <article class="review-card">
                 <h3>Araylym, staff member</h3>
                 <blockquote>
                     <p>All our meat is halal. A lot of people come to us exactly for this reason</p>
                 </blockquote>
                 <p>Told to me at the branch on 11<sup>th</sup> September 2026.</p>
             </article>
-            <article>
+            <article class="review-card team-review">
                 <h3>Our Team's Visit</h3>
                 <p>
                     The place was clean and cozy, and the staff were polite.
@@ -58,42 +62,42 @@
                     at busy hours, so <em>order before you get too hungry</em>.
                 </p>
             </article>
-            <figure>
+            <figure class="photo-card">
                 <img src="images/order-counter.jpg" width="400"
                      alt="Order counter at Doner na Abaya where customers order, pay and pick up their food">
                 <figcaption>The counter where customers order</figcaption>
             </figure>
         </section>
-        <section id="review-form">
+        <section id="review-form" class="reviews-section">
             <h2>Leave a Review</h2>
-            <form method="get" action="reviews.html">
+            <form class="feedback-form" method="get" action="reviews.html">
                 <fieldset>
                     <legend>Your review</legend>
-                    <p>
+                    <p class="field-row">
                         <label for="reviewer-name">Name:</label>
                         <input type="text" id="reviewer-name" name="name"
                                placeholder="Your first name" required>
                     </p>
-                    <p>
+                    <p class="field-row">
                         <label for="reviewer-email">Email:</label>
                         <input type="email" id="reviewer-email" name="email"
                                placeholder="name@mail.kz" required>
                     </p>
-                    <p>
+                    <p class="field-row">
                         <label for="reviewer-phone">Phone:</label>
                         <input type="tel" id="reviewer-phone" name="phone"
                                placeholder="+7 700 000 00 00">
                     </p>
-                    <p>
+                    <p class="field-row">
                         <label for="visit-date">Date of your visit:</label>
                         <input type="date" id="visit-date" name="visit_date" required>
                     </p>
-                    <p>
+                    <p class="field-row">
                         <label for="wait-minutes">Minutes you waited:</label>
                         <input type="number" id="wait-minutes" name="wait_minutes"
                                min="0" max="120" placeholder="15">
                     </p>
-                    <p>
+                    <p class="field-row">
                         <label for="doner-choice">Doner you tried:</label>
                         <select id="doner-choice" name="doner" required>
                             <option value="">Choose a doner</option>
@@ -104,7 +108,7 @@
                             <option value="assorted">Assorted doner</option>
                         </select>
                     </p>
-                    <fieldset>
+                    <fieldset class="rating-options">
                         <legend>Your rating:</legend>
                         <input type="radio" id="rating-5" name="rating" value="5" required>
                         <label for="rating-5">5 Excellent</label>
@@ -117,25 +121,25 @@
                         <input type="radio" id="rating-1" name="rating" value="1">
                         <label for="rating-1">1 Very bad</label>
                     </fieldset>
-                    <p>
+                    <p class="field-row">
                         <label for="review-text">Your review:</label>
                         <br>
                         <textarea id="review-text" name="review" rows="5" cols="40"
                                   placeholder="What did you like, and what can be better?" required></textarea>
                     </p>
-                    <p>
+                    <p class="field-row">
                         <input type="checkbox" id="publish-ok" name="publish_ok" required>
                         <label for="publish-ok">My name and review can be shown on this page.</label>
                     </p>
                     <!-- I used div because the two buttons are not a paragraph (p), not a group of related answers (fieldset) and not a separate part of the page (section). -->
-                    <div>
+                    <div class="form-actions">
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>
                     </div>
                 </fieldset>
             </form>
         </section>
-        <section id="form-help">
+        <section id="form-help" class="reviews-section info-note">
             <h2>How the Form Works</h2>
             <p>
                 Press <kbd>Tab</kbd> to go to the next field. An empty required
@@ -150,6 +154,7 @@
                 or tell the staff in person.
             </p>
         </section>
+        <a class="page-jump" href="#review-form">Leave a review</a>
     </main>
     <hr>
     <footer>

@@ -6,6 +6,10 @@
     <meta name="description" content="Menu of Doner na Abaya in Astana: doner prices in tenge, portion sizes, drinks and extras.">
     <meta name="author" content="Alikhan Kuttybayev">
     <title>Menu | Doner na Abaya</title>
+    <!-- base.css is linked first and my personal stylesheet second, so the
+         later file wins whenever two rules have the same specificity. -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Alikhan-Kuttybayev.css">
 </head>
 <body>
     <!-- Author: Alikhan Kuttybayev -->
@@ -26,22 +30,22 @@
     </header>
     <main>
         <h1>Menu of Doner na Abaya</h1>
-        <p>
+        <p class="section-intro">
             In Russian it is called
             <!-- I used span because these words only need a lang attribute. It is a name, so it is not emphasis (em), not a quotation (q) and not a foreign phrase set apart from the text (i). -->
             <span lang="ru">Донер на Абая</span>.
             Jump to the <a href="#prices">prices</a>
             or to the <a href="#drinks">drinks</a>.
         </p>
-        <section id="prices">
+        <section id="prices" class="menu-section">
             <h2>Doners and Prices</h2>
-            <p>
+            <p class="section-note">
                 Each doner comes in two sizes. Prices are in
                 <abbr title="Kazakhstani tenge">KZT</abbr>, copied from the
                 board at our branch.
             </p>
             <!-- I used a table because visitors compare the same facts (meat, size, price) for every doner, and rows and columns make that comparison easy. -->
-            <table>
+            <table class="price-table">
                 <caption>Doner prices at our branch</caption>
                 <thead>
                     <tr>
@@ -68,43 +72,51 @@
                     </tr>
                 </tbody>
             </table>
-            <figure>
+            <figure class="photo-card">
                 <img src="images/menu-board.jpg" width="400"
                      alt="Menu board at Doner na Abaya with doner names, sizes and prices">
                 <figcaption>The menu board</figcaption>
             </figure>
         </section>
-        <section id="how-to-order">
+        <section id="how-to-order" class="menu-section">
             <h2>How to Build Your Doner</h2>
             <!-- I used an ordered list because these steps happen in this order at the counter. -->
-            <ol type="1">
+            <ol type="1" class="order-steps">
                 <li>Choose chicken, beef or assorted.</li>
                 <li>Choose standard or large.</li>
                 <li>Add sauce or extra meat.</li>
                 <li>Eat in or take away, and pay.</li>
                 <li>Wait about 15&ndash;20 minutes.</li>
             </ol>
-            <figure>
-                <img src="images/our-doner.jpg" width="400"
+            <p class="doner-note">
+                <img class="doner-photo" src="images/our-doner.jpg" width="300"
                      alt="A doner our team ordered at Doner na Abaya, ready to eat">
-                <figcaption>Our doner</figcaption>
-            </figure>
+                This is the assorted doner our team ordered at the branch after
+                walking through the five steps above. We asked for the standard
+                size with red sauce and extra peppers, and the whole order was
+                ready in about seventeen minutes, which matches what the staff
+                told us at the counter. The lavash was grilled on both sides, the
+                meat was cut straight from the spit, and the sauce was added last
+                so it did not soak the bread while we carried the order to the
+                table. If you order at a busy hour, ask for the sauce on the side
+                and the doner keeps its texture much longer.
+            </p>
         </section>
-        <section id="drinks">
+        <section id="drinks" class="menu-section clear-float">
             <h2>Drinks and Extras</h2>
-            <p>
+            <p class="section-note">
                 Drinks have two prices, one for each size in
                 <abbr title="millilitres">ml</abbr>.
             </p>
-            <ul>
-                <li>Drinks
+            <ul class="drink-groups">
+                <li class="drink-group">Drinks
                     <ul>
                         <li>Coca-Cola, Zero Sugar, Fanta, Sprite, Fuse Tea: 795 or 845&nbsp;&#8376;</li>
                         <li>Bonaqua: 595&nbsp;&#8376;</li>
                         <li>Ayran: 595&nbsp;&#8376;</li>
                     </ul>
                 </li>
-                <li>Extras
+                <li class="drink-group">Extras
                     <ul>
                         <li>Extra chicken 50 g: 590&nbsp;&#8376;</li>
                         <li>Extra beef 50 g: 690&nbsp;&#8376;</li>
@@ -115,9 +127,9 @@
                 </li>
             </ul>
         </section>
-        <section id="words">
+        <section id="words" class="menu-section">
             <h2>Menu Words</h2>
-            <dl>
+            <dl class="term-list">
                 <dt>Doner</dt>
                 <dd>Grilled meat with vegetables and sauce. <i lang="tr">Döner</i> means &ldquo;turning&rdquo; in Turkish.</dd>
                 <dt>Assorted</dt>
@@ -126,7 +138,8 @@
                 <dd>A cold sour-milk drink.</dd>
             </dl>
         </section>
-        <aside>
+        <aside class="info-note">
+            <span class="halal-badge">Halal certified</span>
             <h2>Good to Know</h2>
             <p>
                 The branch works 24/7, but
@@ -142,9 +155,9 @@
                 <a href="https://doner-na-abaya.kz/" target="_blank" rel="noopener noreferrer">website</a>
                 before you go.</strong>
             </p>
-            122
             <p><small>Checked in September 2026.</small></p>
         </aside>
+        <a class="page-jump" href="#prices">Back to prices</a>
     </main>
     <hr>
     <footer>
