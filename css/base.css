@@ -142,4 +142,4 @@ Margin collapse:
 The top and bottom margins of neighboring block elements can collapse into one margin.
 We avoid relying on that behavior for the main layout by using padding on main and
 a consistent bottom margin for its direct content blocks.
-*/  
+*/      

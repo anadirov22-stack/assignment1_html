@@ -150,10 +150,10 @@
     grid-column: 1 / -1;
 }
 
-/* Each gallery item becomes a visual card containing one existing project photo and its caption. */
 .gallery-item {
     width: 100%;
     max-width: 500px;
+    /* Grid centering: justify-self centers each gallery item inside its grid column. */
     justify-self: center;
     padding: 15px;
     margin: 0;
@@ -169,12 +169,6 @@
 .gallery-item:hover {
     transform: translateY(-4px);
 }
-/* Images stay inside their grid cards without exceeding the available width. */
-.gallery-item img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* This class gives all form controls a consistent size and spacing. */
 .form-control {
     display: block;
@@ -277,7 +271,7 @@ main h2 {
     font-weight: 700;
     text-align: left;
 }
-/* The first li ne of each offer card is visually separated from its list of available items. */
+/* The offer cards use larger and bolder text to make their main information easier to notice. */
 .offer-card {
     font-size: 18px;
     font-weight: 700;
@@ -316,6 +310,7 @@ main h2 {
     color: #FFFFFF;
     font-weight: 700;
     cursor: pointer;
+    flex: 0 1 160px;
 }
 
 /* Hover gives visual feedback when the pointer is over a form button. */
@@ -439,7 +434,7 @@ main ol li:nth-child(even) {
     background-color: #D32F2F;
     color: #FFFFFF;
 }
-/* Clear moves the information block below the floated photo and creates a separate information card. */
+/* Clear moves this block below the floated photo. Without clear, the block could move up beside the floated image. */
 .branch-info {
     clear: both;
     margin-bottom: 30px;
@@ -464,4 +459,24 @@ footer p:last-child {
     border: 1px solid #D32F2F;
     border-radius: 5px;
     font-size: 12px;
+}
+/* Styles the Additional Information block on the gallery page. */
+main section:nth-of-type(3) {
+    background-color: #F5F5F5;
+    padding: 25px;
+    margin: 30px 0;
+    border: 2px solid #D32F2F;
+    border-radius: 10px;
+}
+
+/* Styles the heading inside the information block. */
+main section:nth-of-type(3) h2 {
+    color: #D32F2F;
+    margin-top: 0;
+    text-align: left;
+}
+
+/* Improves paragraph spacing inside the information block. */
+main section:nth-of-type(3) p {
+    margin-bottom: 15px;
 }
