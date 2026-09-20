@@ -1,41 +1,46 @@
 # Doner na Abaya — Web Technologies Project
 
-This repository contains the multi-page website for **Doner na Abaya** in Astana.
+This repository contains our team project for the **Web Technologies** course.
 
-The project was started in Assignment 1 with HTML and was extended in Assignment 2 with CSS styling, layout techniques, cascade, specificity, Flexbox, Grid, positioning, float and clear.
+The website is about **Doner na Abaya** restaurant in Astana.  
+Assignment 1 focused on HTML structure and semantic elements.  
+Assignment 2 extends the same project with CSS styling, layouts, selectors, cascade and specificity.
 
 ## Team Members
 
-- **Student 1:** Alikhan Kuttybayev
-- **Student 2:** Ali Nadirov
-- **Student 3:** Mazhit Nurasyl
-
-## Pages
-
-- `index.html` — Home page
-- `about.html` — Information about the restaurant
-- `gallery.html` — Photos and visitor information
-- `menu.html` — Menu and prices
-- `reviews.html` — Customer reviews
-- `order.html` — Order information and order form
-- `faq.html` — Frequently asked questions
-- `colophon.html` — Project information and HTML examples
+- **Alikhan Kuttybayev**
+- **Ali Nadirov**
+- **Mazhit Nurasyl**
 
 ## Student Responsibilities
 
 ### Alikhan Kuttybayev
 - `menu.html`
 - `reviews.html`
+- personal stylesheet: `css/Alikhan-Kuttybayev.css`
 
 ### Ali Nadirov
 - `about.html`
 - `gallery.html`
 - `index.html`
 - `colophon.html`
+- personal stylesheet: `css/Ali-Nadirov.css`
 
 ### Mazhit Nurasyl
 - `order.html`
 - `faq.html`
+- personal stylesheet: `css/Nurasyl.css`
+
+## Project Pages
+
+- `index.html` — home page
+- `about.html` — information about the restaurant
+- `gallery.html` — restaurant and food gallery
+- `menu.html` — menu and prices
+- `reviews.html` — customer reviews
+- `order.html` — order information and order form
+- `faq.html` — frequently asked questions
+- `colophon.html` — project information
 
 ## Project Structure
 
@@ -43,128 +48,151 @@ The project was started in Assignment 1 with HTML and was extended in Assignment
 assignment1_html/
 ├── css/
 │   ├── base.css
-│   └── personal stylesheets for student pages
+│   ├── Ali-Nadirov.css
+│   ├── Alikhan-Kuttybayev.css
+│   └── Nurasyl.css
 ├── images/
-├── index.html
-├── about.html
-├── gallery.html
-├── menu.html
-├── reviews.html
-├── order.html
-├── faq.html
-├── colophon.html
-├── README.md
-├── AI_LOG.md
-├── CSS checklist
-├── sketches/
 ├── screenshots/
-└── Assignment1_Report_DonerNaAbaya.pdf
+├── sketches/
+├── about.html
+├── colophon.html
+├── faq.html
+├── gallery.html
+├── index.html
+├── menu.html
+├── order.html
+├── reviews.html
+├── AI Log.pdf
+├── Assignment1_Report_DonerNaAbaya.pdf
+├── CSS checklist.pdf
+└── README.md
 ```
 
-## HTML Features
+## CSS Structure
 
-The project includes:
+The project uses one shared stylesheet and personal stylesheets.
 
-- semantic HTML elements such as `header`, `nav`, `main`, `section`, `article`, `aside`, and `footer`
-- tables with headings and captions
-- forms with different input types
-- ordered, unordered, nested, and definition lists
-- internal and external links
-- images with meaningful `alt` text
-- quotations and text-formatting elements
-- HTML entities
-- `code`, `pre`, `kbd`, and `samp` examples in the colophon page
+- `base.css` contains common styles used by the whole team.
+- `Ali-Nadirov.css` contains styles for Ali Nadirov's pages.
+- `Alikhan-Kuttybayev.css` contains styles for Alikhan Kuttybayev's pages.
+- `Nurasyl.css` contains styles for Mazhit Nurasyl's pages.
 
-## CSS Features Added in Assignment 2
+The shared stylesheet is linked first and the personal stylesheet is linked after it.
 
-The website now uses:
+Example:
 
-- a shared `base.css` for common styles
-- personal stylesheets for each student's pages
-- a limited colour palette
-- two font families with fallback fonts
-- type, class, ID, descendant, child, adjacent sibling, grouping, attribute and universal selectors
-- pseudo-classes such as `:hover`, `:focus`, and `:nth-child`
+```html
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/Nurasyl.css">
+```
+
+## Main CSS Features
+
+Assignment 2 includes:
+
+- type, class and ID selectors
+- descendant, child and adjacent sibling selectors
+- attribute selectors
+- universal selector
+- pseudo-classes such as `:hover`, `:focus` and `:nth-child()`
 - pseudo-elements such as `::before`
-- Flexbox for navigation and page components
-- CSS Grid for multi-column layouts
-- static, relative, absolute and fixed positioning
-- float and clear
-- different centering techniques
-- cascade and specificity experiments
-- one internal style block and one inline style example for cascade demonstration
-
-## Assignment 2 CSS Work
-
-In Assignment 2, the team added CSS styling to the existing HTML project.
-
-The project includes:
-
-- a shared `base.css`
-- personal stylesheets for student pages
+- reusable classes and unique IDs
 - Flexbox layouts
 - CSS Grid layouts
-- different selector types
-- positioning
+- `repeat()`, `minmax()`, `fr` and `gap`
+- static, relative, absolute and fixed positioning
 - float and clear
-- cascade and specificity examples
-- reusable classes and IDs
+- different centering methods
+- cascade examples
+- specificity experiment without using `!important` to solve the conflict
+- shared color palette and typography
+
+## Screenshots
+
+The `screenshots/` folder contains screenshots of pages **before CSS** and **after CSS**.
+
+Examples include:
+
+- About — before and after
+- Gallery — before and after
+- Menu — before and after
+- Reviews — before and after
+- Order — before and after
+- FAQ — before and after
+
+These screenshots show the visual changes made in Assignment 2.
+
+## Sketches
+
+The `sketches/` folder contains hand-drawn page sketches created before CSS styling.
+
+The sketches show the planned layout of the pages and are part of the Assignment 2 design process.
 
 ## Images
 
-The `images/` folder contains photos used on the website.
+The `images/` folder contains local images used on the website, including restaurant, food, menu and order-related images.
 
-The photos were collected for this project and are referenced using relative file paths.
+All website images use relative paths.
 
 ## Forms
 
-The website includes forms for educational purposes.
+The project contains forms for educational purposes.
 
-There is no backend server, so the forms do not send data to the restaurant.
+The forms demonstrate different HTML input types and CSS form styling.  
+There is no backend server, so the forms do not send real orders or reviews.
 
-## Assignment 2 Process Files
+## CSS Checklist
 
-The Assignment 2 submission also includes:
+`CSS checklist.pdf` contains the required CSS topics, selectors/properties, line numbers and student information.
 
-- hand-drawn design sketches
-- screenshots before CSS styling
-- screenshots after CSS styling
-- CSS checklist with stylesheet names and line numbers
-- updated `AI_LOG.md`
-- updated `README.md`
+It includes requirements such as:
 
-## How to Open the Website
+- selectors
+- Flexbox
+- Grid
+- positioning
+- float and clear
+- centering
+- specificity
+- cascade
 
-1. Download or clone the repository.
-2. Open the project folder.
-3. Open `index.html` in a web browser.
-4. Use the navigation menu to move between pages.
+## AI Log
+
+`AI Log.pdf` contains the AI usage log for the project.
+
+It records questions and help used during the assignments.
+
+## Assignment 1 Report
+
+`Assignment1_Report_DonerNaAbaya.pdf` contains the report from Assignment 1.
 
 ## Validation
 
-Before submission:
+Before submission, the team checks:
 
-- all HTML pages should be checked with the W3C HTML Validator
-- all CSS files should be checked with the W3C CSS Validator
-- validation should show zero errors
+- HTML pages with the **W3C HTML Validator**
+- CSS files with the **W3C CSS Validator**
 
-## Git
+The goal is to have **0 validation errors**.
 
-All team members commit their own work using their own GitHub accounts.
+## Git and GitHub
 
-The project keeps commit history so changes from Assignment 1 and Assignment 2 can be reviewed.
+The team uses Git and GitHub to manage the project.
 
-## Additional Files
+Each team member commits their own work.  
+The repository contains commit history for HTML, CSS, screenshots, documentation and other project files.
 
-- `Assignment1_Report_DonerNaAbaya.pdf` — Assignment 1 report
-- `AI_LOG.md` — AI usage log
-- CSS checklist — Assignment 2 CSS requirements and line references
-- sketches and before/after screenshots — Assignment 2 design process evidence
+## How to Open the Website
+
+1. Clone or download the repository.
+2. Open the project folder.
+3. Open `index.html` in a browser.
+4. Use the navigation menu to move between pages.
 
 ## Contact
 
-Project restaurant phone: **+7 708 804 39 37**
+Restaurant phone: **+7 708 804 39 37**
 
 ## Copyright
 
-&copy; 2026 Doner na Abaya
+© 2026 Doner na Abaya
