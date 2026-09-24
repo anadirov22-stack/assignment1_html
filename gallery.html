@@ -6,53 +6,127 @@
     <meta name="description" content="Photos and information about Doner na Abaya.">
     <meta name="author" content="Ali Nadirov">
     <title>Gallery of Doner na Abaya</title>
+    <!-- Bootstrap 5.3.8 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Ali-Nadirov.css">
 </head>
 <body>
     <!--Author: Ali Nadirov-->
-    <header>
-    <p><b>Doner na Abaya</b></p> 
-       <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="colophon.html">Project</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-</header> 
-<main>
-    <h1>Gallery</h1>
-    <p>
+    <!-- Bootstrap Navbar: collapses into a toggler on small screens. -->
+<!-- container-fluid lets the header span the full width of the viewport. -->
+<header class="container-fluid bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.html">
+                Doner na Abaya
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavigation"
+                    aria-controls="mainNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="colophon.html">Project</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           aria-current="page"
+                           href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Order</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+<main class="container py-4">
+    <!-- container keeps the main content at a readable responsive width. -->
+    <h1 class="display-4 text-center">Gallery</h1>
+    <p class="lead text-center">
    This gallery shows photos from a visit 
    to Doner na Abaya and the branch interior.
     </p>
-<section class="gallery-section" id="photos">
-        <h2>Photos</h2>     
-<figure class="gallery-item">
-        <img src="images/food.jpeg" 
+<section id="photos" class="mb-5">
+        <h2 class="mb-4">Photos</h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+<div class="card h-100 shadow border rounded-3">
+        <img class="card-img-top img-fluid" src="images/food.jpeg" 
              width="500"
              height="400"
              alt="Doners ordered during a visit to Doner na Abaya">
+             <div class="card-body">
+                <p class="card-text">
+        <q>Freshly prepared doners</q>
+                </p>
+    </div>
+    </div>
+    </div>
+    <div class="col-12 col-md-6">
+    <div class="card h-100 shadow border rounded-3">      <!-- Bootstrap Card component: adapted for restaurant gallery photos. -->
 
-        <figcaption>&quot;Freshly prepared doners&quot;</figcaption>
-    </figure>
-    <figure class="gallery-item">      <!-- I use separate figures so each photo can have its own meaningful caption. -->
-
-        <img src="images/interior.jpeg"
+        <img class="card-img-top img-fluid" src="images/interior.jpeg"
              width="300"
              height="500"
              alt="Interior of Doner na Abaya at Mangilik El Avenue, 51">
-        <figcaption>Modern and comfortable interior </figcaption>
-    </figure>
+             <div class="card-body">
+                <p class="card-text">Modern and comfortable interior</p>
+             </div>
+             
+            
+    </div>
+    </div>
+    </div> 
+    </div>
     </section>
-    <section>
-    <h2>How the Visit Goes</h2>
+    <section class="mb-5">
+    <h2 class="mb-4">How the Visit Goes</h2>
+     <div class="row g-3">
+     <div class="col-12">
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <p>
+                    During the visit, we observed how customers order and receive their food.
+                    The process is straightforward and efficient, ensuring a pleasant experience for visitors.
+                </p>
     <ol start="1">
         <li>The visitor enters and looks at the menu.</li>
         <li>The visitor chooses food and places an order.</li>
@@ -60,17 +134,27 @@
         <li>The visitor receives the order and finds a table.</li>
         <li>The visitor eats and then leaves.</li>
     </ol>
+    </div>
+    <div class="col col-md-6">
+        <p class="text-muted">
+            The visit includes ordering, waiting, receiving the food,
+                    and enjoying the meal inside the restaurant.
+        </p>
+    </div>
+
+    </div>
+    </div>
+    </div>
 </section>
-    <section>
-    <h2>Additional Information</h2>
+    <section class="mb-5">
+    <h2 class="mb-4">Additional Information</h2>
     <p>  
         <q>The <mark>clean dining area and fast service</mark> 
         were noticeable during the visit.</q>
 
         </p>
         <p>
-         <!-- This inline style demonstrates the cascade by overriding the inherited letter spacing for this note. -->
-       <small style="letter-spacing: 1px;">
+       <small class="text-muted photo-note">    
         Photos were taken during the visit  </small>
     </p>
     <p> 
@@ -90,8 +174,8 @@
     <abbr title="Frequently Asked Questions">FAQ</abbr> section.
     </p>   
 </section>
-<section>
-    <h2>Key Terms</h2>
+<section class="mb-5">
+    <h2 class="mb-4">Key Terms</h2>
     <dl>
         <dt>Doner</dt>
         <dd>A dish with meat, vegetables and sauce in lavash.</dd>
@@ -107,28 +191,30 @@
         <fieldset>
             <legend>Visitor Information</legend>
 
-            <label for="visitor-name">Your name:</label>
+            <label for="visitor-name" 
+            class="form-label">
+                Your name:</label>
             <input type="text"
                    id="visitor-name"
                    class="form-control"
                    name="visitor-name"
                    placeholder="Enter your name" 
                    required> 
-            <label for="visitor-email">Your email:</label> 
+            <label for="visitor-email" class="form-label">Your email:</label> 
             <input type="email"
        id="visitor-email"
        class="form-control"
        name="visitor-email"
        placeholder="Enter your email" 
        required>
-            <label for="visitor-phone">Phone number:</label>
+            <label for="visitor-phone" class="form-label">Phone number:</label>
 <input type="tel"
        id="visitor-phone"
        class="form-control"
        name="visitor-phone"
        placeholder="+7 (___) ___-__-__"
        required>
-       <label for="rating" >Your rating from 
+       <label for="rating" class="form-label" >Your rating from 
         <span>1 to 5</span>:</label>   <!-- I use span here because this short text needs inline grouping and does not form a separate semantic section. -->
 <input type="number"
        id="rating"
@@ -138,7 +224,7 @@
        max="5"
        placeholder="Enter your rating"
        required>
-       <label for="visit-date">Visit date:</label>
+       <label for="visit-date" class="form-label">Visit date:</label>
 <input type="date"
        id="visit-date"
        class="form-control"
@@ -147,24 +233,27 @@
        <p>How did you receive your order?</p>
 <input type="radio"
        id="visit-place"
+       class="form-check-input"
        name="order-type"
        value="in-place"
        required>
-<label for="visit-place">At the restaurant</label>
+<label for="visit-place" class="form-check-label">At the restaurant</label>
 <input type="radio"
        id="takeaway"
+       class="form-check-input"
        name="order-type"
        value="takeaway">
-<label for="takeaway">Takeaway</label>
-<input type="radio"
+<label for="takeaway" class="form-check-label">Takeaway</label>
+<input type="radio" 
        id="delivery"
+       class="form-check-input"
        name="order-type"
        value="delivery">
-<label for="delivery">Delivery</label>
+<label for="delivery" class="form-check-label">Delivery</label>
 <br>
 <br>
-<label for="food-choice">What did you order?</label>
-<select id="food-choice" class="form-control" name="food-choice" required>
+<label for="food-choice" class="form-label">What did you order?</label>
+<select id="food-choice" class="form-select" name="food-choice" required>
     <option value="">Choose an option</option>
     <option value="chicken-doner">Chicken doner</option>
     <option value="beef-doner">Beef doner</option>
@@ -181,7 +270,7 @@
     I agree to use my review on the educational website.
 </label>
 <p>
-    <label for="review">Your review:</label><br>
+    <label for="review" class="form-label">Your review:</label><br>
     <textarea id="review"
     class="form-control"
               name="review"
@@ -191,9 +280,10 @@
               required></textarea>
 </p>
         </fieldset>
-        <div class="form-actions">  <!-- I use div here because the two buttons need a simple grouping, and no semantic sectioning element is appropriate for them. -->
-            <button type="submit">Submit Review</button>
-            <button type="reset">Clear Form</button>
+        <div class="form-actions flex-wrap gap-2 mt-3">  <!-- I use div here because the two buttons need a simple grouping, and no semantic sectioning element is appropriate for them. -->
+            <button type="submit" class="btn btn-primary btn-lg">Submit Review</button>
+            <button type="reset" class="btn btn-outline-secondary">Clear Form</button>
+            <button class="btn btn-secondary" disabled>Coming Soon</button>
         </div>
     </form>
 </section>
@@ -219,5 +309,8 @@
 </p>
     <p>&copy; 2026 Doner na Abaya</p>
 </footer>
+<!-- Bootstrap JavaScript bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-</html>     
+</html>         
