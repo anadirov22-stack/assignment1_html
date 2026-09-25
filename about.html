@@ -1,200 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Information about Doner na Abaya and our selected branch.">
-    <meta name="author" content="Ali Nadirov">
+
     <title>About Doner na Abaya</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Ali-Nadirov.css">
-    <!-- This internal style demonstrates the cascade by overriding the external h1 color on this page. -->
-<style>
-    .restaurant-intro h1 {
-        color: #1F1F1F;
-    }
-</style>
+
 </head>
+
 <body>
-    <!-- Author: Ali Nadirov -->
-    <header>
-        <p><b>Doner na Abaya</b></p>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="colophon.html">Project</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="restaurant-intro" id="about-restaurant"> <!-- The ID identifies this unique introduction section, while the class provides styling for the restaurant introduction. -->
-            <h1>About the Restaurant</h1>
-            <p>
-                Doner na Abaya is a fast-food restaurant. 
-                Our branch is at 51 Mangilik El. 
-                It offers doners with different meat, 
-                sauces, vegetables, drinks, and takeaway.
-                 The restaurant works 24 hours a day. 
-                 You can also learn about the <a href="#branch">branch</a> 
-                 and its <a href="#offers">offers.</a>
+
+<header>
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.html">
+                Doner na Abaya
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavigation"
+                aria-controls="mainNavigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Order</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="colophon.html">Colophon</a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+</header>
+
+
+<main class="container py-4">
+
+    <section class="restaurant-intro mt-2 mb-5 rounded shadow border-bottom border-danger border-3" id="about-restaurant">
+
+        <h1 class="display-4 text-center pt-2">
+            About the Restaurant
+        </h1>
+
+        <p class="lead text-center text-md-start p-3">
+            Doner na Abaya is a fast-food restaurant.
+            Our branch is at 51 Mangilik El.
+            It offers doners with different meat, sauces,
+            vegetables, drinks, and takeaway.
+            The restaurant works 24 hours a day.
+            You can also learn about the
+            <a href="#branch">branch</a>
+            and its <a href="#offers">offers.</a>
+        </p>
+
+        <p class="lead p-4">
+            During our visit, the place was clean and cozy.
+            The staff were polite, and I liked the doner
+            and special sauce.
+        </p>
+
+    </section>
+
+
+    <article class="branch-details mt-5 mb-5 rounded shadow border-start border-danger border-5">
+        <!-- I use article because this part describes our specific branch separately from the general information. -->
+          
+
+        <h2 class="display-6 text-center mb-4 pt-2 pb-2 border-bottom border-danger border-3">
+            About the Branch
+        </h2>
+        
+
+        <span class="badge text-bg-danger mb-3">
+            24/7
+        </span>
+
+        <p class="lead p-2">
+            The branch is easy to find.
+            Customers can order at the counter or take food away.
+            Preparation usually takes 15–20 minutes,
+            but waiting can be longer during busy hours.
+        </p>
+    </article>
+
+
+    <section id="offers" class="offers-section mb-5 rounded shadow p-3">
+
+        <h2 class="display-6 text-center mb-4">
+            What the Restaurant Offers
+        </h2>
+
+        <p class="lead">
+            The restaurant offers doners, drinks &amp; additions:
+        </p>
+
+        <!-- Bootstrap Card and List Group components adapted to display the restaurant's offers. -->
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow border rounded-3">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            Doners
+                        </h3>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">M chicken</li>
+                            <li class="list-group-item">M beef</li>
+                            <li class="list-group-item">M assorted</li>
+                            <li class="list-group-item">S chicken</li>
+                            <li class="list-group-item">S beef</li>
+                            <li class="list-group-item">S assorted</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow border rounded-3">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            Drinks
+                        </h3>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Coca-Cola Zero Sugar 450 ml</li>
+                            <li class="list-group-item">Coca-Cola 500 ml</li>
+                            <li class="list-group-item">Fanta 450 ml</li>
+                            <li class="list-group-item">Fuse Tea 450 ml</li>
+                            <li class="list-group-item">Sprite 450 ml</li>
+                            <li class="list-group-item">Coca-Cola Zero Sugar 500 ml</li>
+                            <li class="list-group-item">Coca-Cola 500 ml</li>
+                            <li class="list-group-item">Fanta 500 ml</li>
+                            <li class="list-group-item">Sprite 500 ml</li>
+                            <li class="list-group-item">Fuse Tea 500 ml</li>
+                            <li class="list-group-item">Bonaqua 500 ml</li>
+                            <li class="list-group-item">Airyan 300 ml</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 col-lg-4">
+
+                <div class="card h-100 shadow border rounded-3">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            Additions
+                        </h3>
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Extra beef</li>
+                            <li class="list-group-item">Extra chicken</li>
+                            <li class="list-group-item">Peppers</li>
+                            <li class="list-group-item">Red sauce</li>
+                            <li class="list-group-item">White sauce</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="row g-4 align-items-start mb-5">
+
+        <div class="col-12 col-md-5 text-center">
+
+            <img
+                class="branch-photo img-fluid rounded"
+                src="images/doner-na-abaya.jpeg"
+                width="300"
+                height="400"
+                alt="Doner na Abaya logo at 51 Mangilik El Avenue">
+
+        </div>
+
+        <div class="col-12 col-md-7">
+
+            <p class="lead text-center">
+                During our visit, we also looked at the restaurant
+                entrance and the surrounding area.
+                The branch is easy to recognize, and the logo is
+                clearly visible from the entrance.
+                This photo shows the Doner na Abaya branch
+                at 51 Mangilik El Avenue.
             </p>
-            <p>
-                During our visit, the place was clean and cozy. 
-                The staff were polite, and I liked the doner and special sauce.
-            </p>
-        </section>
-        <article class="branch-details">
-            <!-- I use article because this part describes our specific branch separately from the general information. -->
-            <h2>About the Branch</h2>
-            <span class="opening-badge">24/7</span>
-            <p>
-                The branch is easy to find.
-                Customers can order at the counter or take food away.
-                Preparation usually takes 15–20 minutes, 
-                but waiting can be longer during busy hours.
-            </p>
-        </article>
-        <section id="offers" class="offers-section">
-            <h2>What the Restaurant Offers</h2>
-            <p>
-                The restaurant offers doners, drinks &amp; additions:
-            </p>
-            <ul class="offer-list">
-                <li class="offer-card">
-                    Doners
-                    <ul>
-                        <li>M chicken</li>
-                        <li>M beef</li>
-                        <li>M assorted</li>
-                        <li>S chicken</li>
-                        <li>S beef</li>
-                        <li>S assorted</li>
-                    </ul>
-                </li>
-                <li class="offer-card">
-                    Drinks
-                    <ul>
-                        <li>Coca-Cola Zero Sugar 450 ml</li>
-                        <li>Coca-Cola 500 ml</li>
-                        <li>Fanta 450 ml</li>
-                        <li>Fuse Tea 450 ml</li>
-                        <li>Sprite 450 ml</li>
-                        <li>Coca-Cola Zero Sugar 500 ml</li>
-                        <li>Coca-Cola 500 ml</li>
-                        <li>Fanta 500 ml</li>
-                        <li>Sprite 500 ml</li>
-                        <li>Fuse Tea 500 ml</li>
-                        <li>Bonaqua 500 ml</li>
-                        <li>Airyan 300 ml</li>
-                    </ul>
-                </li>
-                <li class="offer-card">
-                    Additions
-                    <ul>
-                        <li>Extra beef</li>
-                        <li>Extra chicken</li>
-                        <li>Peppers</li>
-                        <li>Red sauce</li>
-                        <li>White sauce</li>
-                    </ul>
-                </li>
-            </ul>
-        </section>
-        <p class="branch-photo-text">
-    <img class="branch-photo"
-         src="images/doner-na-abaya.jpeg"
-         width="300"
-         height="400"
-         alt="Doner na Abaya logo at 51 Mangilik El Avenue">
-    During our visit, we also looked at the restaurant entrance and the surrounding area.
-    The branch is easy to recognize, and the logo is clearly visible from the entrance.
-    This photo shows the Doner na Abaya branch that we visited.
-</p>
-        <aside class="branch-info content-card">
-            <h2>Additional Information</h2>
-            <hr>
-            <table class="information-table">
-                <caption id="branch">Branch information</caption>
+
+        </div>
+
+    </div>
+
+
+    <aside id="branch" class="branch-info content-card p-4 mb-5 rounded shadow">
+
+        <h2 class="display-6 mb-3 p-3">
+            Additional Information
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped table-bordered table-hover">
+
+                <caption>
+                    Branch information
+                </caption>
+
                 <thead>
                     <tr>
                         <th scope="col">Information</th>
                         <th scope="col">Data</th>
                     </tr>
                 </thead>
+
                 <tbody>
+
                     <tr>
                         <th scope="row">Address</th>
                         <td>51 Mangilik El Avenue</td>
                     </tr>
+
                     <tr>
                         <th scope="row">Working hours</th>
-                        <td>24/7. Friday break 12:30&nbsp;-&nbsp;14:00</td>
+                        <td>24/7. Friday break 12:30 - 14:00</td>
                     </tr>
+
                     <tr>
                         <th scope="row">Delivery</th>
                         <td>Available</td>
                     </tr>
+
                 </tbody>
+
                 <tfoot>
                     <tr>
                         <th scope="row">Takeaway</th>
                         <td>Available</td>
                     </tr>
                 </tfoot>
+
             </table>
-            <p>
-                More information is available on the 
-                <a href="https://doner-na-abaya.kz/"
-   target="_blank"
-   rel="noopener noreferrer">
-    official website
-</a>
-            </p>
-        </aside>
-        <section class="customer-opinion content-card">
-            <h2>Customer Opinion</h2>
-            <hr>
-            <p>
-                <cite>Arman's opinion:</cite>
-            </p>
-            <blockquote>
-                <em>
-                    I liked this branch. The doner was fresh and filling,
-                    the order was prepared quickly, and the place was clean.
-                    I especially liked the sauce.
-                </em>
-            </blockquote>
-            <p>
-                <i>10<sup>th</sup> September 2026</i>
-            </p>
-        </section>
-    </main>
-    <hr>
-    <footer>
+
+        </div>
+
         <p>
-            <strong>Phone:</strong>
-            <br>
-            <a href="tel:+77088043937">
-                +7 708 804 39 37
+            More information is available on the
+            <a class="border rounded px-1 py-1 text-white bg-black text-decoration-none"
+                href="https://doner-na-abaya.kz/"
+                target="_blank"
+                rel="noopener noreferrer">
+                official website
             </a>
         </p>
-    <p>
-          <strong>Instagram:</strong>
-<a href="https://www.instagram.com/doner_na_abaya_astanaa/"
-   target="_blank"
-   rel="noopener noreferrer">
-    @doner_na_abaya_astanaa
-</a>
-    </p>
+
+    </aside>
+
+
+    <section class="customer-opinion content-card p-4 mb-5 text-break rounded shadow">
+
+        <h2 class="display-6 mb-4">
+            Customer Opinion
+        </h2>
+
+        <hr>
+
         <p>
-            &copy; 2026 Doner na Abaya
+            <cite>Arman's opinion:</cite>
         </p>
-    </footer>
+
+        <blockquote>
+            <em>
+                I liked this branch. The doner was fresh and filling,
+                the order was prepared quickly, and the place was clean.
+                I especially liked the sauce.
+            </em>
+        </blockquote>
+
+        <p>
+            <i>10<sup>th</sup> September 2026</i>
+        </p>
+
+    </section>
+
+</main>
+
+
+
+
+
+<footer>
+
+    <p>
+        <strong>Phone:</strong>
+        <br>
+        <a href="tel:+77088043937">
+            +7 708 804 39 37
+        </a>
+    </p>
+
+    <p>
+        <strong>Instagram:</strong>
+        <a
+            href="https://www.instagram.com/doner_na_abaya_astanaa/"
+            target="_blank"
+            rel="noopener noreferrer">
+            @doner_na_abaya_astanaa
+        </a>
+    </p>
+
+    <p>
+        &copy; 2026 Doner na Abaya
+    </p>
+
+</footer>
+
+
+<!-- Bootstrap JavaScript bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
