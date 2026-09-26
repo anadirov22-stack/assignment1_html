@@ -2,249 +2,272 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-    <meta
-        name="description"
-        content="FAQ page of Doner na Abaya">
-    <meta
-        name="author"
-        content="Mazhit Nurasyl">
-    <title>
-        FAQ | Doner na Abaya
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FAQ page of Doner na Abaya">
+    <meta name="author" content="Mazhit Nurasyl">
+    <title>FAQ | Doner na Abaya</title>
+    <!-- Bootstrap 5.3.8 is used for Assignment 3. -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+    <!-- Custom CSS is loaded after Bootstrap for small brand corrections only. -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Nurasyl.css">
 </head>
 <body>
 <!-- Author: Mazhit Nurasyl -->
 <header>
-    <p>Doner na Abaya</p>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="order.html">Order</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4">
+        <!-- container-fluid is used because navigation should span the full viewport width. -->
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
-<main>
-    <h1>
-        Frequently Asked Questions
-    </h1>
-    <nav class="faq-actions" aria-label="FAQ quick links">
-        <a href="order.html">
-            Order Food
-        </a>
-        <a href="menu.html">
-            View Menu
-        </a>
-    </nav>
-    <!--
-        CSS Grid centers this real figure element.
-    -->
-    <figure class="photo-center-grid">
-            <img
-                src="images/photo_4_2026-09-11_18-56-40.jpg"
-                width="300"
-                alt="Doner na Abaya restaurant">
-            <figcaption>
-                Doner na Abaya in Astana
-            </figcaption>
-    </figure>
-    <section class="faq-grid-container" aria-label="FAQ content">
-        <section>
-            <h2>
-                About Orders
-            </h2>
-            <!--
-                I use a definition list because
-                each question has its own answer.
-            -->
-            <dl>
-                <dt>
-                    <strong>
+<!-- container keeps the FAQ readable on wide desktop screens. -->
+<main class="container py-4">
+    <div class="mb-4">
+        <h1 class="display-4 text-center text-md-start text-danger">Frequently Asked Questions</h1>
+        <p class="lead text-secondary text-center text-md-start mb-0">
+            Find quick information about orders, food and restaurant service.
+        </p>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 mb-4">
+        <a class="btn btn-danger" href="order.html">Order Food</a>
+        <a class="btn btn-outline-danger" href="menu.html">View Menu</a>
+        <span class="badge text-bg-dark align-self-center d-none d-md-inline-block">Open 24/7</span>
+    </div>
+    <section class="mb-5">
+        <div class="row g-4 align-items-center">
+            <div class="col-12 col-md-5 text-center">
+                <img
+                    src="images/photo_4_2026-09-11_18-56-40.jpg"
+                    class="img-fluid rounded shadow-sm"
+                    alt="Doner na Abaya restaurant">
+            </div>
+            <div class="col-12 col-md-7">
+                <h2 class="h3">About Doner na Abaya</h2>
+                <p class="mb-0">
+                    Doner na Abaya is a popular fast-food place in Astana.
+                    The restaurant is known for doners, sauces and late working hours.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="mb-5">
+        <h2 class="h3 mb-3">About Orders</h2>
+        <!-- Bootstrap Accordion component adapted for the restaurant FAQ questions and answers. -->
+        <div class="accordion shadow-sm" id="faqAccordion">
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#questionOne"
+                        aria-expanded="true"
+                        aria-controls="questionOne">
                         Can I order online?
-                    </strong>
-                </dt>
-                <dd>
-                    Yes, you can use our
-                    <a href="order.html">
-                        Order page
-                    </a>
-                    and check food on the
-                    <a href="menu.html">
-                        Menu page
-                    </a>.
-                </dd>
-                <dt>
-                    <strong>
+                    </button>
+                </h3>
+                <div
+                    id="questionOne"
+                    class="accordion-collapse collapse show"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, you can use our <a href="order.html">Order page</a>
+                        and check food on the <a href="menu.html">Menu page</a>.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#questionTwo"
+                        aria-expanded="false"
+                        aria-controls="questionTwo">
                         Do you have delivery?
-                    </strong>
-                </dt>
-                <dd>
-                    Yes, delivery is
-                    <em>available</em>.
-                    You can choose it on the
-                    <a href="order.html">
-                        Order page
-                    </a>.
-                </dd>
-                <dt>
-                    <strong>
+                    </button>
+                </h3>
+                <div
+                    id="questionTwo"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Yes, delivery is <em>available</em>. You can choose it on the
+                        <a href="order.html">Order page</a>.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#questionThree"
+                        aria-expanded="false"
+                        aria-controls="questionThree">
                         Where can I see the menu?
-                    </strong>
-                </dt>
-                <dd>
-                    You can see food and prices on our
-                    <a href="menu.html">
-                        Menu page
-                    </a>.
-                    Prices are shown in
-                    <abbr title="Kazakhstani tenge">
-                        KZT
-                    </abbr>.
-                </dd>
-                <dt>
-                    <strong>
+                    </button>
+                </h3>
+                <div
+                    id="questionThree"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        You can see food and prices on our <a href="menu.html">Menu page</a>.
+                        Prices are shown in <abbr title="Kazakhstani tenge">KZT</abbr>.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button
+                        class="accordion-button collapsed"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#questionFour"
+                        aria-expanded="false"
+                        aria-controls="questionFour">
                         What are your opening hours?
-                    </strong>
-                </dt>
-                <dd>
-                    <mark>
-                        Open 24/7.
-                    </mark>
-                    Break: 12:30-14:00.
-                    <small>
-                        Working hours may change on special days.
-                    </small>
-                </dd>
-            </dl>
-        </section>
-        <article>
-            <h2>
-                Food Information
-            </h2>
-            <p>
-                Our <b>doner</b> is made with meat,
-                vegetables and sauce.
-                We try to make the service comfortable
-                for customers.
-                Ingredients can include lavash,
-                chicken or beef, tomatoes,
-                cucumbers, fries and sauce.
-                One of the spicy additions is
-                <i>lazjan</i>.
-                You can check our
-                <abbr title="Frequently Asked Questions">
-                    FAQ
-                </abbr>
-                before ordering if you need more information.
-            </p>
-            <ul>
-                <li>
-                    Doner
-                    <ul>
+                    </button>
+                </h3>
+                <div
+                    id="questionFour"
+                    class="accordion-collapse collapse"
+                    data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        <strong>Open 24/7.</strong> Break: 12:30-14:00.
+                        <small class="d-block text-secondary mt-2">
+                            Working hours may change on special days.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Responsive block 3: 1 column on phone, 2 on tablet, 3 on large desktop. -->
+    <div class="row g-4 mb-5">
+        <article class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm custom-card-border">
+                <div class="card-body">
+                    <h2 class="h4 card-title">Food Information</h2>
+                    <p class="card-text">
+                        Our <b>doner</b> is made with meat, vegetables and sauce.
+                        We try to make the service comfortable for customers.
+                        Ingredients can include lavash, chicken or beef, tomatoes,
+                        cucumbers, fries and sauce. One of the spicy additions is
+                        <i>lazjan</i>.
+                    </p>
+                    <h3 class="h6">Doner</h3>
+                    <ul class="mb-3">
                         <li>Beef</li>
                         <li>Chicken</li>
                     </ul>
-                </li>
-                <li>
-                    Supplements
-                    <ul>
-                        <li>
-                            Marinated halal beef 50g
-                        </li>
-                        <li>
-                            Marinated halal chicken 50g
-                        </li>
-                        <li>
-                            Spicy additive
-                        </li>
-                        <li>
-                            Red Sauce
-                        </li>
-                        <li>
-                            White Sauce
-                        </li>
+                    <h3 class="h6">Supplements</h3>
+                    <ul class="mb-0">
+                        <li>Marinated halal beef 50g</li>
+                        <li>Marinated halal chicken 50g</li>
+                        <li>Spicy additive</li>
+                        <li>Red Sauce</li>
+                        <li>White Sauce</li>
                     </ul>
-                </li>
-            </ul>
+                </div>
+            </div>
         </article>
-        <section class="customer-opinion">
-            <h2>
-                Customer Information
-            </h2>
-            <blockquote>
-                One of the most delicious doners in Astana
-                is juicy meat, fresh vegetables and a very
-                tasty signature sauce.
-                The portions are good and the staff is polite.
-            </blockquote>
-            <p>
-                One customer described the doner as
-                <q>fresh and filling</q>.
-            </p>
-            <p>
-                <cite>
-                    Bekzhan Bekbosyn,
-                    24<sup>th</sup> July 2026
-                </cite>
-            </p>
+        <section class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-0 bg-body-tertiary">
+                <div class="card-body customer-quote">
+                    <h2 class="h4 card-title">Customer Information</h2>
+                    <blockquote class="blockquote">
+                        <p>
+                            One of the most delicious doners in Astana is juicy meat,
+                            fresh vegetables and a very tasty signature sauce.
+                            The portions are good and the staff is polite.
+                        </p>
+                    </blockquote>
+                    <p>One customer described the doner as <q>fresh and filling</q>.</p>
+                    <p class="mb-0 text-secondary">
+                        <cite>Bekzhan Bekbosyn, 24<sup>th</sup> July 2026</cite>
+                    </p>
+                </div>
+            </div>
         </section>
-        <aside class="important-note">
-            <h2>
-                Important Note
-            </h2>
-            <p>
-                Doner na Abaya is a popular fast-food place
-                in Astana.
-                The restaurant is known for doners,
-                sauces and late working hours.
-            </p>
+        <aside class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm border-danger">
+                <div class="card-body">
+                    <h2 class="h4 card-title">Important Note</h2>
+                    <p class="card-text mb-0">
+                        You can check our <abbr title="Frequently Asked Questions">FAQ</abbr>
+                        before ordering if you need more information about food or service.
+                    </p>
+                </div>
+            </div>
         </aside>
-        <figure class="photo-center-grid grid-full-width">
-                <img
-                    src="images/photo_3_2026-09-11_18-56-40.jpg"
-                    width="300"
-                    alt="Food at Doner na Abaya">
-                <figcaption>
-                    Food at Doner na Abaya in Astana
-                </figcaption>
+    </div>
+    <section class="text-center">
+        <figure class="mb-0">
+            <img
+                src="images/photo_3_2026-09-11_18-56-40.jpg"
+                class="img-fluid rounded shadow-sm"
+                alt="Food at Doner na Abaya">
+            <figcaption class="text-secondary mt-2">
+                Food at Doner na Abaya in Astana
+            </figcaption>
         </figure>
     </section>
 </main>
-<footer>
-    <p>
-        Phone:
-        <a href="tel:+77088043937">
-            +7 708 804 39 37
-        </a>
-    </p>
-    <p>
-        Project email:
-        <a href="mailto:mazhitovn28@gmail.com">
-            mazhitovn28@gmail.com
-        </a>
-    </p>
-    <p>
-        Visit the
-        <a
-            href="https://doner-na-abaya.kz/ru"
-            target="_blank"
-            rel="noopener noreferrer">
-            official website
-        </a>.
-    </p>
-    <p>
-        &copy; 2026 Doner na Abaya
-    </p>
+<footer class="bg-dark text-white border-top border-danger border-4 mt-5">
+    <div class="container py-4 text-center">
+        <p class="mb-2">
+            Phone:
+            <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
+        </p>
+        <p class="mb-2">
+            Project email:
+            <a class="link-light" href="mailto:mazhitovn28@gmail.com">mazhitovn28@gmail.com</a>
+        </p>
+        <p class="mb-2">
+            Visit the
+            <a class="link-light" href="https://doner-na-abaya.kz/ru" target="_blank" rel="noopener noreferrer">
+                official website
+            </a>.
+        </p>
+        <p class="mb-0">&copy; 2026 Doner na Abaya</p>
+    </div>
 </footer>
+<!-- Bootstrap JS bundle is required for the navbar toggler and FAQ accordion. -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
 </html>
