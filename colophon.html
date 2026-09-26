@@ -3,65 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Information about the project and its development.">
     <meta name="author" content="Ali Nadirov, Nurasyl Mazhit, Alikhan Kuttybayev">
+
     <title>Project Colophon - Doner na Abaya</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
     <link rel="stylesheet" href="css/base.css">
 </head>
+
 <body>
-    <!-- Author: Ali Nadirov, Nurasyl Mazhit, Alikhan Kuttybayev -->
-    <header>
-    <p><b>Doner na Abaya</b></p>
-    <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="colophon.html">Project</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
+
+<header>
+    <!-- Bootstrap Navbar: collapses into a toggler on small screens. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <!-- container-fluid lets the navigation span the full viewport width. -->
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.html">
+                Doner na Abaya
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavigation"
+                    aria-controls="mainNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           aria-current="page"
+                           href="colophon.html">Project</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Order</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
-    </header>
-    <main>
- <h1>Project Colophon</h1>
- <section>
-    <h2>About the Project</h2>
-    <p>
-            This project is about Doner na Abaya, a fast-food restaurant in Astana.
-            I chose this restaurant because it is a real place that I could visit.
-            During my visit, I collected information about its services, working hours
-            and location, and took several photos for the website.
-    </p>
-    <p>
-            The website was created as part of an HTML project. While making the pages,
-            I used different HTML elements that we learned in class.
-    </p>
-    <p>
-            This Colophon page shows some of the HTML elements used in the project.
-            The code element displays a short piece of HTML code, the pre element
-            keeps the original formatting of text, the kbd element is used for
-            keyboard shortcuts, and the samp element shows computer output.
-    </p>
-    <p>
-            While working on this project, I got more practice with HTML and learned
-            how different elements can be used on a real website. I also learned
-            how to organize information so that it is easier to read and navigate.
-    </p>
+</header>
+
+
+<main class="container py-4">
+
+    <!-- container keeps the project information at a readable responsive width. -->
+
+    <section class="mb-5 p-4 rounded shadow bg-white border border-danger">
+
+        <h1 class="display-4 text-center text-md-start border-bottom border-danger border-3 pb-3">
+            Project Colophon
+        </h1>
+
+        <p class="lead mt-4">
+            This page describes the project and some of the HTML elements used during development.
+        </p>
+
     </section>
- <section>
-    <h2>HTML Example</h2>
-  <p>
-     An HTML paragraph can be written as
-    <code>&lt;p&gt;Hello&lt;/p&gt;</code>.
-    </p>
-</section>
-<section>
-    <h2>HTML Structure</h2>
-    <pre> <!-- I use the pre element here because the HTML example needs to keep its spaces and line breaks. -->
-&lt;header&gt;
+
+
+    <section class="mb-5">
+
+        <h2 class="display-6 text-center mb-4">
+            About the Project
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            Restaurant
+                        </h3>
+
+                        <p class="card-text">
+                            This project is about Doner na Abaya, a fast-food restaurant in Astana.
+                            I chose this restaurant because it is a real place that I could visit.
+                            During my visit, I collected information about its services, working hours
+                            and location, and took several photos for the website.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            Development
+                        </h3>
+
+                        <p class="card-text">
+                            The website was created as part of an HTML project.
+                            While making the pages, I used different HTML elements that we learned in class.
+                            This Colophon page shows some of the HTML elements used in the project.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Bootstrap Alert component: highlights the purpose of the HTML examples. -->
+
+    <div class="alert alert-secondary mb-5">
+
+        <strong>HTML elements:</strong>
+        The examples below demonstrate code, preformatted text,
+        keyboard shortcuts, and sample computer output.
+
+    </div>
+
+
+    <section class="mb-5 p-4 border rounded shadow-sm">
+
+        <h2 class="display-6 mb-4">
+            HTML Example
+        </h2>
+
+        <p>
+            An HTML paragraph can be written as
+            <code>&lt;p&gt;Hello&lt;/p&gt;</code>.
+        </p>
+
+    </section>
+
+
+    <section class="mb-5 p-4 border rounded shadow-sm">
+
+        <h2 class="display-6 mb-4">
+            HTML Structure
+        </h2>
+
+        <pre class="bg-light border rounded p-3 overflow-auto"><code>&lt;header&gt;
     &lt;nav&gt;
        &lt;ul&gt;
         &lt;li&gt;Home&lt;/li&gt;
@@ -72,35 +199,64 @@
         &lt;li&gt;Order&lt;/li&gt;
         &lt;li&gt;FAQ&lt;/li&gt;
         &lt;li&gt;About&lt;/li&gt;
-         &lt;/ul&gt;
+       &lt;/ul&gt;
     &lt;/nav&gt;
-&lt;/header&gt;
-    </pre>
-</section>
-    <section>
-    <h2>Saving the File</h2>
-    <p>
-        To save changes in the HTML file, press
-        <kbd>Ctrl + S</kbd>. <!-- I use the kbd element here because it shows the keyboard shortcut used to save the file. -->
-    </p>
-</section>
-<section>
-    <h2>Example Result</h2>
-    <p>
-        A browser may display a message such as
-        <samp>File saved successfully.</samp>
-    </p>
-</section>
-</main>
-    <footer>
+&lt;/header&gt;</code></pre>
+
+    </section>
+
+
+    <section class="mb-5 p-4 border rounded shadow-sm">
+
+        <h2 class="display-6 mb-4">
+            Saving the File
+        </h2>
+
         <p>
-            <strong>Phone:</strong>
-            <br>
-            <a href="tel:+77088043937">
-                +7 708 804 39 37
-            </a>
+            To save changes in the HTML file, press
+            <kbd>Ctrl + S</kbd>.
         </p>
-         <p>&copy; 2026 Doner na Abaya</p>
-    </footer>
+
+    </section>
+
+
+    <section class="mb-5 p-4 border rounded shadow-sm">
+
+        <h2 class="display-6 mb-4">
+            Example Result
+        </h2>
+
+        <p>
+            A browser may display a message such as
+            <samp>File saved successfully.</samp>
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer class="text-center text-white border-top border-4 border-danger bg-black">
+
+    <p>
+        <strong>Phone:</strong>
+        <br>
+
+        <a class="text-white"
+           href="tel:+77088043937">
+            +7 708 804 39 37
+        </a>
+    </p>
+
+    <p>
+        &copy; 2026 Doner na Abaya
+    </p>
+
+</footer>
+
+
+<!-- Bootstrap JavaScript bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

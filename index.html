@@ -3,70 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="Welcome page for Doner na Abaya in Astana.">
     <meta name="author" content="Ali Nadirov, Nurasyl Mazhit, Alikhan Kuttybayev">
+
     <title>Doner na Abaya - Home</title>
+
+    <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
     <link rel="stylesheet" href="css/base.css">
 </head>
+
 <body>
-    <!-- Author: Ali Nadirov, Nurasyl Mazhit, Alikhan Kuttybayev-->
+
 <header>
-    <p><b>Doner na Abaya</b>
-    </p>
-    <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="colophon.html">Project</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
+    <!-- Bootstrap Navbar: collapses into a toggler on small screens. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <!-- container-fluid lets the navigation span the full viewport width. -->
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.html">
+                Doner na Abaya
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavigation"
+                    aria-controls="mainNavigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           aria-current="page"
+                           href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="colophon.html">Project</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="menu.html">Menu</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="reviews.html">Reviews</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="order.html">Order</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="faq.html">FAQ</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
-<main>
-        <!-- I use main because this part contains the primary information of the home page. -->
-    <h1>Doner na Abaya</h1>
-<p>
-    Welcome to our website about Doner na Abaya, a fast-food restaurant in Astana.
-    We chose this restaurant because it is a real place that we can visit and learn more about.
-    During our visit, we collected information about the branch and took photos to use on the website.
-</p>
-<section>     
-     <!-- I use section because this content is a separate topic about the restaurant. -->
-    <h2>About Doner na Abaya</h2>
-    <p>
-        Doner na Abaya is a fast-food restaurant that serves different kinds of doner,
-        snacks, and drinks. During our visit, we saw customers ordering 
-        food at the counter and eating inside the restaurant.
-        Customers can eat at the restaurant or order food to take away.
-    </p>
-    <p>
-        In this project, we focus on one branch of the restaurant. We gathered information about
-        its location, services, and menu to create this website. Here you can find details about
-        the restaurant, customer reviews, photos, frequently asked questions, and other useful
-        information.We divided the website into pages for the menu, 
-        reviews, gallery, order information, FAQ, and the restaurant.
-        The website includes information that can help visitors 
-        learn about the branch before they visit it.
-        The pages contain the branch information, menu details, customer 
-        opinions, photos, and answers to common questions.
-        Each page focuses on a different part of the project, such as the restaurant, menu, 
-        reviews, photos, or frequently asked questions.
-    </p>
-</section>
+
+
+<main class="container py-4">
+
+    <!-- container keeps the main content at a readable responsive width. -->
+
+    <section class="mb-5 p-4 rounded shadow bg-white border border-danger">
+
+        <h1 class="display-4 text-center text-md-start border-bottom border-danger border-3 pb-3">
+            Doner na Abaya
+        </h1>
+
+        <p class="lead text-center text-md-start mt-4">
+            Welcome to our website about Doner na Abaya, a fast-food restaurant in Astana.
+            We chose this restaurant because it is a real place that we can visit and learn more about.
+            During our visit, we collected information about the branch and took photos to use on the website.
+        </p>
+
+    </section>
+
+
+    <!-- Bootstrap Card component: cards separate the main restaurant information into readable blocks. -->
+
+    <section class="mb-5">
+
+        <h2 class="display-6 text-center mb-4">
+            About Doner na Abaya
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-12 col-md-6">
+
+                <div class="card h-100 shadow-sm border-danger">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            About the Restaurant
+                        </h3>
+
+                        <p class="card-text">
+                            Doner na Abaya is a fast-food restaurant that serves different kinds of doner,
+                            snacks, and drinks. During our visit, we saw customers ordering
+                            food at the counter and eating inside the restaurant.
+                            Customers can eat at the restaurant or order food to take away.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12 col-md-6">
+
+                <div class="card h-100 shadow-sm border-danger">
+
+                    <div class="card-body">
+
+                        <h3 class="card-title h4">
+                            About the Project
+                        </h3>
+
+                        <p class="card-text">
+                            In this project, we focus on one branch of the restaurant.
+                            We gathered information about its location, services, and menu to create this website.
+                            Here you can find details about the restaurant, customer reviews, photos,
+                            frequently asked questions, and other useful information.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="mb-5 p-4 rounded shadow bg-light border">
+
+        <h2 class="display-6 text-center text-md-start mb-4">
+            Website Information
+        </h2>
+
+        <div class="row g-4">
+
+            <div class="col-12 col-lg-8">
+
+                <p class="lead">
+                    We divided the website into pages for the menu, reviews, gallery,
+                    order information, FAQ, and the restaurant.
+                </p>
+
+                <p class="mb-0">
+                    The pages contain the branch information, menu details, customer opinions,
+                    photos, and answers to common questions.
+                    Each page focuses on a different part of the project.
+                </p>
+
+            </div>
+
+
+            <div class="col-12 col-lg-4">
+
+                <div class="border rounded p-3 bg-white h-100">
+
+                    <h3 class="h5 text-danger">
+                        Project Pages
+                    </h3>
+
+                    <ul class="list-group list-group-flush">
+         <li class="list-group-item">Menu</li>
+         <li class="list-group-item">Reviews</li>
+         <li class="list-group-item">Gallery</li>
+         <li class="list-group-item">Order</li>
+         <li class="list-group-item">FAQ</li>
+
+          </ul>
+      </div>
+     </div>
+     </div>
+ </section>
 </main>
-<footer>
+<footer class="text-center text-white border-top border-4 border-danger bg-black">
     <p>
-            <strong>Phone:</strong>
-            <br>
-            <a href="tel:+77088043937">
-                +7 708 804 39 37
-            </a>
-        </p>  
-    <p>&copy; 2026 Doner na Abaya</p>
+        <strong>Phone:</strong>
+        <br>
+        <a class="text-white"
+           href="tel:+77088043937">
+            +7 708 804 39 37
+        </a>
+    </p>
+    <p>
+        &copy; 2026 Doner na Abaya
+    </p>
 </footer>
+<!-- Bootstrap JavaScript bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

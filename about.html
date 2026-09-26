@@ -20,7 +20,7 @@
 <header>
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-
+        <!-- container-fluid is used here so the navigation can span the full viewport width. -->
         <div class="container-fluid">
 
             <a class="navbar-brand" href="index.html">
@@ -87,7 +87,7 @@
 
     <section class="restaurant-intro mt-2 mb-5 rounded shadow border-bottom border-danger border-3" id="about-restaurant">
 
-        <h1 class="display-4 text-center pt-2">
+        <h1 class="display-4 text-center pt-2 pb-3 bg-body-secondary border-bottom border-danger border-2 ">
             About the Restaurant
         </h1>
 
@@ -115,7 +115,7 @@
         <!-- I use article because this part describes our specific branch separately from the general information. -->
           
 
-        <h2 class="display-6 text-center mb-4 pt-2 pb-2 border-bottom border-danger border-3">
+        <h2 class="display-6 text-center mb-4 pt-2 pb-2 bg-body-secondary border-bottom border-danger border-3">
             About the Branch
         </h2>
         
@@ -133,9 +133,9 @@
     </article>
 
 
-    <section id="offers" class="offers-section mb-5 rounded shadow p-3">
+    <section id="offers" class="offers-section mb-5 rounded shadow p-3 border border-danger border-2 bg-white">
 
-        <h2 class="display-6 text-center mb-4">
+        <h2 class="display-6 text-center mb-4 bg-light border-bottom border-danger border-5 pb-2">
             What the Restaurant Offers
         </h2>
 
@@ -228,22 +228,25 @@
     </section>
 
 
-    <div class="row g-4 align-items-start mb-5">
+    <div class="row g-4 align-items-center mb-5">
 
-        <div class="col-12 col-md-5 text-center">
+        <div class="col-12 col-md-5">
+            <div class="text-center">
 
             <img
-                class="branch-photo img-fluid rounded"
+                class="branch-photo about-photo img-fluid rounded border border-danger border-2 bg-white"
                 src="images/doner-na-abaya.jpeg"
                 width="300"
                 height="400"
                 alt="Doner na Abaya logo at 51 Mangilik El Avenue">
 
         </div>
+        </div>
 
         <div class="col-12 col-md-7">
+            <div class="p-4 border rounded shadow-sm bg-white h-100">
 
-            <p class="lead text-center">
+            <p class="lead mb-0">
                 During our visit, we also looked at the restaurant
                 entrance and the surrounding area.
                 The branch is easy to recognize, and the logo is
@@ -255,11 +258,12 @@
         </div>
 
     </div>
+    </div>
 
 
-    <aside id="branch" class="branch-info content-card p-4 mb-5 rounded shadow">
+    <aside id="branch" class="branch-info p-4 mb-5 rounded shadow border border-danger border-2 border-start border-danger border-5 bg-white ">
 
-        <h2 class="display-6 mb-3 p-3">
+        <h2 class="display-6 mb-3 p-3 bg-light border-start border-danger border-5">
             Additional Information
         </h2>
 
@@ -310,7 +314,7 @@
 
         <p>
             More information is available on the
-            <a class="border rounded px-1 py-1 text-white bg-black text-decoration-none"
+            <a class="border rounded px-1 text-white bg-black text-decoration-none"
                 href="https://doner-na-abaya.kz/"
                 target="_blank"
                 rel="noopener noreferrer">
@@ -321,7 +325,7 @@
     </aside>
 
 
-    <section class="customer-opinion content-card p-4 mb-5 text-break rounded shadow">
+    <section class="customer-opinion p-4 mb-5 text-break rounded shadow bg-white border border-danger">
 
         <h2 class="display-6 mb-4">
             Customer Opinion
@@ -349,23 +353,19 @@
 
 </main>
 
-
-
-
-
-<footer>
+<footer class="text-center text-white border-top border-4 border-danger  bg-dark">
 
     <p>
         <strong>Phone:</strong>
         <br>
-        <a href="tel:+77088043937">
+        <a class="text-white" href="tel:+77088043937">
             +7 708 804 39 37
         </a>
     </p>
 
     <p>
         <strong>Instagram:</strong>
-        <a
+        <a class="text-white"
             href="https://www.instagram.com/doner_na_abaya_astanaa/"
             target="_blank"
             rel="noopener noreferrer">
