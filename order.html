@@ -6,305 +6,317 @@
     <meta name="description" content="Order page of Doner na Abaya">
     <meta name="author" content="Mazhit Nurasyl">
     <title>Order | Doner na Abaya</title>
+    <!-- Bootstrap 5.3.8 is used for Assignment 3. -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+    <!-- Custom CSS is loaded after Bootstrap so small brand corrections can override it. -->
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Nurasyl.css">
-    <!--
-        Internal CSS cascade demonstration:
-        this internal rule has the same specificity as the external
-        .cascade-demo rule, but it appears later, so it overrides the colour.
-    -->
-    <style>
-        .cascade-demo {
-            color: #D32F2F;
-        }
-    </style>
 </head>
 <body>
 <!-- Author: Mazhit Nurasyl -->
 <header>
-    <p>Doner na Abaya</p>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="order.html">Order</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-            <li><a href="colophon.html">Colophon</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4">
+        <!-- container-fluid is used here because the navigation should use the full screen width. -->
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="order.html">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 </header>
-<main>
-    <h1>Order</h1>
-    <section id="info" class="order-info order-grid-container">
-        <span class="order-badge">ORDER GUIDE</span>
-        <h2 class="grid-full-width">Order Information</h2>
-        <p class="grid-full-width">
-                The image is inside this paragraph so the text can flow
-                around the floated image.
-            <img
-                class="order-photo"
-                src="images/photo_4_2026-09-11_18-56-40.jpg"
-                alt="Doner na Abaya restaurant">
-            First, open the Menu page and choose the food you want.
-            You can check the available doners, sizes and prices there.
-            After choosing your food, return to the Order page.
-            The form below asks for your contact information, quantity,
-            date and type of order.
-            If you need delivery, choose Delivery.
-            If you want to take the food yourself, choose Pickup.
-            You can also write extra information in the comment field.
-            Chicken &amp; beef doners are available in different sizes.
-            When you press Submit, the browser processes the form,
-            but the order is not sent to the restaurant because this
-            project does not have a server yet.
+<!-- container is used for readable content width instead of full-width page text. -->
+<main class="container py-4">
+    <div class="mb-4">
+        <h1 class="display-4 text-center text-md-start text-danger">Order</h1>
+        <p class="lead text-secondary text-center text-md-start mb-0">
+            Choose your food, enter your details and prepare your order.
         </p>
-        <section>
-            <h2>How to Order</h2>
-            <ol>
-                <li>Choose food from the Menu page.</li>
-                <li>Fill in your name, email and phone number.</li>
-                <li>Choose the quantity and date.</li>
-                <li>Select Pickup or Delivery.</li>
-                <li>Check your information and press Submit.</li>
-            </ol>
-        </section>
-        <figure>
-            <img
-                src="images/photo_2_2026-09-11_18-56-40.jpg"
-                width="300"
-                alt="Food from Doner na Abaya">
-            <figcaption>
-                Food from Doner na Abaya in Astana
-            </figcaption>
-        </figure>
-        <p class="cascade-demo grid-full-width">
-            Online ordering information is available on this page.
-        </p>
-        <p class="grid-full-width">
-            <a href="#form">Go to order form</a>
-        </p>
+    </div>
+    <section id="info" class="mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h3 mb-0">Order Information</h2>
+            <span class="badge order-badge-custom d-none d-md-inline-block">ORDER GUIDE</span>
+        </div>
+        <!-- Responsive block 1: image and text stack on phones and become columns from md. -->
+        <div class="row g-4 align-items-start">
+            <div class="col-12 col-md-4">
+                <img
+                    src="images/photo_4_2026-09-11_18-56-40.jpg"
+                    class="img-fluid rounded shadow-sm"
+                    alt="Doner na Abaya restaurant">
+            </div>
+            <div class="col-12 col-md-8">
+                <p>
+                    First, open the Menu page and choose the food you want.
+                    You can check the available doners, sizes and prices there.
+                    After choosing your food, return to the Order page.
+                    The form below asks for your contact information, quantity,
+                    date and type of order.
+                </p>
+                <p>
+                    If you need delivery, choose Delivery. If you want to take
+                    the food yourself, choose Pickup. You can also write extra
+                    information in the comment field. Chicken &amp; beef doners
+                    are available in different sizes.
+                </p>
+                <p class="mb-3">
+                    When you press Submit, the browser processes the form,
+                    but the order is not sent to the restaurant because this
+                    project does not have a server yet.
+                </p>
+                <!-- Nested Bootstrap grid: this row is inside the col-md-8 column. -->
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6">
+                        <div class="border rounded p-3 h-100 bg-body-tertiary">
+                            <h3 class="h5">Pickup</h3>
+                            <p class="mb-0">Choose Pickup if you want to take the food yourself.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        <div class="border rounded p-3 h-100 bg-body-tertiary">
+                            <h3 class="h5">Delivery</h3>
+                            <p class="mb-0">Choose Delivery if you want the order delivered.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!--
-        clear-section makes sure this section starts after
-        the previous floated image.
-    -->
-    <section class="popular-food clear-section">
-        <h2>Popular Food</h2>
-        <!--
-            I use a table because it is easier to compare
-            food names and prices.
-        -->
-        <table class="food-table">
-            <caption>Popular items</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Food</th>
-                    <th scope="col">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Doner (1&times;) chicken</td>
-                    <td>1895&nbsp;&#8376;</td>
-                </tr>
-                <tr>
-                    <td>Doner (1.5&times;) beef</td>
-                    <td>2595&nbsp;&#8376;</td>
-                </tr>
-                <tr>
-                    <td>Doner (1&times;) beef</td>
-                    <td>2295&nbsp;&#8376;</td>
-                </tr>
-                <tr>
-                    <td>Doner (1.5&times;) chicken</td>
-                    <td>2295&nbsp;&#8376;</td>
-                </tr>
-            </tbody>
-        </table>
+    <section class="mb-5">
+        <div class="row g-4 align-items-center">
+            <div class="col-12 col-md-6">
+                <h2 class="h3">How to Order</h2>
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item">Choose food from the Menu page.</li>
+                    <li class="list-group-item">Fill in your name, email and phone number.</li>
+                    <li class="list-group-item">Choose the quantity and date.</li>
+                    <li class="list-group-item">Select Pickup or Delivery.</li>
+                    <li class="list-group-item">Check your information and press Submit.</li>
+                </ol>
+            </div>
+            <div class="col-12 col-md-6 text-center">
+                <figure class="mb-0">
+                    <img
+                        src="images/photo_2_2026-09-11_18-56-40.jpg"
+                        class="img-fluid rounded shadow-sm"
+                        alt="Food from Doner na Abaya">
+                    <figcaption class="text-secondary mt-2">
+                        Food from Doner na Abaya in Astana
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+        <div class="text-center text-md-start mt-3">
+            <a class="btn btn-outline-danger" href="#form">Go to order form</a>
+        </div>
     </section>
-    <section id="form">
-        <h2>Order Form</h2>
-        <!--
-            I use a form because customers need
-            to enter their order information.
-        -->
-        <form
-            class="order-form"
-            method="get"
-            action="order.html">
-            <!--
-                This form does not send an order to a server
-                because there is no backend yet.
-            -->
-            <fieldset>
-                <legend>Customer Information</legend>
-                <p class="form-control">
-                    <label for="name">Name:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Your name"
-                        required>
-                </p>
-                <p class="form-control">
-                    <label for="email">Email:</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Your email"
-                        required>
-                </p>
-                <p class="form-control">
-                    <label for="phone">Phone:</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="+7..."
-                        required>
-                </p>
-                <p class="form-control">
-                    <label for="quantity">
-                        Quantity <span>(1 or more)</span>:
-                    </label>
-                    <input
-                        type="number"
-                        id="quantity"
-                        name="quantity"
-                        min="1"
-                        required>
-                </p>
-                <p class="form-control">
-                    <label for="date">Date:</label>
-                    <input
-                        type="date"
-                        id="date"
-                        name="date"
-                        required>
-                </p>
-                <p class="form-control">
-                    Order type:
-                </p>
-                <p class="form-control">
-                    <input
-                        type="radio"
-                        id="pickup"
-                        name="type"
-                        value="pickup"
-                        required>
-                    <label for="pickup">
-                        <!--
-                            Inline CSS cascade demonstration:
-                            this is the only inline style in the project and it
-                            overrides the external .inline-demo colour.
-                        -->
-                        <span
-                            class="inline-demo"
-                            style="color: #D32F2F;">
-                            Pickup
-                        </span>
-                    </label>
-                    <input
-                        type="radio"
-                        id="delivery"
-                        name="type"
-                        value="delivery">
-                    <label for="delivery">
-                        Delivery
-                    </label>
-                </p>
-                <p class="form-control">
-                    <label for="food">
-                        Food:
-                    </label>
-                    <select
-                        id="food"
-                        name="food"
-                        required>
-                        <option value="">
-                            Choose food
-                        </option>
-                        <option value="food1">
-                            Doner (1x) chicken
-                        </option>
-                        <option value="food2">
-                            Doner (1x) beef
-                        </option>
-                        <option value="food3">
-                            Doner (1.5x) chicken
-                        </option>
-                        <option value="food4">
-                            Doner (1.5x) beef
-                        </option>
-                    </select>
-                </p>
-                <p class="form-control">
-                    <label for="comment">
-                        Comment:
-                    </label>
-                    <br>
-                    <textarea
-                        id="comment"
-                        name="comment"
-                        placeholder="Your comment"></textarea>
-                </p>
-                <p class="form-control">
-                    <input
-                        type="checkbox"
-                        id="confirm"
-                        name="confirm"
-                        required>
-                    <label for="confirm">
-                        I confirm my order
-                    </label>
-                </p>
-                <p class="form-actions">
-                    <button type="submit">
-                        Submit
-                    </button>
-                    <button type="reset">
-                        Reset
-                    </button>
-                </p>
-            </fieldset>
-        </form>
+    <section class="mb-5">
+        <h2 class="h3 mb-3">Popular Food</h2>
+        <div class="table-responsive shadow-sm">
+            <table class="table table-striped table-bordered table-hover align-middle mb-0">
+                <caption class="caption-top">Popular items</caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Food</th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Doner (1&times;) chicken</td>
+                        <td>1895&nbsp;&#8376;</td>
+                    </tr>
+                    <tr>
+                        <td>Doner (1.5&times;) beef</td>
+                        <td>2595&nbsp;&#8376;</td>
+                    </tr>
+                    <tr>
+                        <td>Doner (1&times;) beef</td>
+                        <td>2295&nbsp;&#8376;</td>
+                    </tr>
+                    <tr>
+                        <td>Doner (1.5&times;) chicken</td>
+                        <td>2295&nbsp;&#8376;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
-    <p>
+    <section id="form" class="mb-5">
+        <h2 class="h3 mb-3">Order Form</h2>
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <form method="get" action="order.html">
+                    <fieldset>
+                        <legend class="h5 mb-3">Customer Information</legend>
+                        <!-- Responsive block 2: form fields change from 1 column to 2 columns at md. -->
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label for="name" class="form-label">Name</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Your name"
+                                    required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Your email"
+                                    required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input
+                                    type="tel"
+                                    class="form-control"
+                                    id="phone"
+                                    name="phone"
+                                    placeholder="+7..."
+                                    required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="quantity" class="form-label">Quantity (1 or more)</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="quantity"
+                                    name="quantity"
+                                    min="1"
+                                    required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="date" class="form-label">Date</label>
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    id="date"
+                                    name="date"
+                                    required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="food" class="form-label">Food</label>
+                                <select class="form-select" id="food" name="food" required>
+                                    <option value="">Choose food</option>
+                                    <option value="food1">Doner (1x) chicken</option>
+                                    <option value="food2">Doner (1x) beef</option>
+                                    <option value="food3">Doner (1.5x) chicken</option>
+                                    <option value="food4">Doner (1.5x) beef</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <p class="form-label mb-2">Order type</p>
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        id="pickup"
+                                        name="type"
+                                        value="pickup"
+                                        required>
+                                    <label class="form-check-label" for="pickup">Pickup</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input
+                                        class="form-check-input"
+                                        type="radio"
+                                        id="delivery"
+                                        name="type"
+                                        value="delivery">
+                                    <label class="form-check-label" for="delivery">Delivery</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <label for="comment" class="form-label">Comment</label>
+                                <textarea
+                                    class="form-control"
+                                    id="comment"
+                                    name="comment"
+                                    rows="3"
+                                    placeholder="Your comment"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        id="confirm"
+                                        name="confirm"
+                                        required>
+                                    <label class="form-check-label" for="confirm">
+                                        I confirm my order
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bootstrap flex utilities replace the old .form-actions Flexbox CSS. -->
+                        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                            <button class="btn btn-danger btn-lg" type="submit">Submit</button>
+                            <button class="btn btn-outline-dark" type="reset">Reset</button>
+                            <a class="btn btn-outline-danger" href="menu.html">Menu</a>
+                            <button class="btn btn-secondary" type="button" disabled>Online payment</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="alert alert-light border shadow-sm" role="note">
         Visit the
-        <a
-            href="https://doner-na-abaya.kz/ru"
-            target="_blank"
-            rel="noopener noreferrer">
+        <a class="alert-link link-danger" href="https://doner-na-abaya.kz/ru" target="_blank" rel="noopener noreferrer">
             official website
-        </a>.
-    </p>
-    <a class="back-link" href="#info">
-        Back to information
-    </a>
+        </a>
+        for restaurant information.
+    </div>
 </main>
-<footer>
-    <p>
-        Phone:
-        <a href="tel:+77088043937">
-            +7 708 804 39 37
-        </a>
-    </p>
-    <p>
-        <a
-            href="https://api.whatsapp.com/send/?phone=77088043937"
-            target="_blank"
-            rel="noopener noreferrer">
-            WhatsApp
-        </a>
-    </p>
-    <p>
-        &copy; 2026 Doner na Abaya
-    </p>
+<footer class="bg-dark text-white border-top border-danger border-4 mt-5">
+    <div class="container py-4 text-center">
+        <p class="mb-2">
+            Phone:
+            <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
+        </p>
+        <p class="mb-2">
+            <a class="link-light" href="https://api.whatsapp.com/send/?phone=77088043937" target="_blank" rel="noopener noreferrer">
+                WhatsApp
+            </a>
+        </p>
+        <p class="mb-0">&copy; 2026 Doner na Abaya</p>
+    </div>
 </footer>
+<!-- Bootstrap JS bundle is required for the working navbar toggler. -->
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 </body>
 </html>
