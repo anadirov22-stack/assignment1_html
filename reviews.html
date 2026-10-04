@@ -13,36 +13,77 @@
 </head>
 <body>
 <!-- Author: Alikhan Kuttybayev -->
+<!-- container-fluid inside the navbar: the dark bar spans the full width of the screen. -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4">
-        <!-- container-fluid: the dark navigation bar should stretch across the whole screen. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
-                </ul>
-            </div>
+
+        <a class="navbar-brand" href="index.html">
+            Doner na Abaya
+        </a>
+
+        <button
+            id="navigation-toggle"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavigation"
+            aria-controls="mainNavigation"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavigation">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html">Menu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="reviews.html">Reviews</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Order</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="faq.html">FAQ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="colophon.html">Colophon</a>
+                </li>
+
+            </ul>
+
         </div>
-    </nav>
+    </div>
+</nav>
+
 </header>
 
 <!-- container (not fluid): keeps the text at a readable width on big screens. -->
 <main class="container py-4">
     <h1 class="display-5 fw-bold text-danger text-center text-md-start">Customer Reviews</h1>
     <p class="lead text-center text-md-start">
-        These are real opinions about the branch at 51 Mangilik El Avenue.
+        These are opinions about the branch at 51 Mangilik El Avenue.
         Read the <a href="#customer-reviews">reviews</a> or go to the
         <a href="#review-form">review form</a> to add yours.
     </p>
@@ -50,12 +91,13 @@
     <section id="customer-reviews" class="mb-5">
         <h2 class="h3 pb-2 border-bottom border-danger border-2">What Visitors Say</h2>
         <!-- Responsive block 1: 1 card per row on phones, 2 on tablets, 3 on desktops. -->
-        <div class="row g-4">
+        <p class="text-muted" id="review-summary">Reviews on this page: <strong id="review-count">3</strong></p>
+        <div class="row g-4" id="review-list">
             <div class="col-12 col-md-6 col-lg-4">
                 <!-- Bootstrap component: card. Copied from the docs; I changed the text to our
                      reviews, added the red top border and h-100 so all cards are the same height. -->
                 <!-- Each review is an article because it is a complete opinion that still makes sense alone. -->
-                <article class="card h-100 shadow-sm border-top border-danger border-4">
+                <article class="card h-100 border-top border-danger border-4 review-card" id="review-1">
                     <div class="card-body">
                         <h3 class="card-title h5 review-name">Arman</h3>
                         <blockquote class="mb-2">
@@ -66,18 +108,18 @@
                 </article>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <article class="card h-100 shadow-sm border-top border-danger border-4">
+                <article class="card h-100 border-top border-danger border-4 review-card" id="review-2">
                     <div class="card-body">
                         <h3 class="card-title h5 review-name">Araylym, staff member</h3>
                         <blockquote class="mb-2">
                             <p class="fst-italic">All our meat is halal. A lot of people come to us exactly for this reason.</p>
                         </blockquote>
-                        <p class="small text-muted mb-0">Told to me at the branch on 11<sup>th</sup> September 2026.</p>
+                        <p class="small text-muted mb-0">Told to our team at the branch on 11<sup>th</sup> September 2026.</p>
                     </div>
                 </article>
             </div>
             <div class="col-12 col-lg-4">
-                <article class="card h-100 shadow-sm border-top border-danger border-4">
+                <article class="card h-100 border-top border-danger border-4 review-card" id="review-3">
                     <div class="card-body">
                         <h3 class="card-title h5 review-name">Our Team's Visit</h3>
                         <p class="mb-0">
@@ -96,7 +138,7 @@
         <!-- Responsive block 2: form and side panel stack on phones, become 2 columns from lg. -->
         <div class="row g-4">
             <div class="col-12 col-lg-8">
-                <form class="p-4 bg-white border rounded shadow-sm" method="get" action="reviews.html">
+                <form id="feedback-form" class="p-4 bg-white border rounded shadow-sm" method="get" action="reviews.html">
                     <fieldset>
                         <legend class="h5 text-danger">Your review</legend>
                         <!-- Nested row: this row sits inside the col-lg-8 column.
@@ -126,15 +168,17 @@
                                 <label for="doner-choice" class="form-label">Doner you tried</label>
                                 <select class="form-select" id="doner-choice" name="doner" required>
                                     <option value="">Choose a doner</option>
-                                    <option value="chicken-1">Chicken doner 1&times;</option>
-                                    <option value="chicken-1.5">Chicken doner 1.5&times;</option>
-                                    <option value="beef-1">Beef doner 1&times;</option>
-                                    <option value="beef-1.5">Beef doner 1.5&times;</option>
-                                    <option value="assorted">Assorted doner</option>
+                                    <option value="chicken-standard">Chicken, standard</option>
+                                    <option value="chicken-large">Chicken, large</option>
+                                    <option value="beef-standard">Beef, standard</option>
+                                    <option value="beef-large">Beef, large</option>
+                                    <option value="assorted-standard">Assorted, standard</option>
+                                    <option value="assorted-large">Assorted, large</option>
                                 </select>
                             </div>
                             <div class="col-12">
-                                <p class="form-label mb-1">Your rating</p>
+                                <fieldset id="rating-group">
+                                <legend class="form-label fs-6 mb-1">Your rating</legend>
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="radio" id="rating-5" name="rating" value="5" required>
                                     <label class="form-check-label" for="rating-5">5 Excellent</label>
@@ -155,6 +199,7 @@
                                     <input class="form-check-input" type="radio" id="rating-1" name="rating" value="1">
                                     <label class="form-check-label" for="rating-1">1 Very bad</label>
                                 </div>
+                                </fieldset>
                             </div>
                             <div class="col-12">
                                 <label for="review-text" class="form-label">Your review</label>
@@ -168,32 +213,32 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Empty on purpose: JavaScript will fill these later. -->
+                        <div id="review-confirmation" class="alert alert-success hidden mt-4 mb-0" role="status" aria-live="polite"></div>
+                        <div id="review-error" class="alert alert-danger hidden mt-4 mb-0" role="alert"></div>
+                        <p class="small text-muted mt-4 mb-0" id="review-submit-help">Press Submit: your review is added to the list above and a confirmation message appears here. Reviews stay on this page only and are not sent to the restaurant.</p>
                         <!-- Bootstrap flex utilities replace my old .form-actions flexbox CSS. -->
-                        <div class="d-flex flex-wrap gap-2 mt-4">
-                            <button type="submit" class="btn btn-danger btn-lg">Submit</button>
-                            <button type="reset" class="btn btn-outline-dark">Reset</button>
-                            <a class="btn btn-outline-danger" href="#customer-reviews">Read reviews</a>
-                            <button type="button" class="btn btn-secondary" disabled>Add photo (soon)</button>
+                        <div class="d-flex flex-wrap gap-2 mt-3">
+                            <button type="submit" id="review-submit" class="btn btn-danger btn-lg">Submit</button>
+                            <button type="reset" id="review-reset" class="btn btn-outline-dark">Reset</button>
+                            <a id="read-reviews-link" class="btn btn-outline-danger" href="#customer-reviews">Read reviews</a>
+                            <a id="back-to-menu" class="btn btn-outline-dark" href="menu.html">See the menu</a>
                         </div>
                     </fieldset>
                 </form>
             </div>
 
             <div class="col-12 col-lg-4">
-                <aside class="p-4 bg-light border-start border-danger border-5 rounded h-100">
+                <aside id="form-help" class="p-4 bg-light border-start border-danger border-5 rounded h-100">
                     <h3 class="h5">How the Form Works</h3>
                     <p>
                         Press <kbd>Tab</kbd> to go to the next field. An empty required field shows
                         <samp>Please fill out this field.</samp>
                     </p>
-                    <p>
-                        Because of <code>method="get"</code>, Submit only puts the answers in the address bar:
-                    </p>
-                    <!-- text-break lets the very long line wrap, so it never makes the page scroll sideways on a phone. -->
-                    <p class="small font-monospace text-break bg-white border rounded p-2">reviews.html?name=Aigerim&amp;email=aigerim%40mail.kz&amp;visit_date=2026-09-12&amp;rating=5&amp;review=Tasty</p>
+                    <p>Your review appears in the list at the top of this page. It is not sent to the restaurant, because this website has no server.</p>
                     <p class="mb-0">
-                        <strong>Nothing reaches the restaurant.</strong> Email the page author at
-                        <a class="text-break" href="mailto:alik.kuttybayev@gmail.com">alik.kuttybayev@gmail.com</a>.
+                        Questions about this website: email the page author at
+                        <a class="text-break" href="mailto:alik.kuttybayev@gmail.com">alik.kuttybayev@gmail.com</a>
                     </p>
                 </aside>
             </div>
@@ -205,17 +250,42 @@
              alt="Order counter at Doner na Abaya where customers order, pay and pick up their food">
         <figcaption class="small text-muted mt-2">The counter where customers order</figcaption>
     </figure>
+
+    <!-- Cross-links: flex utilities center the two buttons and let them wrap on a phone. -->
+    <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
+        <a id="go-to-menu" class="btn btn-danger" href="menu.html">Choose your doner</a>
+        <a id="go-to-order" class="btn btn-outline-danger" href="order.html">Go to the Order page</a>
+    </div>
 </main>
 
-<footer class="bg-dark text-white border-top border-danger border-4 mt-5">
-    <div class="container py-4 text-center">
-        <p class="mb-2">Phone: <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a></p>
-        <p class="mb-2">Instagram:
-            <a class="link-light" href="https://www.instagram.com/doner_na_abaya_astanaa/" target="_blank" rel="noopener noreferrer">@doner_na_abaya_astanaa</a>
-        </p>
-        <p class="mb-2">Address: 51 Mangilik El Avenue, Astana</p>
-        <p class="mb-0">&copy; 2026 Doner na Abaya</p>
-    </div>
+<footer class="text-center text-white border-top border-4 border-danger bg-dark">
+
+
+<p>
+    <strong>Phone:</strong>
+    <br>
+    <a
+        class="text-white"
+        href="tel:+77088043937">
+        +7 708 804 39 37
+    </a>
+</p>
+
+<p>
+    <strong>Instagram:</strong>
+    <a
+        class="text-white"
+        href="https://www.instagram.com/doner_na_abaya_astanaa/"
+        target="_blank"
+        rel="noopener noreferrer">
+        @doner_na_abaya_astanaa
+    </a>
+</p>
+
+<p>
+    &copy; 2026 Doner na Abaya
+</p>
+
 </footer>
 
 <!-- Bootstrap 5.3.8 JavaScript bundle: needed for the navbar toggler. -->

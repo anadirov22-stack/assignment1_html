@@ -13,29 +13,70 @@
 </head>
 <body>
 <!-- Author: Alikhan Kuttybayev -->
+<!-- container-fluid: the dark navigation bar should stretch across the whole screen. -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4">
-        <!-- container-fluid: the dark navigation bar should stretch across the whole screen. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                    aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
-                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
-                </ul>
-            </div>
+
+        <a class="navbar-brand" href="index.html">
+            Doner na Abaya
+        </a>
+
+        <button
+            id="navigation-toggle"
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavigation"
+            aria-controls="mainNavigation"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNavigation">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="reviews.html">Reviews</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Order</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="faq.html">FAQ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="colophon.html">Colophon</a>
+                </li>
+
+            </ul>
+
         </div>
-    </nav>
+    </div>
+</nav>
+
 </header>
 
 <!-- container (not fluid): keeps the text at a readable width on big screens. -->
@@ -45,7 +86,7 @@
         In Russian it is called
         <!-- I used span because these words only need a lang attribute. It is a name, so it is not emphasis (em), not a quotation (q) and not a foreign phrase set apart from the text (i). -->
         <span lang="ru" class="fst-italic">Донер на Абая</span>.
-        Jump to the <a href="#prices">prices</a> or to the <a href="#drinks">drinks</a>.
+        Jump to the <a href="#prices">prices</a> or to the <a href="#drinks">drinks</a>, or <a href="#choose-doner">choose your doner</a> and go straight to ordering.
     </p>
 
     <section id="prices" class="mb-5 p-4 bg-white border rounded shadow-sm">
@@ -61,7 +102,7 @@
                      added a caption and wrapped it in table-responsive so it never overflows on a phone. -->
                 <!-- I used a table because visitors compare the same facts (meat, size, price) for every doner. -->
                 <div class="table-responsive">
-                    <table class="table table-striped table-hover table-bordered align-middle mb-0">
+                    <table id="price-table" class="table table-striped table-hover table-bordered align-middle mb-0">
                         <caption class="caption-top">Doner prices at our branch</caption>
                         <thead class="table-dark">
                             <tr>
@@ -71,17 +112,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr id="price-row-chicken" class="price-row" data-doner="chicken" data-price-standard="1895" data-price-large="2195">
                                 <th scope="row">Chicken</th>
                                 <td>1895&nbsp;&#8376;</td>
                                 <td>2195&nbsp;&#8376;</td>
                             </tr>
-                            <tr>
+                            <tr id="price-row-beef" class="price-row" data-doner="beef" data-price-standard="2195" data-price-large="2495">
                                 <th scope="row">Beef</th>
                                 <td>2195&nbsp;&#8376;</td>
                                 <td>2495&nbsp;&#8376;</td>
                             </tr>
-                            <tr>
+                            <tr id="price-row-assorted" class="price-row" data-doner="assorted" data-price-standard="2095" data-price-large="2395">
                                 <th scope="row">Assorted</th>
                                 <td>2095&nbsp;&#8376;</td>
                                 <td>2395&nbsp;&#8376;</td>
@@ -129,13 +170,13 @@
 
     <section id="drinks" class="mb-5 p-4 bg-white border rounded shadow-sm">
         <h2 class="h3 pb-2 border-bottom border-danger border-2">Drinks and Extras</h2>
-        <p class="text-muted">Drinks have two prices, one for each size in <abbr title="millilitres">ml</abbr>.</p>
+        <p class="text-muted">Soft drinks come in two sizes, so they have two prices.</p>
         <!-- Responsive block 3: one group per row on phones, two side by side from md. -->
         <ul class="row g-4 list-unstyled mb-0">
             <li class="col-12 col-md-6">
                 <div class="h-100 p-3 bg-light border border-danger rounded">
                     <strong class="text-danger">Drinks</strong>
-                    <ul class="mt-2 mb-0">
+                    <ul id="drinks-list" class="mt-2 mb-0">
                         <li>Coca-Cola, Zero Sugar, Fanta, Sprite, Fuse Tea: 795 or 845&nbsp;&#8376;</li>
                         <li>Bonaqua: 595&nbsp;&#8376;</li>
                         <li>Ayran: 595&nbsp;&#8376;</li>
@@ -145,7 +186,7 @@
             <li class="col-12 col-md-6">
                 <div class="h-100 p-3 bg-light border border-danger rounded">
                     <strong class="text-danger">Extras</strong>
-                    <ul class="mt-2 mb-0">
+                    <ul id="extras-list" class="mt-2 mb-0">
                         <li>Extra chicken 50 g: 590&nbsp;&#8376;</li>
                         <li>Extra beef 50 g: 690&nbsp;&#8376;</li>
                         <li>Fries: 895&nbsp;&#8376;</li>
@@ -155,6 +196,80 @@
                 </div>
             </li>
         </ul>
+    </section>
+
+    <!-- Bootstrap form components used below: row g-3 grid, form-label, form-select, form-control,
+         form-check with form-check-input / form-check-label (radios and checkboxes), fieldset with legend,
+         alert (success and error, hidden for now) and btn buttons. -->
+    <section id="choose-doner" class="mb-5 p-4 bg-white border rounded shadow-sm">
+        <h2 class="h3 pb-2 border-bottom border-danger border-2">Choose Your Doner</h2>
+        <p class="text-muted">Pick your doner, size and extras, then continue to the Order page.</p>
+        <form id="menu-form" method="get" action="order.html">
+            <div class="row g-3">
+                <div class="col-12 col-md-6">
+                    <label for="menu-doner" class="form-label">Doner</label>
+                    <select id="menu-doner" name="doner" class="form-select" required>
+                        <option value="">Choose a doner</option>
+                        <option value="chicken">Chicken</option>
+                        <option value="beef">Beef</option>
+                        <option value="assorted">Assorted</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="menu-quantity" class="form-label">Quantity (1 to 10)</label>
+                    <input type="number" id="menu-quantity" name="quantity" class="form-control" min="1" max="10" value="1" required>
+                </div>
+                <div class="col-12 col-md-6">
+                    <fieldset id="menu-size-group">
+                        <legend class="form-label fs-6">Size</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="size" id="menu-size-standard" value="standard" checked>
+                            <label class="form-check-label" for="menu-size-standard">Standard</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="size" id="menu-size-large" value="large">
+                            <label class="form-check-label" for="menu-size-large">Large</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-12 col-md-6">
+                    <fieldset id="menu-extras-group">
+                        <legend class="form-label fs-6">Extras</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="extra-chicken" value="extra-chicken" data-price="590">
+                            <label class="form-check-label" for="extra-chicken">Extra chicken 50 g: 590 &#8376;</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="extra-beef" value="extra-beef" data-price="690">
+                            <label class="form-check-label" for="extra-beef">Extra beef 50 g: 690 &#8376;</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="extra-fries" value="extra-fries" data-price="895">
+                            <label class="form-check-label" for="extra-fries">Fries: 895 &#8376;</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="extra-sauce" value="extra-sauce" data-price="200">
+                            <label class="form-check-label" for="extra-sauce">Any sauce: 200 &#8376;</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="extras" id="extra-peppers" value="extra-peppers" data-price="100">
+                            <label class="form-check-label" for="extra-peppers">Peppers: 100 &#8376;</label>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-12">
+                    <p class="lead mb-3">Total: <strong id="menu-total">0&nbsp;&#8376;</strong></p>
+                    <p class="small text-muted" id="menu-submit-help">Press Continue to order: the Order page opens and your choice is added to its address.</p>
+                    <!-- Empty on purpose: JavaScript will fill these later. -->
+                    <div id="menu-message" class="alert alert-success hidden" role="status" aria-live="polite"></div>
+                    <div id="menu-error" class="alert alert-danger hidden" role="alert"></div>
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="submit" id="menu-submit" class="btn btn-danger btn-lg">Continue to order</button>
+                        <button type="reset" id="menu-reset" class="btn btn-outline-dark">Clear choice</button>
+                    </div>
+                </div>
+            </div>
+        </form>
     </section>
 
     <section id="words" class="mb-5 p-4 bg-white border rounded shadow-sm">
@@ -185,23 +300,46 @@
             (&ldquo;Juicy doners from 1795 tenge!&rdquo;), but the cheapest one now costs 1895&nbsp;&#8376;.
             <strong>Prices change, so check before you go.</strong>
         </p>
-        <a class="btn btn-outline-danger btn-sm" href="https://doner-na-abaya.kz/" target="_blank" rel="noopener noreferrer">Official website</a>
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-outline-danger btn-sm" href="https://doner-na-abaya.kz/" target="_blank" rel="noopener noreferrer">Official website</a>
+            <a class="btn btn-danger btn-sm" id="go-to-order" href="order.html">Go to the Order page</a>
+            <a class="btn btn-outline-dark btn-sm" id="read-reviews" href="reviews.html">Read reviews</a>
+        </div>
         <p class="small text-muted mt-3 mb-0">Checked in September 2026.</p>
     </aside>
 
     <!-- Hidden on phones (d-none), where it would cover the text; shown from md. -->
-    <a class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 d-none d-md-inline-block" href="#prices">Back to prices</a>
+    <a id="back-to-prices" class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 d-none d-md-inline-block" href="#prices">Back to prices</a>
 </main>
 
-<footer class="bg-dark text-white border-top border-danger border-4 mt-5">
-    <div class="container py-4 text-center">
-        <p class="mb-2">Phone: <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a></p>
-        <p class="mb-2">Instagram:
-            <a class="link-light" href="https://www.instagram.com/doner_na_abaya_astanaa/" target="_blank" rel="noopener noreferrer">@doner_na_abaya_astanaa</a>
-        </p>
-        <p class="mb-2">Address: 51 Mangilik El Avenue, Astana</p>
-        <p class="mb-0">&copy; 2026 Doner na Abaya</p>
-    </div>
+<footer class="text-center text-white border-top border-4 border-danger bg-dark">
+
+
+<p>
+    <strong>Phone:</strong>
+    <br>
+    <a
+        class="text-white"
+        href="tel:+77088043937">
+        +7 708 804 39 37
+    </a>
+</p>
+
+<p>
+    <strong>Instagram:</strong>
+    <a
+        class="text-white"
+        href="https://www.instagram.com/doner_na_abaya_astanaa/"
+        target="_blank"
+        rel="noopener noreferrer">
+        @doner_na_abaya_astanaa
+    </a>
+</p>
+
+<p>
+    &copy; 2026 Doner na Abaya
+</p>
+
 </footer>
 
 <!-- Bootstrap 5.3.8 JavaScript bundle: needed for the navbar toggler. -->
