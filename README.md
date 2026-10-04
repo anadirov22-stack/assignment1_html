@@ -228,20 +228,6 @@ The Home and Colophon pages are team pages and were reviewed as part of the over
 
 ---
 
-## Screenshots and Evidence
-
-The final submission should include screenshots showing:
-
-1. Desktop version of the website.
-2. Mobile/responsive version.
-3. Important completed pages.
-4. Forms and their visible result areas.
-5. W3C HTML validation results for `about.html` and `gallery.html`.
-6. W3C CSS validation results for the relevant CSS files.
-7. Browser testing results where required.
-
----
-
 # AI Usage Log
 
 **Project:** Doner na Abaya Website
