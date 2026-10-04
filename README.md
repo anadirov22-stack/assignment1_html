@@ -464,14 +464,28 @@ Gemini explained that Bootstrap provides utility classes that apply Flexbox prop
 <img width="1289" height="1015" alt="about-375px-6" src="https://github.com/user-attachments/assets/80891db8-ca26-49d7-b299-3a9c72263a5f" />
 <img width="1268" height="1014" alt="about-375px-7" src="https://github.com/user-attachments/assets/0c657d21-94ba-4a6f-8820-7e2113520bca" />
 
+<img width="480" height="960" alt="image" src="https://github.com/user-attachments/assets/1da32d1e-01bd-49f9-b145-66ff812e5893" />
+<img width="481" height="961" alt="image" src="https://github.com/user-attachments/assets/a00bb75b-2266-4b2d-ba84-4da25db78377" />
+<img width="473" height="955" alt="image" src="https://github.com/user-attachments/assets/9b5053a2-ec1d-47e6-9352-03f461a1ce2d" />
+<img width="478" height="961" alt="image" src="https://github.com/user-attachments/assets/9a53eb54-d9c2-429c-a11e-6ac30cee59c3" />
+<img width="476" height="966" alt="image" src="https://github.com/user-attachments/assets/9b5df1d3-ef18-404b-8521-0dfd2c83a5f8" />
+<img width="484" height="963" alt="image" src="https://github.com/user-attachments/assets/4792ac8a-f2a3-43c7-94a4-bbaa2ca07093" />
+<img width="481" height="963" alt="image" src="https://github.com/user-attachments/assets/e4926258-a17d-4e5e-bc4f-11329ef926c7" />
+<img width="479" height="963" alt="image" src="https://github.com/user-attachments/assets/c2e0862a-7174-491c-b4e7-b4674c99d2d1" />
+
 
 <img width="1543" height="1014" alt="image" src="https://github.com/user-attachments/assets/ae4958c5-d78c-4a82-9455-280ca1872090" />
 <img width="1542" height="1015" alt="about-1366px-2" src="https://github.com/user-attachments/assets/571f1779-42be-4266-892d-ba3e339c0a88" />
 <img width="1542" height="1017" alt="about-1366px-3" src="https://github.com/user-attachments/assets/ea8b4ece-5041-4041-ad7b-185834b65f74" />
 <img width="1544" height="1020" alt="about-1366px-4" src="https://github.com/user-attachments/assets/82928ac8-60bf-4a98-bd4c-9b61b1e2ae0d" />
 
----
+<img width="1542" height="1014" alt="image" src="https://github.com/user-attachments/assets/6c3cdd98-f0d2-4468-9aa4-7a8594468660" />
+<img width="1542" height="1018" alt="image" src="https://github.com/user-attachments/assets/90eb5542-4625-43ac-9963-838cc99e0a81" />
+<img width="1540" height="1016" alt="image" src="https://github.com/user-attachments/assets/3562663c-cd72-49cd-be7c-5df527bfeb0c" />
+<img width="1545" height="1017" alt="image" src="https://github.com/user-attachments/assets/c0fce829-d2d8-45d4-91a1-eaa17e806a28" />
+<img width="1548" height="1017" alt="image" src="https://github.com/user-attachments/assets/50d86363-c8a7-4ed8-a333-1c15a5eeb361" />
 
+---
 
 # Final Project Freeze
 
