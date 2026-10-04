@@ -19,27 +19,29 @@
 <body>
 <!-- Author: Mazhit Nurasyl -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4">
-        <!-- container-fluid is used here because the navigation should use the full screen width. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
+
             <button
+                id="navigation-toggle"
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
+                data-bs-target="#main-navbar"
+                aria-controls="main-navbar"
                 aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav ms-auto gap-lg-2">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="order.html">Order</a></li>
                     <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
@@ -84,9 +86,8 @@
                     are available in different sizes.
                 </p>
                 <p class="mb-3">
-                    When you press Submit, the browser processes the form,
-                    but the order is not sent to the restaurant because this
-                    project does not have a server yet.
+                    After you press Submit, your order details will be checked
+                    and a confirmation message will appear below the form.
                 </p>
                 <!-- Nested Bootstrap grid: this row is inside the col-md-8 column. -->
                 <div class="row g-3">
@@ -131,7 +132,7 @@
             </div>
         </div>
         <div class="text-center text-md-start mt-3">
-            <a class="btn btn-outline-danger" href="#form">Go to order form</a>
+            <a id="go-to-order-form" class="btn btn-outline-danger" href="#form">Go to order form</a>
         </div>
     </section>
     <section class="mb-5">
@@ -170,7 +171,7 @@
         <h2 class="h3 mb-3">Order Form</h2>
         <div class="card border-0 shadow-sm">
             <div class="card-body p-4">
-                <form method="get" action="order.html">
+                <form id="order-form" method="get" action="order.html">
                     <fieldset>
                         <legend class="h5 mb-3">Customer Information</legend>
                         <!-- Responsive block 2: form fields change from 1 column to 2 columns at md. -->
@@ -281,13 +282,29 @@
                         </div>
                         <!-- Bootstrap flex utilities replace the old .form-actions Flexbox CSS. -->
                         <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-                            <button class="btn btn-danger btn-lg" type="submit">Submit</button>
-                            <button class="btn btn-outline-dark" type="reset">Reset</button>
-                            <a class="btn btn-outline-danger" href="menu.html">Menu</a>
-                            <button class="btn btn-secondary" type="button" disabled>Online payment</button>
+                            <button id="submit-order" class="btn btn-danger btn-lg" type="submit">Submit</button>
+                            <button id="reset-order" class="btn btn-outline-dark" type="reset">Reset</button>
+                            <a id="order-menu-link" class="btn btn-outline-danger" href="menu.html">Menu</a>
+                            <button id="online-payment-button" class="btn btn-secondary" type="button" disabled>Online payment</button>
                         </div>
                     </fieldset>
                 </form>
+
+                <!--
+                    Prepared before the Midterm freeze for future JavaScript.
+                    JavaScript can show one of these existing blocks after validation/submission.
+                -->
+                <div
+                    id="order-confirmation"
+                    class="state-hidden alert alert-success mt-4 mb-0"
+                    role="status"
+                    aria-live="polite"></div>
+
+                <div
+                    id="order-error"
+                    class="state-hidden alert alert-danger mt-3 mb-0"
+                    role="alert"
+                    aria-live="assertive"></div>
             </div>
         </div>
     </section>
@@ -302,13 +319,28 @@
 <footer class="bg-dark text-white border-top border-danger border-4 mt-5">
     <div class="container py-4 text-center">
         <p class="mb-2">
-            Phone:
+            <strong>Phone:</strong>
             <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
         </p>
         <p class="mb-2">
-            <a class="link-light" href="https://api.whatsapp.com/send/?phone=77088043937" target="_blank" rel="noopener noreferrer">
-                WhatsApp
+            <strong>Instagram:</strong>
+            <a
+                class="link-light"
+                href="https://www.instagram.com/doner_na_abaya_astanaa/"
+                target="_blank"
+                rel="noopener noreferrer">
+                @doner_na_abaya_astanaa
             </a>
+        </p>
+        <p class="mb-2">
+            Visit the
+            <a
+                class="link-light"
+                href="https://doner-na-abaya.kz/"
+                target="_blank"
+                rel="noopener noreferrer">
+                official website
+            </a>.
         </p>
         <p class="mb-0">&copy; 2026 Doner na Abaya</p>
     </div>

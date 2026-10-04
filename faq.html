@@ -19,27 +19,28 @@
 <body>
 <!-- Author: Mazhit Nurasyl -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4">
-        <!-- container-fluid is used because navigation should span the full viewport width. -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
             <button
+                id="navigation-toggle"
                 class="navbar-toggler"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar"
+                data-bs-target="#main-navbar"
+                aria-controls="main-navbar"
                 aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav ms-auto gap-lg-2">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="faq.html">FAQ</a></li>
                     <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
@@ -57,9 +58,9 @@
         </p>
     </div>
     <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 mb-4">
-        <a class="btn btn-danger" href="order.html">Order Food</a>
-        <a class="btn btn-outline-danger" href="menu.html">View Menu</a>
-        <span class="badge text-bg-dark align-self-center d-none d-md-inline-block">Open 24/7</span>
+        <a id="faq-order-link" class="btn btn-danger" href="order.html">Order Food</a>
+        <a id="faq-menu-link" class="btn btn-outline-danger" href="menu.html">View Menu</a>
+        <span id="opening-hours-badge" class="badge text-bg-dark align-self-center d-none d-md-inline-block">Open 24/7</span>
     </div>
     <section class="mb-5">
         <div class="row g-4 align-items-center">
@@ -78,26 +79,28 @@
             </div>
         </div>
     </section>
-    <section class="mb-5">
+    <section id="faq-orders" class="mb-5">
         <h2 class="h3 mb-3">About Orders</h2>
         <!-- Bootstrap Accordion component adapted for the restaurant FAQ questions and answers. -->
-        <div class="accordion shadow-sm" id="faqAccordion">
+        <div class="accordion shadow-sm" id="faq-accordion">
             <div class="accordion-item">
                 <h3 class="accordion-header">
                     <button
+                        id="faq-question-one-button"
                         class="accordion-button"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#questionOne"
+                        data-bs-target="#question-one"
                         aria-expanded="true"
-                        aria-controls="questionOne">
+                        aria-controls="question-one">
                         Can I order online?
                     </button>
                 </h3>
                 <div
-                    id="questionOne"
+                    id="question-one"
+                    aria-labelledby="faq-question-one-button"
                     class="accordion-collapse collapse show"
-                    data-bs-parent="#faqAccordion">
+                    data-bs-parent="#faq-accordion">
                     <div class="accordion-body">
                         Yes, you can use our <a href="order.html">Order page</a>
                         and check food on the <a href="menu.html">Menu page</a>.
@@ -107,19 +110,21 @@
             <div class="accordion-item">
                 <h3 class="accordion-header">
                     <button
+                        id="faq-question-two-button"
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#questionTwo"
+                        data-bs-target="#question-two"
                         aria-expanded="false"
-                        aria-controls="questionTwo">
+                        aria-controls="question-two">
                         Do you have delivery?
                     </button>
                 </h3>
                 <div
-                    id="questionTwo"
+                    id="question-two"
+                    aria-labelledby="faq-question-two-button"
                     class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion">
+                    data-bs-parent="#faq-accordion">
                     <div class="accordion-body">
                         Yes, delivery is <em>available</em>. You can choose it on the
                         <a href="order.html">Order page</a>.
@@ -129,19 +134,21 @@
             <div class="accordion-item">
                 <h3 class="accordion-header">
                     <button
+                        id="faq-question-three-button"
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#questionThree"
+                        data-bs-target="#question-three"
                         aria-expanded="false"
-                        aria-controls="questionThree">
+                        aria-controls="question-three">
                         Where can I see the menu?
                     </button>
                 </h3>
                 <div
-                    id="questionThree"
+                    id="question-three"
+                    aria-labelledby="faq-question-three-button"
                     class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion">
+                    data-bs-parent="#faq-accordion">
                     <div class="accordion-body">
                         You can see food and prices on our <a href="menu.html">Menu page</a>.
                         Prices are shown in <abbr title="Kazakhstani tenge">KZT</abbr>.
@@ -151,19 +158,21 @@
             <div class="accordion-item">
                 <h3 class="accordion-header">
                     <button
+                        id="faq-question-four-button"
                         class="accordion-button collapsed"
                         type="button"
                         data-bs-toggle="collapse"
-                        data-bs-target="#questionFour"
+                        data-bs-target="#question-four"
                         aria-expanded="false"
-                        aria-controls="questionFour">
+                        aria-controls="question-four">
                         What are your opening hours?
                     </button>
                 </h3>
                 <div
-                    id="questionFour"
+                    id="question-four"
+                    aria-labelledby="faq-question-four-button"
                     class="accordion-collapse collapse"
-                    data-bs-parent="#faqAccordion">
+                    data-bs-parent="#faq-accordion">
                     <div class="accordion-body">
                         <strong>Open 24/7.</strong> Break: 12:30-14:00.
                         <small class="d-block text-secondary mt-2">
@@ -248,16 +257,26 @@
 <footer class="bg-dark text-white border-top border-danger border-4 mt-5">
     <div class="container py-4 text-center">
         <p class="mb-2">
-            Phone:
+            <strong>Phone:</strong>
             <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
         </p>
         <p class="mb-2">
-            Project email:
-            <a class="link-light" href="mailto:mazhitovn28@gmail.com">mazhitovn28@gmail.com</a>
+            <strong>Instagram:</strong>
+            <a
+                class="link-light"
+                href="https://www.instagram.com/doner_na_abaya_astanaa/"
+                target="_blank"
+                rel="noopener noreferrer">
+                @doner_na_abaya_astanaa
+            </a>
         </p>
         <p class="mb-2">
             Visit the
-            <a class="link-light" href="https://doner-na-abaya.kz/ru" target="_blank" rel="noopener noreferrer">
+            <a
+                class="link-light"
+                href="https://doner-na-abaya.kz/"
+                target="_blank"
+                rel="noopener noreferrer">
                 official website
             </a>.
         </p>
