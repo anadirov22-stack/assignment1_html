@@ -137,16 +137,14 @@ The **About** and **Gallery** pages were validated using the W3C Markup Validati
 | ------- | -------------- | ----------: | ------------: | -------- |
 | About   | `about.html`   |           0 |             0 | ✓ Passed |
 | Gallery | `gallery.html` |           0 |             0 | ✓ Passed |
-
- Page    | File           | HTML Errors | HTML Warnings | Result   |
-| ------- | -------------- | ----------: | ------------: | -------- |
 | FAQ   | `faq.html`   |           0 |             0 | ✓ Passed |
 | Order | `order.html` |           0 |             0 | ✓ Passed |
-
- Page    | File           | HTML Errors | HTML Warnings | Result   |
-| ------- | -------------- | ----------: | ------------: | -------- |
 | Menu    | `menu.html`   |           0 |             0 | ✓ Passed |
 | Reviews | `reviews.html` |           0 |             0 | ✓ Passed |
+| Home    | `index.html`   |           0 |             0 | ✓ Passed |
+| Colophon | `colophon.html` |           0 |             0 | ✓ Passed |
+
+
 The validation errors previously found on these pages were fixed before the final check.
 
 Examples of fixes included:
@@ -164,7 +162,7 @@ The CSS files used for the completed pages were checked with the W3C CSS Validat
 | `css/base.css`        |      0 |        0 | ✓ Passed |
 | `css/Ali-Nadirov.css` |      0 |        0 | ✓ Passed |
 | `css/Nurasyl.css`     |      0 |        0 | ✓ Passed |
-| `css/Alikhan-Kuttybatev.css  |      0 |        0 | ✓ Passed |
+| `css/Alikhan-Kuttybatev.css`  |      0 |        0 | ✓ Passed |
 
 ### Browser Testing
 
