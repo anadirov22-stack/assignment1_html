@@ -182,9 +182,9 @@ Each team member checked pages created by another team member as part of the fin
 
 | Tester             | Pages Checked                | Date       | Browser |
 | ------------------ | ---------------------------- | ---------- | ------- |
-| Nurasyl Mazhit     | `about.html`, `gallery.html` | 04.10.2026 | Chrome  |
-| Alikhan Kuttybayev | `faq.html`, `order.html`     | 04.10.2026 | Chrome  |
-| Ali Nadirov        | `menu.html`, `reviews.html`  | 04.10.2026 | Chrome  |
+| Nurasyl Mazhit     | `about.html`, `gallery.html` | 03.10.2026 | Chrome  |
+| Alikhan Kuttybayev | `faq.html`, `order.html`     | 03.10.2026 | Chrome  |
+| Ali Nadirov        | `menu.html`, `reviews.html`  | 03.10.2026 | Chrome  |
 
 ### Pages Tested
 
