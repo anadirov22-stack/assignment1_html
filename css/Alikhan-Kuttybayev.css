@@ -1,6 +1,6 @@
-    /*
+/*
     Alikhan Kuttybayev - Menu & Reviews pages.
-    Bootstrap 5.3.8 does the grid, spacing, navbar, buttons, table,
+    Bootstrap 5.3.8 does the grid, spacing, navbar, buttons, forms, table,
     cards and responsive layout. Only small brand touches remain here.
 */
 
@@ -18,4 +18,52 @@
 /* Soft red highlight instead of Bootstrap's default yellow <mark>. */
 mark {
     background-color: rgba(211, 47, 47, 0.18);
+}
+
+/*
+    State classes, written in advance. Nothing uses them yet: later,
+    JavaScript will only switch these classes on and off on the elements,
+    it will not add any new CSS.
+*/
+
+/* hidden: a message or block that is not shown until JavaScript needs it. */
+.hidden {
+    display: none;
+}
+
+/* active: the item the visitor is looking at right now. */
+.review-card.active {
+    box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
+}
+.price-row.active {
+    --bs-table-bg-state: rgba(211, 47, 47, 0.1);
+}
+
+/* selected: the item the visitor has chosen. */
+.selected {
+    outline: 3px solid #D32F2F;
+    outline-offset: 2px;
+}
+.price-row.selected {
+    outline: none;
+    font-weight: 700;
+    --bs-table-bg-state: rgba(211, 47, 47, 0.25);
+}
+
+/* error: a field or message that shows a mistake. */
+.error {
+    color: #B71C1C;
+}
+.form-control.error,
+.form-select.error {
+    border-color: #B71C1C;
+}
+
+/* success: a field or message that shows everything is fine. */
+.success {
+    color: #1B5E20;
+}
+.form-control.success,
+.form-select.success {
+    border-color: #1B5E20;
 }
