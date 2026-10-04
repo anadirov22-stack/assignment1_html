@@ -522,6 +522,9 @@ The `midterm` tag marks the final version submitted for the midterm assessment.
 
 ---
 
+<img width="1311" height="1020" alt="about-375px" src="https://github.com/user-attachments/assets/d13679de-990e-4c66-9549-35a790daa44b" />
+
+
 # Project Status
 
 | Item                    | Status                                   |
