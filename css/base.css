@@ -12,17 +12,22 @@ body {
     background-color: #F5F5F5;
     color: #1F1F1F;
 }
+
 a {
     color: #D32F2F;
 }
+
 /* Keyboard focus */
 nav a:focus {
     outline: 3px solid orange;
     outline-offset: 3px;
 }
+
+/* Footer links */
 footer a {
     text-decoration: none;
 }
+
 footer a:hover {
     text-decoration: underline;
 }
