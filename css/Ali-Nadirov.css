@@ -3,8 +3,9 @@
 
     Bootstrap 5.3.8 handles the grid, spacing, forms, buttons,
     responsive layout, shadows and general components.
-    This file contains only brand-specific visual corrections.
+    This file contains only page-specific visual corrections.
 */
+
 /* Gallery images: keep the same aspect ratio without distortion. */
 .gallery-photo {
     aspect-ratio: 4 / 3;
@@ -17,4 +18,26 @@
     object-fit: cover;
 }
 
+/*
+    JavaScript-ready state classes.
 
+    The active state is already provided by Bootstrap,
+    so no custom .active rule is required.
+*/
+
+.hidden {
+    display: none !important;
+}
+
+.selected {
+    outline: 2px solid #D32F2F;
+    outline-offset: 2px;
+}
+
+.error {
+    border: 2px solid #D32F2F;
+}
+
+.success {
+    border: 2px solid #198754;
+}
