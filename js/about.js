@@ -701,4 +701,4 @@ if (aboutMessage !== null) {
 } else {
     console.error('About message container was not found.');
 }
-
+s
