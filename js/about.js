@@ -1,4 +1,7 @@
 'use strict';
+/* 
+Ali Nadirov About page Javascript
+ */
 
 // Product data for Doner na Abaya
 const products = [
