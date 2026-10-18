@@ -319,19 +319,6 @@ The assignment requires the website to work on different screen sizes and specif
 **How I used the answer:**
 I used the explanation to check the navigation, images, containers, forms, spacing, and page width on different screen sizes. I also checked for horizontal scrolling, broken images, broken links, and browser console errors. These checks were included in the final quality pass for my About and Gallery pages.
 
-### Additional AI Use
-
-AI was also used as a supporting tool during the final review to:
-
-- Understand Bootstrap 5.3.8 classes and responsive behavior.
-- Review HTML structure.
-- Understand W3C validation messages.
-- Review JavaScript-ready IDs and containers.
-- Check whether custom CSS was being used only for page-specific corrections.
-- Improve the organization and wording of the project README.
-
-The final HTML and CSS were reviewed and edited by me. I made the final implementation decisions and verified the result using the browser and W3C validation tools.
-
 ---
 
 ## Alikhan Kuttybayev — AI Usage Log
@@ -391,20 +378,6 @@ The assignment requires Bootstrap to handle the main layout while custom CSS sho
 
 **How we used the answer:**
 ChatGPT explained that Bootstrap utilities can handle common properties such as spacing, display, alignment, and responsive behavior. I used Bootstrap utilities where possible and kept custom CSS for page-specific visual adjustments.
-
-### Additional AI Use
-
-AI was also used as a supporting learning tool for:
-
-- Understanding Bootstrap 5.3.8 responsive classes.
-- Understanding responsive grid layouts.
-- Reviewing HTML structure.
-- Understanding form and validation requirements.
-- Preparing pages for future JavaScript.
-- Reviewing responsive testing requirements.
-- Understanding the midterm's technical requirements.
-
-The final implementation was written, edited, tested, and reviewed by me.
 
 ---
 
@@ -479,19 +452,38 @@ Some elements on the FAQ and Order pages need horizontal or vertical alignment. 
 **How we used the answer:**
 Gemini explained that Bootstrap provides utility classes that apply Flexbox properties without requiring separate CSS rules. I used Bootstrap utilities where appropriate to keep the custom stylesheet smaller and let Bootstrap handle the main layout.
 
-### Additional AI Use
+---
+# Screenshots
 
-AI was also used as a supporting learning tool for:
+<img width="1252" height="1018" alt="image" src="https://github.com/user-attachments/assets/ee596a81-eb85-4ca4-9bd6-38b9825121b0" />
+<img width="1311" height="1020" alt="about-375px" src="https://github.com/user-attachments/assets/d13679de-990e-4c66-9549-35a790daa44b" />
+<img width="1261" height="1018" alt="image" src="https://github.com/user-attachments/assets/6c23d689-67d0-4c82-ae1e-32160ba5102d" />
+<img width="1542" height="1017" alt="about-1366px-3" src="https://github.com/user-attachments/assets/256c5162-fdc8-45fb-9004-5bea23c1441b" />
+<img width="1337" height="1013" alt="about-375px-4" src="https://github.com/user-attachments/assets/95857741-883c-44db-b71a-9af3fbd27cb5" />
+<img width="1253" height="1014" alt="about-375px-5" src="https://github.com/user-attachments/assets/f9067486-565a-48d6-b866-3b4f8f0bf960" />
+<img width="1289" height="1015" alt="about-375px-6" src="https://github.com/user-attachments/assets/80891db8-ca26-49d7-b299-3a9c72263a5f" />
+<img width="1268" height="1014" alt="about-375px-7" src="https://github.com/user-attachments/assets/0c657d21-94ba-4a6f-8820-7e2113520bca" />
 
-- Understanding Bootstrap 5.3.8 components.
-- Understanding responsive forms.
-- Understanding FAQ layout.
-- Reviewing HTML form structure.
-- Preparing forms for future JavaScript.
-- Understanding responsive testing.
-- Reviewing the midterm technical requirements.
+<img width="480" height="960" alt="image" src="https://github.com/user-attachments/assets/1da32d1e-01bd-49f9-b145-66ff812e5893" />
+<img width="481" height="961" alt="image" src="https://github.com/user-attachments/assets/a00bb75b-2266-4b2d-ba84-4da25db78377" />
+<img width="473" height="955" alt="image" src="https://github.com/user-attachments/assets/9b5053a2-ec1d-47e6-9352-03f461a1ce2d" />
+<img width="478" height="961" alt="image" src="https://github.com/user-attachments/assets/9a53eb54-d9c2-429c-a11e-6ac30cee59c3" />
+<img width="476" height="966" alt="image" src="https://github.com/user-attachments/assets/9b5df1d3-ef18-404b-8521-0dfd2c83a5f8" />
+<img width="484" height="963" alt="image" src="https://github.com/user-attachments/assets/4792ac8a-f2a3-43c7-94a4-bbaa2ca07093" />
+<img width="481" height="963" alt="image" src="https://github.com/user-attachments/assets/e4926258-a17d-4e5e-bc4f-11329ef926c7" />
+<img width="479" height="963" alt="image" src="https://github.com/user-attachments/assets/c2e0862a-7174-491c-b4e7-b4674c99d2d1" />
 
-The final HTML, CSS, and page content were written, edited, tested, and reviewed by me.
+
+<img width="1543" height="1014" alt="image" src="https://github.com/user-attachments/assets/ae4958c5-d78c-4a82-9455-280ca1872090" />
+<img width="1542" height="1015" alt="about-1366px-2" src="https://github.com/user-attachments/assets/571f1779-42be-4266-892d-ba3e339c0a88" />
+<img width="1542" height="1017" alt="about-1366px-3" src="https://github.com/user-attachments/assets/ea8b4ece-5041-4041-ad7b-185834b65f74" />
+<img width="1544" height="1020" alt="about-1366px-4" src="https://github.com/user-attachments/assets/82928ac8-60bf-4a98-bd4c-9b61b1e2ae0d" />
+
+<img width="1542" height="1014" alt="image" src="https://github.com/user-attachments/assets/6c3cdd98-f0d2-4468-9aa4-7a8594468660" />
+<img width="1542" height="1018" alt="image" src="https://github.com/user-attachments/assets/90eb5542-4625-43ac-9963-838cc99e0a81" />
+<img width="1540" height="1016" alt="image" src="https://github.com/user-attachments/assets/3562663c-cd72-49cd-be7c-5df527bfeb0c" />
+<img width="1545" height="1017" alt="image" src="https://github.com/user-attachments/assets/c0fce829-d2d8-45d4-91a1-eaa17e806a28" />
+<img width="1548" height="1017" alt="image" src="https://github.com/user-attachments/assets/50d86363-c8a7-4ed8-a333-1c15a5eeb361" />
 
 ---
 
