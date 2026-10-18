@@ -1,4 +1,7 @@
 'use strict';
+/*
+ Ali Nadirov Gallery page Javascript 
+ */
 // Get the review form
 const reviewForm = document.getElementById('review-form');
 
@@ -24,7 +27,7 @@ characterCounter.setAttribute('aria-live', 'polite');
 
 // Create the reviews container
 const reviewsContainer = document.createElement('div');
-reviewsContainer.id = 'published-reviews';
+reviewsContainer.id = 'published-reviews'
 reviewsContainer.classList.add('row', 'g-3', 'mt-3');
 reviewsContainer.setAttribute('aria-live', 'polite');
 
