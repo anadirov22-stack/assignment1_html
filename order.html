@@ -73,11 +73,10 @@
             </div>
             <div class="col-12 col-md-8">
                 <p>
-                    First, open the Menu page and choose the food you want.
-                    You can check the available doners, sizes and prices there.
-                    After choosing your food, return to the Order page.
-                    The form below asks for your contact information, quantity,
-                    date and type of order.
+                    First, choose your doner, size and quantity.
+                    You can also add a drink and extras from the restaurant menu.
+                    The form below asks for your contact information, preferred
+                    date and time, and whether the order is Pickup or Delivery.
                 </p>
                 <p>
                     If you need delivery, choose Delivery. If you want to take
@@ -112,10 +111,11 @@
             <div class="col-12 col-md-6">
                 <h2 class="h3">How to Order</h2>
                 <ol class="list-group list-group-numbered">
-                    <li class="list-group-item">Choose food from the Menu page.</li>
+                    <li class="list-group-item">Choose chicken, beef or assorted doner.</li>
+                    <li class="list-group-item">Choose standard or large size and quantity from 1 to 10.</li>
+                    <li class="list-group-item">Add a drink and extras if you want them.</li>
                     <li class="list-group-item">Fill in your name, email and phone number.</li>
-                    <li class="list-group-item">Choose the quantity and date.</li>
-                    <li class="list-group-item">Select Pickup or Delivery.</li>
+                    <li class="list-group-item">Choose the order date, preferred time and Pickup or Delivery.</li>
                     <li class="list-group-item">Check your information and press Submit.</li>
                 </ol>
             </div>
@@ -136,32 +136,32 @@
         </div>
     </section>
     <section class="mb-5">
-        <h2 class="h3 mb-3">Popular Food</h2>
+        <h2 class="h3 mb-3">Doner Prices</h2>
         <div class="table-responsive shadow-sm">
             <table class="table table-striped table-bordered table-hover align-middle mb-0">
-                <caption class="caption-top">Popular items</caption>
+                <caption class="caption-top">Doner prices from the Menu page</caption>
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">Food</th>
-                        <th scope="col">Price</th>
+                        <th scope="col">Doner</th>
+                        <th scope="col">Standard</th>
+                        <th scope="col">Large</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Doner (1&times;) chicken</td>
+                        <td>Chicken</td>
                         <td>1895&nbsp;&#8376;</td>
+                        <td>2195&nbsp;&#8376;</td>
                     </tr>
                     <tr>
-                        <td>Doner (1.5&times;) beef</td>
-                        <td>2595&nbsp;&#8376;</td>
+                        <td>Beef</td>
+                        <td>2195&nbsp;&#8376;</td>
+                        <td>2495&nbsp;&#8376;</td>
                     </tr>
                     <tr>
-                        <td>Doner (1&times;) beef</td>
-                        <td>2295&nbsp;&#8376;</td>
-                    </tr>
-                    <tr>
-                        <td>Doner (1.5&times;) chicken</td>
-                        <td>2295&nbsp;&#8376;</td>
+                        <td>Assorted</td>
+                        <td>2095&nbsp;&#8376;</td>
+                        <td>2395&nbsp;&#8376;</td>
                     </tr>
                 </tbody>
             </table>
@@ -169,14 +169,16 @@
     </section>
     <section id="form" class="mb-5">
         <h2 class="h3 mb-3">Order Form</h2>
+
         <div class="card border-0 shadow-sm">
             <div class="card-body p-4">
                 <form id="order-form" method="get" action="order.html">
-                    <fieldset>
+
+                    <fieldset class="mb-4">
                         <legend class="h5 mb-3">Customer Information</legend>
-                        <!-- Responsive block 2: form fields change from 1 column to 2 columns at md. -->
+
                         <div class="row g-3">
-                            <div class="col-12 col-md-6">
+                            <div class="col-12 col-md-4">
                                 <label for="name" class="form-label">Name</label>
                                 <input
                                     type="text"
@@ -184,9 +186,11 @@
                                     id="name"
                                     name="name"
                                     placeholder="Your name"
+                                    autocomplete="name"
                                     required>
                             </div>
-                            <div class="col-12 col-md-6">
+
+                            <div class="col-12 col-md-4">
                                 <label for="email" class="form-label">Email</label>
                                 <input
                                     type="email"
@@ -194,9 +198,11 @@
                                     id="email"
                                     name="email"
                                     placeholder="Your email"
+                                    autocomplete="email"
                                     required>
                             </div>
-                            <div class="col-12 col-md-6">
+
+                            <div class="col-12 col-md-4">
                                 <label for="phone" class="form-label">Phone</label>
                                 <input
                                     type="tel"
@@ -204,39 +210,173 @@
                                     id="phone"
                                     name="phone"
                                     placeholder="+7..."
+                                    autocomplete="tel"
                                     required>
                             </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="h5 mb-3">Order Details</legend>
+
+                        <div class="row g-3">
                             <div class="col-12 col-md-6">
-                                <label for="quantity" class="form-label">Quantity (1 or more)</label>
+                                <label for="food" class="form-label">Doner</label>
+                                <select class="form-select" id="food" name="food" required>
+                                    <option value="">Choose doner</option>
+                                    <option value="chicken">Chicken</option>
+                                    <option value="beef">Beef</option>
+                                    <option value="assorted">Assorted</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-3">
+                                <label for="food-size" class="form-label">Size</label>
+                                <select class="form-select" id="food-size" name="food-size" required>
+                                    <option value="">Choose size</option>
+                                    <option value="standard">Standard</option>
+                                    <option value="large">Large</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-3">
+                                <label for="quantity" class="form-label">Doner quantity</label>
                                 <input
                                     type="number"
                                     class="form-control"
                                     id="quantity"
                                     name="quantity"
                                     min="1"
+                                    max="10"
+                                    value="1"
                                     required>
+                                <div class="form-text">Choose from 1 to 10.</div>
                             </div>
+
+                            <div class="col-12 col-md-8">
+                                <label for="drink" class="form-label">Drink</label>
+                                <select class="form-select" id="drink" name="drink">
+                                    <option value="">No drink</option>
+                                    <option value="coca-cola-450">Coca-Cola 450 ml</option>
+                                    <option value="coca-cola-500">Coca-Cola 500 ml</option>
+                                    <option value="coca-cola-zero-450">Coca-Cola Zero Sugar 450 ml</option>
+                                    <option value="coca-cola-zero-500">Coca-Cola Zero Sugar 500 ml</option>
+                                    <option value="fanta-450">Fanta 450 ml</option>
+                                    <option value="fanta-500">Fanta 500 ml</option>
+                                    <option value="sprite-450">Sprite 450 ml</option>
+                                    <option value="sprite-500">Sprite 500 ml</option>
+                                    <option value="fuse-tea-450">Fuse Tea 450 ml</option>
+                                    <option value="fuse-tea-500">Fuse Tea 500 ml</option>
+                                    <option value="bonaqua-500">Bonaqua 500 ml</option>
+                                    <option value="ayran-300">Ayran 300 ml</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-4">
+                                <label for="drink-quantity" class="form-label">Drink quantity</label>
+                                <input
+                                    type="number"
+                                    class="form-control"
+                                    id="drink-quantity"
+                                    name="drink-quantity"
+                                    min="0"
+                                    max="10"
+                                    value="0">
+                                <div class="form-text">0 if you do not want a drink.</div>
+                            </div>
+
+                            <div class="col-12">
+                                <p class="form-label mb-2">Extras</p>
+
+                                <div class="d-flex flex-wrap gap-3">
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="extra-chicken"
+                                            name="extras"
+                                            value="extra-chicken">
+                                        <label class="form-check-label" for="extra-chicken">
+                                            Extra chicken 50 g — 590 &#8376;
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="extra-beef"
+                                            name="extras"
+                                            value="extra-beef">
+                                        <label class="form-check-label" for="extra-beef">
+                                            Extra beef 50 g — 690 &#8376;
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="extra-fries"
+                                            name="extras"
+                                            value="extra-fries">
+                                        <label class="form-check-label" for="extra-fries">
+                                            Fries — 895 &#8376;
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="extra-sauce"
+                                            name="extras"
+                                            value="extra-sauce">
+                                        <label class="form-check-label" for="extra-sauce">
+                                            Sauce — 200 &#8376;
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input
+                                            class="form-check-input"
+                                            type="checkbox"
+                                            id="extra-peppers"
+                                            name="extras"
+                                            value="extra-peppers">
+                                        <label class="form-check-label" for="extra-peppers">
+                                            Peppers — 100 &#8376;
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-12 col-md-6">
-                                <label for="date" class="form-label">Date</label>
+                                <label for="order-date" class="form-label">Order date</label>
                                 <input
                                     type="date"
                                     class="form-control"
-                                    id="date"
-                                    name="date"
+                                    id="order-date"
+                                    name="order-date"
                                     required>
                             </div>
+
                             <div class="col-12 col-md-6">
-                                <label for="food" class="form-label">Food</label>
-                                <select class="form-select" id="food" name="food" required>
-                                    <option value="">Choose food</option>
-                                    <option value="food1">Doner (1x) chicken</option>
-                                    <option value="food2">Doner (1x) beef</option>
-                                    <option value="food3">Doner (1.5x) chicken</option>
-                                    <option value="food4">Doner (1.5x) beef</option>
-                                </select>
+                                <label for="order-time" class="form-label">Preferred time</label>
+                                <input
+                                    type="time"
+                                    class="form-control"
+                                    id="order-time"
+                                    name="order-time"
+                                    required>
+                                <div class="form-text">
+                                    Open 24/7. Friday break: 12:30–14:00.
+                                </div>
                             </div>
+
                             <div class="col-12">
                                 <p class="form-label mb-2">Order type</p>
+
                                 <div class="form-check form-check-inline">
                                     <input
                                         class="form-check-input"
@@ -247,6 +387,7 @@
                                         required>
                                     <label class="form-check-label" for="pickup">Pickup</label>
                                 </div>
+
                                 <div class="form-check form-check-inline">
                                     <input
                                         class="form-check-input"
@@ -257,6 +398,7 @@
                                     <label class="form-check-label" for="delivery">Delivery</label>
                                 </div>
                             </div>
+
                             <div class="col-12">
                                 <label for="comment" class="form-label">Comment</label>
                                 <textarea
@@ -264,8 +406,9 @@
                                     id="comment"
                                     name="comment"
                                     rows="3"
-                                    placeholder="Your comment"></textarea>
+                                    placeholder="Sauce, delivery details or other information"></textarea>
                             </div>
+
                             <div class="col-12">
                                 <div class="form-check">
                                     <input
@@ -275,25 +418,37 @@
                                         name="confirm"
                                         required>
                                     <label class="form-check-label" for="confirm">
-                                        I confirm my order
+                                        I confirm my order information
                                     </label>
                                 </div>
                             </div>
                         </div>
-                        <!-- Bootstrap flex utilities replace the old .form-actions Flexbox CSS. -->
+
                         <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
-                            <button id="submit-order" class="btn btn-danger btn-lg" type="submit">Submit</button>
-                            <button id="reset-order" class="btn btn-outline-dark" type="reset">Reset</button>
-                            <a id="order-menu-link" class="btn btn-outline-danger" href="menu.html">Menu</a>
-                            <button id="online-payment-button" class="btn btn-secondary" type="button" disabled>Online payment</button>
+                            <button id="submit-order" class="btn btn-danger btn-lg" type="submit">
+                                Submit Order
+                            </button>
+
+                            <button id="reset-order" class="btn btn-outline-dark" type="reset">
+                                Reset
+                            </button>
+
+                            <a id="order-menu-link" class="btn btn-outline-danger" href="menu.html">
+                                View Menu
+                            </a>
+
+                            <button
+                                id="online-payment-button"
+                                class="btn btn-secondary"
+                                type="button"
+                                disabled>
+                                Online payment
+                            </button>
                         </div>
                     </fieldset>
                 </form>
 
-                <!--
-                    Prepared before the Midterm freeze for future JavaScript.
-                    JavaScript can show one of these existing blocks after validation/submission.
-                -->
+                <!-- Prepared before the Midterm freeze for future JavaScript. -->
                 <div
                     id="order-confirmation"
                     class="state-hidden alert alert-success mt-4 mb-0"
@@ -322,6 +477,7 @@
             <strong>Phone:</strong>
             <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
         </p>
+
         <p class="mb-2">
             <strong>Instagram:</strong>
             <a
@@ -332,6 +488,7 @@
                 @doner_na_abaya_astanaa
             </a>
         </p>
+
         <p class="mb-2">
             Visit the
             <a
@@ -342,6 +499,7 @@
                 official website
             </a>.
         </p>
+
         <p class="mb-0">&copy; 2026 Doner na Abaya</p>
     </div>
 </footer>

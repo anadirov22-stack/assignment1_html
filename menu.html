@@ -15,68 +15,36 @@
 <!-- Author: Alikhan Kuttybayev -->
 <!-- container-fluid: the dark navigation bar should stretch across the whole screen. -->
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
         <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
 
-        <a class="navbar-brand" href="index.html">
-            Doner na Abaya
-        </a>
+            <button
+                id="navigation-toggle"
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#main-navbar"
+                aria-controls="main-navbar"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <button
-            id="navigation-toggle"
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#mainNavigation"
-            aria-controls="mainNavigation"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
-
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNavigation">
-
-            <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" href="index.html">Home</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="menu.html">Menu</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="gallery.html">Gallery</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="reviews.html">Reviews</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="order.html">Order</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="faq.html">FAQ</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="colophon.html">Colophon</a>
-                </li>
-
-            </ul>
-
+            <div class="collapse navbar-collapse" id="main-navbar">
+                <ul class="navbar-nav ms-auto gap-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="colophon.html">Colophon</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
 </header>
 
 <!-- container (not fluid): keeps the text at a readable width on big screens. -->
@@ -312,34 +280,37 @@
     <a id="back-to-prices" class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 d-none d-md-inline-block" href="#prices">Back to prices</a>
 </main>
 
-<footer class="text-center text-white border-top border-4 border-danger bg-dark">
+<footer class="bg-dark text-white border-top border-danger border-4 mt-5">
+    <div class="container py-4 text-center">
+        <p class="mb-2">
+            <strong>Phone:</strong>
+            <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
+        </p>
 
+        <p class="mb-2">
+            <strong>Instagram:</strong>
+            <a
+                class="link-light"
+                href="https://www.instagram.com/doner_na_abaya_astanaa/"
+                target="_blank"
+                rel="noopener noreferrer">
+                @doner_na_abaya_astanaa
+            </a>
+        </p>
 
-<p>
-    <strong>Phone:</strong>
-    <br>
-    <a
-        class="text-white"
-        href="tel:+77088043937">
-        +7 708 804 39 37
-    </a>
-</p>
+        <p class="mb-2">
+            Visit the
+            <a
+                class="link-light"
+                href="https://doner-na-abaya.kz/"
+                target="_blank"
+                rel="noopener noreferrer">
+                official website
+            </a>.
+        </p>
 
-<p>
-    <strong>Instagram:</strong>
-    <a
-        class="text-white"
-        href="https://www.instagram.com/doner_na_abaya_astanaa/"
-        target="_blank"
-        rel="noopener noreferrer">
-        @doner_na_abaya_astanaa
-    </a>
-</p>
-
-<p>
-    &copy; 2026 Doner na Abaya
-</p>
-
+        <p class="mb-0">&copy; 2026 Doner na Abaya</p>
+    </div>
 </footer>
 
 <!-- Bootstrap 5.3.8 JavaScript bundle: needed for the navbar toggler. -->
