@@ -4,7 +4,6 @@ function setCurrentPageNavigation() {
 const currentPage = window.location.pathname.split('/').pop();
 const navigationLinks = document.querySelectorAll('nav a');
 
-```
 navigationLinks.forEach(function (link) {
     const linkPage = link.getAttribute('href');
 
@@ -14,8 +13,6 @@ navigationLinks.forEach(function (link) {
         link.removeAttribute('aria-current');
     }
 });
-```
-
 }
 
 function initializeSharedFeatures() {
