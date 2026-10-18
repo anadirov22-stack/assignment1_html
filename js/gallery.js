@@ -421,7 +421,6 @@ if (
             errors.push(foodChoiceError);
         }
 
-
  // Display errors or a success message
 if (errors.length > 0) {
     // Show an error beside each invalid field
