@@ -2,7 +2,7 @@
 
 /*
     Alikhan Kuttybayev & Ali Nadirov
-    Reviews page JavaScript (reviews.html)
+    Gallery and Reviews  page JavaScript (gallery and reviews.html)
 */
 
 const STORAGE_KEY = 'donerNaAbayaReviews';
