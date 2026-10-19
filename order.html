@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Order | Doner na Abaya</title>
-
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
         rel="stylesheet">
-
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Nurasyl.css">
-
     <script src="js/main.js" defer></script>
     <script src="js/order.js" defer></script>
 </head>
@@ -22,7 +18,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
         <div class="container-fluid">
             <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
-
             <button
                 id="navigation-toggle"
                 class="navbar-toggler"
@@ -34,7 +29,6 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav ms-auto gap-lg-2">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -57,22 +51,6 @@
         <p class="lead text-secondary text-center text-md-start mb-0">
             Build your order, add different items to the cart, then enter your contact details.
         </p>
-    </div>
-
-    <div class="row g-4 align-items-center mb-5">
-        <div class="col-12 col-md-5 text-center">
-            <img
-                src="images/photo_4_2026-09-11_18-56-40.jpg"
-                class="img-fluid rounded shadow-sm"
-                alt="Doner na Abaya restaurant">
-        </div>
-        <div class="col-12 col-md-7">
-            <h2 class="h3">Build Your Order</h2>
-            <p class="mb-0">
-                Choose different doners, drinks and extras,
-                add them to your cart and complete your order information.
-            </p>
-        </div>
     </div>
 
     <section class="mb-5">
@@ -105,134 +83,87 @@
         </div>
     </section>
 
-    <div class="text-center mb-5">
-        <figure class="mb-0">
-            <img
-                src="images/photo_2_2026-09-11_18-56-40.jpg"
-                class="img-fluid rounded shadow-sm"
-                alt="Food from Doner na Abaya">
-            <figcaption class="text-secondary mt-2">
-                Food from Doner na Abaya in Astana
-            </figcaption>
-        </figure>
-    </div>
-
     <form id="order-form" novalidate>
         <section class="mb-5">
-            <h2 class="h3 mb-3">Build Your Order</h2>
-
-            <div class="row g-4">
-                <div class="col-12 col-lg-4">
-                    <div class="card h-100 border-danger shadow-sm">
-                        <div class="card-body">
-                            <h3 class="h5 text-danger">Doner</h3>
-
-                            <label for="doner-product" class="form-label">Choose doner</label>
-                            <select id="doner-product" class="form-select mb-3">
-                                <option value="">Choose doner</option>
-                                <option value="chicken-standard">Chicken — Standard — 1895 ₸</option>
-                                <option value="chicken-large">Chicken — Large — 2195 ₸</option>
-                                <option value="beef-standard">Beef — Standard — 2195 ₸</option>
-                                <option value="beef-large">Beef — Large — 2495 ₸</option>
-                                <option value="assorted-standard">Assorted — Standard — 2095 ₸</option>
-                                <option value="assorted-large">Assorted — Large — 2395 ₸</option>
-                            </select>
-
-                            <label for="doner-quantity" class="form-label">Quantity</label>
-                            <input
-                                id="doner-quantity"
-                                class="form-control mb-3"
-                                type="number"
-                                min="1"
-                                max="10"
-                                value="1">
-
-                            <button id="add-doner" class="btn btn-danger w-100" type="button">
-                                Add Doner
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-4">
-                    <div class="card h-100 border-dark shadow-sm">
-                        <div class="card-body">
-                            <h3 class="h5">Drink</h3>
-
-                            <label for="drink-product" class="form-label">Choose drink</label>
-                            <select id="drink-product" class="form-select mb-3">
-                                <option value="">Choose drink</option>
-                                <option value="coca-cola-450">Coca-Cola 450 ml — 795 ₸</option>
-                                <option value="coca-cola-500">Coca-Cola 500 ml — 845 ₸</option>
-                                <option value="coca-cola-zero-450">Coca-Cola Zero Sugar 450 ml — 795 ₸</option>
-                                <option value="coca-cola-zero-500">Coca-Cola Zero Sugar 500 ml — 845 ₸</option>
-                                <option value="fanta-450">Fanta 450 ml — 795 ₸</option>
-                                <option value="fanta-500">Fanta 500 ml — 845 ₸</option>
-                                <option value="sprite-450">Sprite 450 ml — 795 ₸</option>
-                                <option value="sprite-500">Sprite 500 ml — 845 ₸</option>
-                                <option value="fuse-tea-450">Fuse Tea 450 ml — 795 ₸</option>
-                                <option value="fuse-tea-500">Fuse Tea 500 ml — 845 ₸</option>
-                                <option value="bonaqua-500">Bonaqua 500 ml — 595 ₸</option>
-                                <option value="ayran-300">Ayran 300 ml — 595 ₸</option>
-                            </select>
-
-                            <label for="drink-quantity" class="form-label">Quantity</label>
-                            <input
-                                id="drink-quantity"
-                                class="form-control mb-3"
-                                type="number"
-                                min="1"
-                                max="10"
-                                value="1">
-
-                            <button id="add-drink" class="btn btn-dark w-100" type="button">
-                                Add Drink
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-4">
-                    <div class="card h-100 border-secondary shadow-sm">
-                        <div class="card-body">
-                            <h3 class="h5">Extra</h3>
-
-                            <label for="extra-product" class="form-label">Choose extra</label>
-                            <select id="extra-product" class="form-select mb-3">
-                                <option value="">Choose extra</option>
-                                <option value="extra-chicken">Extra chicken 50 g — 590 ₸</option>
-                                <option value="extra-beef">Extra beef 50 g — 690 ₸</option>
-                                <option value="extra-fries">Fries — 895 ₸</option>
-                                <option value="extra-sauce">Sauce — 200 ₸</option>
-                                <option value="extra-peppers">Peppers — 100 ₸</option>
-                            </select>
-
-                            <label for="extra-quantity" class="form-label">Quantity</label>
-                            <input
-                                id="extra-quantity"
-                                class="form-control mb-3"
-                                type="number"
-                                min="1"
-                                max="10"
-                                value="1">
-
-                            <button id="add-extra" class="btn btn-outline-dark w-100" type="button">
-                                Add Extra
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="shopping-cart" class="mb-5">
+<h2 class="h3 mb-3">Build Your Order</h2>
+<div class="card border-0 shadow-sm">
+<div class="card-body p-4">
+<p class="text-secondary mb-4">Choose a doner, a drink and any extras you want. You can leave optional items empty, then add everything with one button.</p>
+<div class="row g-4">
+<div class="col-12 col-lg-4">
+<h3 class="h5 text-danger">Doner</h3>
+<label for="doner-product" class="form-label">Choose doner</label>
+<select id="doner-product" class="form-select mb-3">
+<option value="">No doner</option>
+<option value="chicken-standard">Chicken — Standard — 1895 ₸</option>
+<option value="chicken-large">Chicken — Large — 2195 ₸</option>
+<option value="beef-standard">Beef — Standard — 2195 ₸</option>
+<option value="beef-large">Beef — Large — 2495 ₸</option>
+<option value="assorted-standard">Assorted — Standard — 2095 ₸</option>
+<option value="assorted-large">Assorted — Large — 2395 ₸</option>
+</select>
+<label for="doner-quantity" class="form-label">Quantity</label>
+<input id="doner-quantity" class="form-control" type="number" min="1" max="10" value="1">
+</div>
+<div class="col-12 col-lg-4">
+<h3 class="h5">Drink</h3>
+<label for="drink-product" class="form-label">Choose drink</label>
+<select id="drink-product" class="form-select mb-3">
+<option value="">No drink</option>
+<option value="coca-cola-450">Coca-Cola 450 ml — 795 ₸</option>
+<option value="coca-cola-500">Coca-Cola 500 ml — 845 ₸</option>
+<option value="coca-cola-zero-450">Coca-Cola Zero Sugar 450 ml — 795 ₸</option>
+<option value="coca-cola-zero-500">Coca-Cola Zero Sugar 500 ml — 845 ₸</option>
+<option value="fanta-450">Fanta 450 ml — 795 ₸</option>
+<option value="fanta-500">Fanta 500 ml — 845 ₸</option>
+<option value="sprite-450">Sprite 450 ml — 795 ₸</option>
+<option value="sprite-500">Sprite 500 ml — 845 ₸</option>
+<option value="fuse-tea-450">Fuse Tea 450 ml — 795 ₸</option>
+<option value="fuse-tea-500">Fuse Tea 500 ml — 845 ₸</option>
+<option value="bonaqua-500">Bonaqua 500 ml — 595 ₸</option>
+<option value="ayran-300">Ayran 300 ml — 595 ₸</option>
+</select>
+<label for="drink-quantity" class="form-label">Quantity</label>
+<input id="drink-quantity" class="form-control" type="number" min="1" max="10" value="1">
+</div>
+<div class="col-12 col-lg-4">
+<h3 class="h5">Extras</h3>
+<p class="text-secondary small">Choose one or several. Quantity can be changed in the cart.</p>
+<div class="form-check mb-2">
+<input class="form-check-input extra-option" type="checkbox" id="extra-chicken" value="extra-chicken">
+<label class="form-check-label" for="extra-chicken">Extra chicken 50 g — 590 ₸</label>
+</div>
+<div class="form-check mb-2">
+<input class="form-check-input extra-option" type="checkbox" id="extra-beef" value="extra-beef">
+<label class="form-check-label" for="extra-beef">Extra beef 50 g — 690 ₸</label>
+</div>
+<div class="form-check mb-2">
+<input class="form-check-input extra-option" type="checkbox" id="extra-fries" value="extra-fries">
+<label class="form-check-label" for="extra-fries">Fries — 895 ₸</label>
+</div>
+<div class="form-check mb-2">
+<input class="form-check-input extra-option" type="checkbox" id="extra-sauce" value="extra-sauce">
+<label class="form-check-label" for="extra-sauce">Sauce — 200 ₸</label>
+</div>
+<div class="form-check">
+<input class="form-check-input extra-option" type="checkbox" id="extra-peppers" value="extra-peppers">
+<label class="form-check-label" for="extra-peppers">Peppers — 100 ₸</label>
+</div>
+</div>
+</div>
+<div class="d-grid d-md-flex justify-content-md-center mt-4">
+<button id="add-selection" class="btn btn-danger btn-lg px-5" type="button">Add Selection to Cart</button>
+</div>
+</div>
+</div>
+</section>
+<section id="shopping-cart" class="mb-5">
             <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
                 <h2 class="h3 mb-0">Your Cart</h2>
                 <button id="clear-cart" class="btn btn-outline-danger btn-sm" type="button" disabled>
                     Clear Cart
                 </button>
             </div>
-
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-4">
                     <p id="cart-empty" class="text-secondary mb-0">Your cart is empty.</p>
@@ -241,10 +172,8 @@
                 </div>
             </div>
         </section>
-
         <section class="mb-5">
             <h2 class="h3 mb-3">Customer Information</h2>
-
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-4">
                     <div class="row g-3">
@@ -258,7 +187,6 @@
                                 autocomplete="name"
                                 placeholder="Your name">
                         </div>
-
                         <div class="col-12 col-md-4">
                             <label for="email" class="form-label">Email</label>
                             <input
@@ -269,7 +197,6 @@
                                 autocomplete="email"
                                 placeholder="name@example.com">
                         </div>
-
                         <div class="col-12 col-md-4">
                             <label for="phone" class="form-label">Phone</label>
                             <input
@@ -280,7 +207,6 @@
                                 autocomplete="tel"
                                 placeholder="+7...">
                         </div>
-
                         <div class="col-12 col-md-6">
                             <label for="order-date" class="form-label">Order date</label>
                             <input
@@ -289,7 +215,6 @@
                                 class="form-control"
                                 type="date">
                         </div>
-
                         <div class="col-12 col-md-6">
                             <label for="order-time" class="form-label">Preferred time</label>
                             <input
@@ -299,10 +224,8 @@
                                 type="time">
                             <div class="form-text">Open 24/7. Friday break: 12:30–14:00.</div>
                         </div>
-
                         <div class="col-12">
                             <p class="form-label mb-2">Order type</p>
-
                             <div class="form-check form-check-inline">
                                 <input
                                     id="pickup"
@@ -312,7 +235,6 @@
                                     value="pickup">
                                 <label for="pickup" class="form-check-label">Pickup</label>
                             </div>
-
                             <div class="form-check form-check-inline">
                                 <input
                                     id="delivery"
@@ -323,7 +245,6 @@
                                 <label for="delivery" class="form-check-label">Delivery</label>
                             </div>
                         </div>
-
                         <div class="col-12">
                             <label for="comment" class="form-label">Comment</label>
                             <textarea
@@ -333,7 +254,6 @@
                                 rows="3"
                                 placeholder="Delivery details or other information"></textarea>
                         </div>
-
                         <div class="col-12">
                             <div class="form-check">
                                 <input
@@ -347,20 +267,16 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
                         <button id="submit-order" class="btn btn-danger btn-lg" type="submit">
                             Demo Checkout
                         </button>
-
                         <button id="reset-order" class="btn btn-outline-dark" type="reset">
                             Reset Order
                         </button>
-
                         <a id="order-menu-link" class="btn btn-outline-danger" href="menu.html">
                             View Menu
                         </a>
-
                         <button
                             id="online-payment-button"
                             class="btn btn-secondary"
@@ -369,13 +285,11 @@
                             Online payment
                         </button>
                     </div>
-
                     <div
                         id="order-confirmation"
                         class="state-hidden alert alert-success mt-4 mb-0"
                         role="status"
                         aria-live="polite"></div>
-
                     <div
                         id="order-error"
                         class="state-hidden alert alert-danger mt-3 mb-0"
@@ -385,7 +299,6 @@
             </div>
         </section>
     </form>
-
     <div class="alert alert-light border shadow-sm" role="note">
         This page creates a demo order only. No real restaurant order is sent.
     </div>
@@ -396,7 +309,6 @@
             <strong>Phone:</strong>
             <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
         </p>
-
         <p class="mb-2">
             <strong>Instagram:</strong>
             <a
@@ -407,7 +319,6 @@
                 @doner_na_abaya_astanaa
             </a>
         </p>
-
         <p class="mb-2">
             Visit the
             <a
@@ -418,7 +329,6 @@
                 official website
             </a>.
         </p>
-
         <p class="mb-0">&copy; 2026 Doner na Abaya</p>
     </div>
 </footer>
