@@ -1,7 +1,8 @@
 'use strict';
-/* 
-Ali Nadirov About page Javascript
- */
+
+/*
+ Ali Nadirov About page Javascript
+*/
 
 // Product data for Doner na Abaya
 const products = [
@@ -204,19 +205,6 @@ function getProductStatistics(items) {
     };
 }
 
-// Filter products by category and availability
-function filterProducts(items, category, onlyAvailable) {
-    return items.filter(function (product) {
-        const matchesCategory =
-            category === 'all' || product.category === category;
-
-        const matchesAvailability =
-            !onlyAvailable || product.available === true;
-
-        return matchesCategory && matchesAvailability;
-    });
-}
-
 // Search products by name
 function searchProducts(items, searchText) {
     const query = searchText.trim().toLowerCase();
@@ -228,23 +216,33 @@ function searchProducts(items, searchText) {
 
 // Select a random available doner
 function getRandomDoner(items) {
-    const doners = filterProducts(items, 'doner', true);
+    const availableDoners = items.filter(function (product) {
+        return product.category === 'doner' &&
+            product.available === true;
+    });
 
-    if (doners.length === 0) {
+    if (availableDoners.length === 0) {
         return null;
     }
 
-    const randomIndex = Math.floor(Math.random() * doners.length);
+    const randomIndex = Math.floor(
+        Math.random() * availableDoners.length
+    );
 
-    return doners[randomIndex];
+    return availableDoners[randomIndex];
 }
 
-// Display product statistics
-console.log('Product statistics:', getProductStatistics(products));
+// Display product statistics in the browser console
+console.log(
+    'Product statistics:',
+    getProductStatistics(products)
+);
+
 console.log(
     'Number of doners:',
     countProductsByCategory(products, 'doner')
 );
+
 console.log(
     'Number of drinks:',
     countProductsByCategory(products, 'drink')
@@ -264,244 +262,183 @@ const aboutMessage = document.getElementById('about-message');
 if (aboutMessage !== null) {
     aboutMessage.classList.remove('hidden');
 
-    // Create the product catalogue container
-    const catalogueSection = document.createElement('section');
-    catalogueSection.classList.add('mt-4', 'mb-4');
-    catalogueSection.setAttribute('aria-labelledby', 'catalogue-heading');
+    // Create the product search section
+    const searchSection = document.createElement('section');
+    searchSection.classList.add('mt-4', 'mb-4');
+    searchSection.setAttribute(
+        'aria-labelledby',
+        'product-search-heading'
+    );
 
-    const catalogueHeading = document.createElement('h2');
-    catalogueHeading.id = 'catalogue-heading';
-    catalogueHeading.textContent = 'Explore Our Products';
-    catalogueHeading.classList.add('h3', 'mb-3');
+    // Create the search heading
+    const searchHeading = document.createElement('h2');
+    searchHeading.id = 'product-search-heading';
+    searchHeading.textContent = 'Find a Product';
+    searchHeading.classList.add('h3', 'mb-3');
 
-    // Create search input
+    // Create the search label
     const searchLabel = document.createElement('label');
     searchLabel.htmlFor = 'product-search';
-    searchLabel.textContent = 'Search products';
+    searchLabel.textContent = 'Search products in our menu for availability';
     searchLabel.classList.add('form-label');
 
+    // Create the search input
     const searchInput = document.createElement('input');
     searchInput.type = 'search';
     searchInput.id = 'product-search';
     searchInput.classList.add('form-control', 'mb-3');
     searchInput.placeholder = 'Enter a product name';
+    searchInput.setAttribute('autocomplete', 'off');
 
-    // Create category filter
-    const categoryLabel = document.createElement('label');
-    categoryLabel.htmlFor = 'product-category';
-    categoryLabel.textContent = 'Choose a category';
-    categoryLabel.classList.add('form-label');
-
-    const categorySelect = document.createElement('select');
-    categorySelect.id = 'product-category';
-    categorySelect.classList.add('form-select', 'mb-3');
-
-    const categories = [
-    { value: 'all', text: 'All products' },
-    { value: 'doner', text: 'Doners' },
-    { value: 'drink', text: 'Drinks' },
-    { value: 'addition', text: 'Additions' }
-];
-
-    for (let i = 0; i < categories.length; i++) {
-        const option = document.createElement('option');
-        option.value = categories[i].value;
-        option.textContent = categories[i].text;
-        categorySelect.appendChild(option);
-    }
-
-    // Create availability filter
-    const availabilityLabel = document.createElement('label');
-    availabilityLabel.classList.add('form-check', 'mb-3');
-
-    const availabilityCheckbox = document.createElement('input');
-    availabilityCheckbox.type = 'checkbox';
-    availabilityCheckbox.id = 'available-only';
-    availabilityCheckbox.classList.add('form-check-input');
-
-    const availabilityText = document.createElement('span');
-    availabilityText.textContent = ' Show available products only';
-    availabilityText.classList.add('form-check-label');
-
-    availabilityLabel.appendChild(availabilityCheckbox);
-    availabilityLabel.appendChild(availabilityText);
-
-    // Create result count
+    // Create the result count
     const resultCount = document.createElement('p');
     resultCount.classList.add('mt-3');
     resultCount.setAttribute('aria-live', 'polite');
-    const selectionMessage = document.createElement('p');
-    selectionMessage.classList.add('mt-2');
-    selectionMessage.setAttribute('aria-live', 'polite');
+    resultCount.textContent =
+        'Start typing a product name to search.';
 
-    // Create product list
-    const productList = document.createElement('div');
-    productList.classList.add('row', 'g-3');
+    // Create a simple list of search results
+    const searchResults = document.createElement('ul');
+    searchResults.classList.add('mt-2');
+    searchResults.setAttribute('aria-live', 'polite');
 
-    // Create no-results message
+    // Create the no-results message
     const emptyMessage = document.createElement('p');
-    emptyMessage.textContent = 'No products match your search.';
-    emptyMessage.classList.add('hidden', 'mt-3');
+    emptyMessage.textContent =
+        'No products match your search.';
+    emptyMessage.classList.add('hidden', 'mt-2');
     emptyMessage.setAttribute('role', 'status');
 
-    // Create reset button
-    const resetButton = document.createElement('button');
-    resetButton.type = 'button';
-    resetButton.textContent = 'Reset filters';
-    resetButton.classList.add('btn', 'btn-secondary', 'mt-3');
-
-    // Add controls to the catalogue section
-    catalogueSection.appendChild(catalogueHeading);
-    catalogueSection.appendChild(searchLabel);
-    catalogueSection.appendChild(searchInput);
-    catalogueSection.appendChild(categoryLabel);
-    catalogueSection.appendChild(categorySelect);
-    catalogueSection.appendChild(availabilityLabel);
-    catalogueSection.appendChild(resultCount);
-    catalogueSection.appendChild(selectionMessage);
-    catalogueSection.appendChild(productList);
-    catalogueSection.appendChild(emptyMessage);
-    catalogueSection.appendChild(resetButton);
-
-    aboutMessage.appendChild(catalogueSection);
-
-    // Render product cards
-    function renderProducts(items) {
-        productList.replaceChildren();
-
-        for (let i = 0; i < items.length; i++) {
-            const product = items[i];
-
-            const column = document.createElement('div');
-            column.classList.add('col-12', 'col-md-6', 'col-lg-4');
-
-            const card = document.createElement('article');
-            card.classList.add('card', 'h-100', 'shadow-sm');
-
-            const cardBody = document.createElement('div');
-            cardBody.classList.add('card-body');
-
-            const productName = document.createElement('h3');
-            productName.classList.add('card-title', 'h5');
-            productName.textContent = product.name;
-
-            const productCategory = document.createElement('p');
-            productCategory.classList.add('card-text');
-            productCategory.textContent =
-                'Category: ' + product.category;
-
-            const productSize = document.createElement('p');
-            productSize.classList.add('card-text');
-            productSize.textContent = 'Size: ' + product.size;
-
-            const productAvailability = document.createElement('p');
-            productAvailability.classList.add('card-text');
-
-            if (product.available === true) {
-                productAvailability.textContent = 'Availability: Available';
-            } else {
-                productAvailability.textContent = 'Availability: Currently unavailable';
-            }
-
-            // Add a meaningful next action for a selected product
-            const selectButton = document.createElement('button');
-            selectButton.type = 'button';
-            selectButton.textContent = 'View product';
-            selectButton.classList.add('btn', 'btn-outline-danger');
-
-            selectButton.addEventListener('click', function () {
-    selectionMessage.textContent =
-        'Selected product: ' + product.name +
-        '. For prices and ordering, visit the Menu page.';
-
-    productList.querySelectorAll('.card').forEach(
-        function (selectedCard) {
-            selectedCard.classList.remove(
-                'border-danger',
-                'border-2'
-            );
-        }
+    // Create a link to the Menu page
+    const menuLink = document.createElement('a');
+    menuLink.href = 'menu.html';
+    menuLink.textContent = 'View the full menu and prices';
+    menuLink.classList.add(
+        'btn',
+        'btn-outline-danger',
+        'mt-3'
     );
 
-    card.classList.add('border-danger', 'border-2');
-});
+    // Add the search elements to the section
+    searchSection.appendChild(searchHeading);
+    searchSection.appendChild(searchLabel);
+    searchSection.appendChild(searchInput);
+    searchSection.appendChild(resultCount);
+    searchSection.appendChild(searchResults);
+    searchSection.appendChild(emptyMessage);
+    searchSection.appendChild(menuLink);
 
-            cardBody.appendChild(productName);
-            cardBody.appendChild(productCategory);
-            cardBody.appendChild(productSize);
-            cardBody.appendChild(productAvailability);
-            cardBody.appendChild(selectButton);
+    // Add the search section to the About page
+    aboutMessage.appendChild(searchSection);
 
-            card.appendChild(cardBody);
-            column.appendChild(card);
-            productList.appendChild(column);
+    // Update results when the user searches
+    function updateSearchResults() {
+        searchResults.replaceChildren();
+
+        const searchText = searchInput.value.trim();
+
+        // Show instructions when the search is empty
+        if (searchText === '') {
+            resultCount.textContent =
+                'Start typing a product name to search.';
+
+            emptyMessage.classList.add('hidden');
+            return;
         }
 
-        resultCount.textContent = 'Products found: ' + items.length;
-        emptyMessage.classList.toggle('hidden', items.length !== 0);
-    }
-    // Apply search and filter controls together
-    function updateCatalogue() {
-        const category = categorySelect.value;
-        const onlyAvailable = availabilityCheckbox.checked;
-        const searchText = searchInput.value;
-
-        const categoryResults = filterProducts(
-            products,
-            category,
-            onlyAvailable
-        );
-
+        // Find matching products
         const matchingProducts = searchProducts(
-            categoryResults,
+            products,
             searchText
         );
 
-        renderProducts(matchingProducts);
+        // Display the number of matching products
+        resultCount.textContent =
+            'Products found: ' + matchingProducts.length;
+
+        // Show or hide the no-results message
+        emptyMessage.classList.toggle(
+            'hidden',
+            matchingProducts.length !== 0
+        );
+
+        // Display products as a simple text list
+        matchingProducts.forEach(function (product) {
+            const resultItem = document.createElement('li');
+
+            let availabilityText;
+
+            if (product.available === true) {
+                availabilityText = 'Available';
+            } else {
+                availabilityText = 'Currently unavailable';
+            }
+
+            resultItem.textContent =
+                product.name +
+                ' (' + product.size + ')' +
+                ' — ' + availabilityText;
+
+            searchResults.appendChild(resultItem);
+        });
     }
 
-    // Listen for user actions
-    searchInput.addEventListener('input', updateCatalogue);
-    categorySelect.addEventListener('change', updateCatalogue);
-    availabilityCheckbox.addEventListener('change', updateCatalogue);
+    // Search when the user types
+    searchInput.addEventListener(
+        'input',
+        updateSearchResults
+    );
 
-    resetButton.addEventListener('click', function () {
-        searchInput.value = '';
-        categorySelect.value = 'all';
-        availabilityCheckbox.checked = false;
+    // Create the random doner recommendation button
+    const recommendationButton =
+        document.createElement('button');
 
-        updateCatalogue();
-        searchInput.focus();
-    });
-
-    // Create the random recommendation button
-    const recommendationButton = document.createElement('button');
     recommendationButton.type = 'button';
-    recommendationButton.textContent = 'Get a Doner Recommendation';
-    recommendationButton.classList.add('btn', 'btn-warning', 'mt-4');
 
-    const recommendationMessage = document.createElement('p');
+    recommendationButton.textContent =
+        'Get a Doner Recommendation';
+
+    recommendationButton.classList.add(
+        'btn',
+        'btn-warning',
+        'mt-4'
+    );
+
+    // Create the recommendation message
+    const recommendationMessage =
+        document.createElement('p');
+
     recommendationMessage.classList.add('mt-3');
-    recommendationMessage.setAttribute('aria-live', 'polite');
 
+    recommendationMessage.setAttribute(
+        'aria-live',
+        'polite'
+    );
+
+    // Add the recommendation elements to the page
     aboutMessage.appendChild(recommendationButton);
     aboutMessage.appendChild(recommendationMessage);
 
-    recommendationButton.addEventListener('click', function () {
-        const recommendedDoner = getRandomDoner(products);
+    // Recommend a random available doner
+    recommendationButton.addEventListener(
+        'click',
+        function () {
+            const recommendedDoner = getRandomDoner(products);
 
-        if (recommendedDoner !== null) {
-            recommendationMessage.textContent =
-                'Today\'s Doner Recommendation: ' + recommendedDoner.name;
-        } else {
-            recommendationMessage.textContent =
-                'Sorry, no doners are currently available.';
+            if (recommendedDoner !== null) {
+                recommendationMessage.textContent =
+                    "Today's Doner Recommendation: " +
+                    recommendedDoner.name +
+                    ' (' + recommendedDoner.size + ') — Available';
+            } else {
+                recommendationMessage.textContent =
+                    'Sorry, no doners are currently available.';
+            }
         }
-    });
+    );
 
-    // Show all products when the page first loads
-    updateCatalogue();
 } else {
-    console.error('About message container was not found.');
+    console.error(
+        'About message container was not found.'
+    );
 }
-
