@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Real customer reviews of Doner na Abaya in Astana and a form to leave your own review.">
-    <meta name="author" content="Alikhan Kuttybayev">
+    <meta name="description" content="Real customer reviews and photos of Doner na Abaya in Astana and a form to leave your own review.">
+    <meta name="author" content="Alikhan Kuttybayev, Ali Nadirov">
     <title>Reviews | Doner na Abaya</title>
     <!-- Bootstrap 5.3.8 from CDN. My own CSS is linked after it, so my rules win where they conflict. -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/Ali-Nadirov.css">
     <link rel="stylesheet" href="css/Alikhan-Kuttybayev.css">
     <script src="js/main.js" defer></script>
-<script src="js/reviews.js" defer></script>
+    <script src="js/reviews.js" defer></script>
 </head>
 <body>
-<!-- Author: Alikhan Kuttybayev -->
-<!-- container-fluid inside the navbar: the dark bar spans the full width of the screen. -->
+<!-- Author: Alikhan Kuttybayev, Ali Nadirov -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
         <div class="container-fluid">
@@ -37,7 +37,6 @@
                 <ul class="navbar-nav ms-auto gap-lg-2">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="reviews.html">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
@@ -49,70 +48,61 @@
     </nav>
 </header>
 
-<!-- container (not fluid): keeps the text at a readable width on big screens. -->
 <main class="container py-4">
     <h1 class="display-5 fw-bold text-danger text-center text-md-start">Customer Reviews</h1>
     <p class="lead text-center text-md-start">
-        These are opinions about the branch at 51 Mangilik El Avenue.
-        Read the <a href="#customer-reviews">reviews</a> or go to the
-        <a href="#review-form">review form</a> to add yours.
+        See photos from our branch at 51 Mangilik El Avenue, go to the
+        <a href="#review-form">review form</a> to add yours, or read the <a href="#customer-reviews">reviews</a> below.
     </p>
 
-    <section id="customer-reviews" class="mb-5">
-        <h2 class="h3 pb-2 border-bottom border-danger border-2">What Visitors Say</h2>
-        <!-- Responsive block 1: 1 card per row on phones, 2 on tablets, 3 on desktops. -->
-        <p class="text-muted" id="review-summary">Reviews on this page: <strong id="review-count">3</strong></p>
-        <div class="row g-4" id="review-list">
-            <div class="col-12 col-md-6 col-lg-4">
-                <!-- Bootstrap component: card. Copied from the docs; I changed the text to our
-                     reviews, added the red top border and h-100 so all cards are the same height. -->
-                <!-- Each review is an article because it is a complete opinion that still makes sense alone. -->
-                <article class="card h-100 border-top border-danger border-4 review-card" id="review-1">
+    <!-- 1. Два фото сверху -->
+    <section id="photos" class="mb-5 p-4 bg-white border rounded shadow-sm">
+        <h2 class="h3 pb-2 border-bottom border-danger border-2 mb-4">Photos from Our Visit</h2>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <div class="card h-100 shadow-sm rounded-3 border border-danger border-2">
+                    <img
+                        id="food-photo"
+                        class="card-img-top img-fluid gallery-photo"
+                        src="images/food.jpeg"
+                        width="400"
+                        height="400"
+                        alt="Doners ordered during a visit to Doner na Abaya">
                     <div class="card-body">
-                        <h3 class="card-title h5 review-name">Arman</h3>
-                        <blockquote class="mb-2">
-                            <p class="fst-italic">I liked this branch. The doner was fresh and filling, the order was prepared quickly, and the place was clean. I especially liked the sauce.</p>
-                        </blockquote>
-                        <p class="small text-muted mb-0">Told to our team on 10<sup>th</sup> September 2026.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="col-12 col-md-6 col-lg-4">
-                <article class="card h-100 border-top border-danger border-4 review-card" id="review-2">
-                    <div class="card-body">
-                        <h3 class="card-title h5 review-name">Araylym, staff member</h3>
-                        <blockquote class="mb-2">
-                            <p class="fst-italic">All our meat is halal. A lot of people come to us exactly for this reason.</p>
-                        </blockquote>
-                        <p class="small text-muted mb-0">Told to our team at the branch on 11<sup>th</sup> September 2026.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="col-12 col-lg-4">
-                <article class="card h-100 border-top border-danger border-4 review-card" id="review-3">
-                    <div class="card-body">
-                        <h3 class="card-title h5 review-name">Our Team's Visit</h3>
-                        <p class="mb-0">
-                            The place was clean and cozy, and the staff were polite.
-                            Like Arman, we found the doner <q>fresh and filling</q>.
-                            Preparation takes 15&ndash;20 minutes, so <em>order before you get too hungry</em>.
+                        <p class="card-text mb-0">
+                            <q>Freshly prepared doners</q>
                         </p>
                     </div>
-                </article>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <div class="card h-100 shadow-sm rounded-3 border border-danger border-2">
+                    <img
+                        id="interior-photo"
+                        class="card-img-top img-fluid gallery-photo"
+                        src="images/interior.jpeg"
+                        width="400"
+                        height="500"
+                        alt="Interior of Doner na Abaya at 51 Mangilik El Avenue">
+                    <div class="card-body">
+                        <p class="card-text mb-0">
+                            Modern and comfortable interior
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- 2. Leave a Review посередине -->
     <section id="review-form" class="mb-5">
         <h2 class="h3 pb-2 border-bottom border-danger border-2">Leave a Review</h2>
-        <!-- Responsive block 2: form and side panel stack on phones, become 2 columns from lg. -->
         <div class="row g-4">
             <div class="col-12 col-lg-8">
                 <form id="feedback-form" class="p-4 bg-white border rounded shadow-sm" method="get" action="reviews.html">
                     <fieldset>
                         <legend class="h5 text-danger">Your review</legend>
-                        <!-- Nested row: this row sits inside the col-lg-8 column.
-                             Fields are 1 per line on phones and 2 per line from md. -->
                         <div class="row g-3">
                             <div class="col-12 col-md-6">
                                 <label for="reviewer-name" class="form-label">Name</label>
@@ -148,27 +138,27 @@
                             </div>
                             <div class="col-12">
                                 <fieldset id="rating-group">
-                                <legend class="form-label fs-6 mb-1">Your rating</legend>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="rating-5" name="rating" value="5" required>
-                                    <label class="form-check-label" for="rating-5">5 Excellent</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="rating-4" name="rating" value="4">
-                                    <label class="form-check-label" for="rating-4">4 Good</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="rating-3" name="rating" value="3">
-                                    <label class="form-check-label" for="rating-3">3 Okay</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="rating-2" name="rating" value="2">
-                                    <label class="form-check-label" for="rating-2">2 Bad</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="rating-1" name="rating" value="1">
-                                    <label class="form-check-label" for="rating-1">1 Very bad</label>
-                                </div>
+                                    <legend class="form-label fs-6 mb-1">Your rating</legend>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="rating-5" name="rating" value="5" required>
+                                        <label class="form-check-label" for="rating-5">5 Excellent</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="rating-4" name="rating" value="4">
+                                        <label class="form-check-label" for="rating-4">4 Good</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="rating-3" name="rating" value="3">
+                                        <label class="form-check-label" for="rating-3">3 Okay</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="rating-2" name="rating" value="2">
+                                        <label class="form-check-label" for="rating-2">2 Bad</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" id="rating-1" name="rating" value="1">
+                                        <label class="form-check-label" for="rating-1">1 Very bad</label>
+                                    </div>
                                 </fieldset>
                             </div>
                             <div class="col-12">
@@ -183,11 +173,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Empty on purpose: JavaScript will fill these later. -->
                         <div id="review-confirmation" class="alert alert-success hidden mt-4 mb-0" role="status" aria-live="polite"></div>
                         <div id="review-error" class="alert alert-danger hidden mt-4 mb-0" role="alert"></div>
-                        <p class="small text-muted mt-4 mb-0" id="review-submit-help">Press Submit: your review is added to the list above and a confirmation message appears here. Reviews stay on this page only and are not sent to the restaurant.</p>
-                        <!-- Bootstrap flex utilities replace my old .form-actions flexbox CSS. -->
+                        <p class="small text-muted mt-4 mb-0" id="review-submit-help">
+                            Press Submit: your review is added to the list below and a confirmation message appears here. Reviews stay on this page only and are not sent to the restaurant.
+                        </p>
                         <div class="d-flex flex-wrap gap-2 mt-3">
                             <button type="submit" id="review-submit" class="btn btn-danger btn-lg">Submit</button>
                             <button type="reset" id="review-reset" class="btn btn-outline-dark">Reset</button>
@@ -205,7 +195,7 @@
                         Press <kbd>Tab</kbd> to go to the next field. An empty required field shows
                         <samp>Please fill out this field.</samp>
                     </p>
-                    <p>Your review appears in the list at the top of this page. It is not sent to the restaurant, because this website has no server.</p>
+                    <p>Your review appears in the list at the bottom of this page. It is not sent to the restaurant, because this website has no server.</p>
                     <p class="mb-0">
                         Questions about this website: email the page author at
                         <a class="text-break" href="mailto:alik.kuttybayev@gmail.com">alik.kuttybayev@gmail.com</a>
@@ -215,13 +205,48 @@
         </div>
     </section>
 
-    <figure class="text-center mb-0">
-        <img class="img-fluid rounded shadow-sm border border-danger" src="images/order-counter.jpg" width="400"
-             alt="Order counter at Doner na Abaya where customers order, pay and pick up their food">
-        <figcaption class="small text-muted mt-2">The counter where customers order</figcaption>
-    </figure>
+    <!-- 3. What Visitors Say снизу -->
+    <section id="customer-reviews" class="mb-5">
+        <h2 class="h3 pb-2 border-bottom border-danger border-2">What Visitors Say</h2>
+        <p class="text-muted" id="review-summary">Reviews on this page: <strong id="review-count">3</strong></p>
+        <div class="row g-4" id="review-list">
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 border-top border-danger border-4 review-card" id="review-1">
+                    <div class="card-body">
+                        <h3 class="card-title h5 review-name">Arman</h3>
+                        <blockquote class="mb-2">
+                            <p class="fst-italic">I liked this branch. The doner was fresh and filling, the order was prepared quickly, and the place was clean. I especially liked the sauce.</p>
+                        </blockquote>
+                        <p class="small text-muted mb-0">Told to our team on 10<sup>th</sup> September 2026.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 border-top border-danger border-4 review-card" id="review-2">
+                    <div class="card-body">
+                        <h3 class="card-title h5 review-name">Araylym, staff member</h3>
+                        <blockquote class="mb-2">
+                            <p class="fst-italic">All our meat is halal. A lot of people come to us exactly for this reason.</p>
+                        </blockquote>
+                        <p class="small text-muted mb-0">Told to our team at the branch on 11<sup>th</sup> September 2026.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <article class="card h-100 border-top border-danger border-4 review-card" id="review-3">
+                    <div class="card-body">
+                        <h3 class="card-title h5 review-name">Our Team's Visit</h3>
+                        <p class="mb-0">
+                            The place was clean and cozy, and the staff were polite.
+                            Like Arman, we found the doner <q>fresh and filling</q>.
+                            Preparation takes 15&ndash;20 minutes, so <em>order before you get too hungry</em>.
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
 
-    <!-- Cross-links: flex utilities center the two buttons and let them wrap on a phone. -->
     <div class="d-flex flex-wrap justify-content-center gap-2 mt-4">
         <a id="go-to-menu" class="btn btn-danger" href="menu.html">Choose your doner</a>
         <a id="go-to-order" class="btn btn-outline-danger" href="order.html">Go to the Order page</a>
@@ -234,34 +259,22 @@
             <strong>Phone:</strong>
             <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a>
         </p>
-
         <p class="mb-2">
             <strong>Instagram:</strong>
-            <a
-                class="link-light"
-                href="https://www.instagram.com/doner_na_abaya_astanaa/"
-                target="_blank"
-                rel="noopener noreferrer">
+            <a class="link-light" href="https://www.instagram.com/doner_na_abaya_astanaa/" target="_blank" rel="noopener noreferrer">
                 @doner_na_abaya_astanaa
             </a>
         </p>
-
         <p class="mb-2">
             Visit the
-            <a
-                class="link-light"
-                href="https://doner-na-abaya.kz/"
-                target="_blank"
-                rel="noopener noreferrer">
+            <a class="link-light" href="https://doner-na-abaya.kz/" target="_blank" rel="noopener noreferrer">
                 official website
             </a>.
         </p>
-
         <p class="mb-0">&copy; 2026 Doner na Abaya</p>
     </div>
 </footer>
 
-<!-- Bootstrap 5.3.8 JavaScript bundle: needed for the navbar toggler. -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
