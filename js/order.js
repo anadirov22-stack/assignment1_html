@@ -1,4 +1,8 @@
 'use strict';
+/*
+    Mazhit Nurasyl
+    FAQ page JavaScript
+*/
 const products = [
     { id: 'chicken-standard', name: 'Chicken Doner — Standard', category: 'doner', price: 1895 },
     { id: 'chicken-large', name: 'Chicken Doner — Large', category: 'doner', price: 2195 },
