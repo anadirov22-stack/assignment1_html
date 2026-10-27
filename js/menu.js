@@ -5,28 +5,26 @@
 */
 
 const menuCatalogue = [
-    { id: 'chicken', name: 'Chicken Doner', category: 'doner', price: 1895, size: 'Standard / Large (2195 ₸)' },
-    { id: 'beef', name: 'Beef Doner', category: 'doner', price: 2195, size: 'Standard / Large (2495 ₸)' },
-    { id: 'assorted', name: 'Assorted Doner', category: 'doner', price: 2095, size: 'Standard / Large (2395 ₸)' },
-    { id: 'cola', name: 'Coca-Cola / Fanta / Sprite', category: 'drink', price: 795, size: '450 ml / 500 ml (845 ₸)' },
-    { id: 'ayran', name: 'Traditional Ayran', category: 'drink', price: 595, size: '300 ml' },
-    { id: 'bonaqua', name: 'Bonaqua Water', category: 'drink', price: 595, size: '500 ml' },
-    { id: 'fries', name: 'Crispy Fries', category: 'extra', price: 895, size: '1 portion' },
-    { id: 'extra-meat', name: 'Extra Chicken / Beef (50 g)', category: 'extra', price: 590, size: '50 g (Beef: 690 ₸)' },
-    { id: 'sauce', name: 'Signature Sauce / Peppers', category: 'extra', price: 200, size: '1 cup (Peppers: 100 ₸)' }
+    { id: 'chicken', name: 'Chicken Doner', category: 'doner', price: 1895, size: '390 g · Standard / Large (2195 ₸)', desc: 'Lavash, chicken, french fries, pickled cucumbers, signature sauce.', img: 'images/1.jpeg' },
+    { id: 'beef', name: 'Beef Doner', category: 'doner', price: 2195, size: '390 g · Standard / Large (2495 ₸)', desc: 'Lavash, beef, french fries, pickled cucumbers, signature sauce.', img: 'images/2.jpeg' },
+    { id: 'assorted', name: 'Assorted Doner', category: 'doner', price: 2095, size: '390 g · Standard / Large (2395 ₸)', desc: 'Lavash, beef and chicken, french fries, pickled cucumbers, sauce.', img: 'images/3.jpeg' },
+    { id: 'cola', name: 'Coca-Cola', category: 'drink', price: 795, size: '500 ml (845 ₸)', desc: 'Chilled carbonated soft drink.', img: 'images/4.jpeg' },
+    { id: 'ayran', name: 'Traditional Ayran', category: 'drink', price: 595, size: '300 ml', desc: 'Cold traditional sour-milk drink.', img: 'images/5.jpeg' },
+    { id: 'bonaqua', name: 'Water', category: 'drink', price: 595, size: '500 ml', desc: 'Refreshing still drinking water.', img: 'images/6.jpeg' },
+    { id: 'fries', name: 'Crispy Fries', category: 'extra', price: 895, size: '1 portion', desc: 'Hot golden french fries.', img: 'images/7.jpeg' },
+    { id: 'extra-meat', name: 'Extra Chicken / Beef (50 g)', category: 'extra', price: 590, size: '50 g (Beef: 690 ₸)', desc: 'Additional portion of grilled halal meat.', img: 'images/8.jpeg' },
+    { id: 'sauce', name: 'Signature Sauce / Peppers', category: 'extra', price: 200, size: '1 cup (Peppers: 100 ₸)', desc: 'Signature red/white sauce or spicy peppers.', img: 'images/9.jpeg' }
 ];
 
 // Function 1: Calculate combo price with Ayran (595 KZT) and size difference
 function calculateDonerDetails(standardPrice, largePrice) {
-    const difference = largePrice - standardPrice;
-    const comboWithAyran = standardPrice + 595;
     return {
-        diff: difference,
-        combo: comboWithAyran
+        diff: largePrice - standardPrice,
+        combo: standardPrice + 595
     };
 }
 
-// Function 2: Filter and sort menu items (calls Array.filter and Array.sort)
+// Function 2: Filter and sort menu items
 function filterMenuItems(items, query, category, sortOrder) {
     const cleanQuery = query.trim().toLowerCase();
 
@@ -54,39 +52,47 @@ function getRandomMenuItem(items) {
     return items[index];
 }
 
-// Function 4: Create a single card element (reusable DOM builder)
+// Function 4: Create a single card element with photo and price badge
 function createMenuCard(item, selectedId, onSelect) {
     const col = document.createElement('div');
     col.classList.add('col-12', 'col-md-4');
 
     const card = document.createElement('article');
-    card.classList.add('card', 'h-100', 'shadow-sm');
+    card.classList.add('card', 'h-100', 'border-0', 'shadow-sm', 'rounded-4', 'overflow-hidden');
     if (item.id === selectedId) {
         card.classList.add('selected');
     }
 
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.name;
+    img.classList.add('card-img-top', 'img-fluid', 'rounded-4');
+
     const body = document.createElement('div');
-    body.classList.add('card-body', 'd-flex', 'flex-column');
+    body.classList.add('card-body', 'd-flex', 'flex-column', 'px-2', 'pb-2');
 
     const title = document.createElement('h4');
-    title.classList.add('h6', 'fw-bold', 'mb-1');
+    title.classList.add('h5', 'fw-bold', 'mb-1');
     title.textContent = item.name;
 
     const info = document.createElement('p');
-    info.classList.add('small', 'text-muted', 'mb-2');
-    info.textContent = item.size + ' — from ' + item.price + ' ₸';
+    info.classList.add('small', 'text-secondary', 'mb-1');
+    info.textContent = item.size;
 
-    const btn = document.createElement('a');
-    btn.href = 'order.html';
-    btn.classList.add('btn', 'btn-sm', 'btn-outline-danger', 'mt-auto');
-    btn.textContent = 'Order (' + item.price + ' ₸)';
+    const desc = document.createElement('p');
+    desc.classList.add('small', 'text-muted', 'mb-3');
+    desc.textContent = item.desc;
+
+    const priceBadge = document.createElement('span');
+    priceBadge.classList.add('badge', 'rounded-pill', 'text-bg-danger', 'fs-6', 'px-3', 'py-2', 'mt-auto', 'align-self-start');
+    priceBadge.textContent = 'from ' + item.price + ' ₸';
 
     card.addEventListener('click', function () {
         onSelect(item.id);
     });
 
-    body.append(title, info, btn);
-    card.appendChild(body);
+    body.append(title, info, desc, priceBadge);
+    card.append(img, body);
     col.appendChild(card);
     return col;
 }
@@ -111,7 +117,7 @@ function initPriceTable() {
 
             infoBox.textContent =
                 name + ': Standard is ' + std + ' ₸, Large is ' + lrg +
-                ' ₸ (+' + stats.diff + ' ₸). Standard combo with Ayran: ' + stats.combo + ' ₸.';
+                ' ₸ (+' + stats.diff + ' ₸)' + ' ₸.';
             infoBox.classList.add('success');
         });
     });
@@ -127,7 +133,7 @@ function initMenuFilter() {
     let selectedCardId = '';
 
     const wrapper = document.createElement('div');
-    wrapper.classList.add('mt-4', 'pt-3', 'border-top');
+    wrapper.classList.add('mt-3');
 
     const controls = document.createElement('div');
     controls.classList.add('row', 'g-2', 'mb-3');
@@ -156,7 +162,6 @@ function initMenuFilter() {
     const col2 = document.createElement('div');
     col2.classList.add('col-6', 'col-md-3');
     col2.appendChild(categorySelect);
-    
 
     const sortSelect = document.createElement('select');
     sortSelect.classList.add('form-select');
@@ -185,7 +190,7 @@ function initMenuFilter() {
     controls.append(col1, col2, col3, col4);
 
     const topBar = document.createElement('div');
-    topBar.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-2');
+    topBar.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-3');
 
     const countInfo = document.createElement('span');
     countInfo.classList.add('small', 'fw-bold', 'text-muted');
@@ -202,7 +207,7 @@ function initMenuFilter() {
     emptyBox.textContent = 'No items found. Try another search word.';
 
     const grid = document.createElement('div');
-    grid.classList.add('row', 'g-3');
+    grid.classList.add('row', 'g-4');
 
     wrapper.append(controls, topBar, emptyBox, grid);
     drinksSection.appendChild(wrapper);
