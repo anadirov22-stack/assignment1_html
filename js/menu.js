@@ -16,15 +16,7 @@ const menuCatalogue = [
     { id: 'sauce', name: 'Signature Sauce / Peppers', category: 'extra', price: 200, size: '1 cup (Peppers: 100 ₸)', desc: 'Signature red/white sauce or spicy peppers.', img: 'images/9.jpeg' }
 ];
 
-// Function 1: Calculate combo price with Ayran (595 KZT) and size difference
-function calculateDonerDetails(standardPrice, largePrice) {
-    return {
-        diff: largePrice - standardPrice,
-        combo: standardPrice + 595
-    };
-}
-
-// Function 2: Filter and sort menu items
+// Function 1: Filter and sort menu items
 function filterMenuItems(items, query, category, sortOrder) {
     const cleanQuery = query.trim().toLowerCase();
 
@@ -43,7 +35,7 @@ function filterMenuItems(items, query, category, sortOrder) {
     return filtered;
 }
 
-// Function 3: Pick a random item using Math.random()
+// Function 2: Pick a random item using Math.random()
 function getRandomMenuItem(items) {
     if (items.length === 0) {
         return null;
@@ -52,7 +44,7 @@ function getRandomMenuItem(items) {
     return items[index];
 }
 
-// Function 4: Create a single card element with photo and price badge
+// Function 3: Create a single card element with photo and price badge
 function createMenuCard(item, selectedId, onSelect) {
     const col = document.createElement('div');
     col.classList.add('col-12', 'col-md-4');
@@ -97,34 +89,13 @@ function createMenuCard(item, selectedId, onSelect) {
     return col;
 }
 
-// Feature 1: Interactive Price Table rows
-function initPriceTable() {
-    const rows = document.querySelectorAll('#price-table .price-row');
+// Menu Filter & Search inside #drinks section
+function initMenuFilter() {
     const infoBox = document.querySelector('#price-row-info');
-    if (rows.length === 0 || infoBox === null) {
-        return;
+    if (infoBox !== null) {
+        infoBox.classList.add('hidden');
     }
 
-    rows.forEach(function (row) {
-        row.addEventListener('click', function () {
-            rows.forEach(function (r) { r.classList.remove('selected'); });
-            row.classList.add('selected');
-
-            const name = row.getAttribute('data-doner');
-            const std = Number(row.getAttribute('data-price-standard'));
-            const lrg = Number(row.getAttribute('data-price-large'));
-            const stats = calculateDonerDetails(std, lrg);
-
-            infoBox.textContent =
-                name + ': Standard is ' + std + ' ₸, Large is ' + lrg +
-                ' ₸ (+' + stats.diff + ' ₸)' + ' ₸.';
-            infoBox.classList.add('success');
-        });
-    });
-}
-
-// Feature 2: Menu Filter & Search inside #drinks section
-function initMenuFilter() {
     const drinksSection = document.querySelector('#drinks');
     if (drinksSection === null) {
         return;
@@ -262,5 +233,4 @@ function initMenuFilter() {
     render();
 }
 
-initPriceTable();
 initMenuFilter();
