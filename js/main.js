@@ -1,22 +1,31 @@
 'use strict';
 
-function setCurrentPageNavigation() {
-const currentPage = window.location.pathname.split('/').pop();
-const navigationLinks = document.querySelectorAll('nav a');
+/*
+ * Shared navigation behavior rewritten with jQuery for Assignment 4.
+ * jQuery version: 3.7.1 (CDN is linked in each page that uses this file).
+ * DOM-ready is needed because the navigation links must exist before selection.
+ */
 
-navigationLinks.forEach(function (link) {
-    const linkPage = link.getAttribute('href');
+$(function () {
+    // ID/class/element/attribute selectors are demonstrated across this project.
+    const $navigationLinks = $('nav a[href]');
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-    if (linkPage === currentPage) {
-        link.setAttribute('aria-current', 'page');
-    } else if (link.getAttribute('aria-current') === 'page') {
-        link.removeAttribute('aria-current');
-    }
+    // .each() visits each link; $(this) wraps the current DOM element as a jQuery object.
+    $navigationLinks.each(function () {
+        const $link = $(this);
+        const linkPage = $link.attr('href');
+
+        if (linkPage === currentPage) {
+            $link.attr('aria-current', 'page').addClass('selected');
+        } else {
+            $link.removeAttr('aria-current').removeClass('selected');
+        }
+    });
+
+    // Chaining: select the links, find the current one, and set its accessibility state.
+    // This keeps related DOM changes together and avoids repeated selectors.
+    $('nav a[href]').filter('[aria-current="page"]').first().attr('aria-label', function () {
+        return $(this).text().trim() + ' (current page)';
+    });
 });
-}
-
-function initializeSharedFeatures() {
-setCurrentPageNavigation();
-}
-
-initializeSharedFeatures();
