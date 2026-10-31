@@ -1,6 +1,6 @@
 'use strict';
 /*
-    Mazhit Nurasyl
+    Mazhit Nurasyl-
     FAQ page JavaScript
 */
 const faqData=[

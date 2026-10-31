@@ -1,6 +1,6 @@
 'use strict';
 /*
-    Mazhit Nurasyl
+    Mazhit Nurasyl-
     ORDER page JavaScript
 */
 const products=[
