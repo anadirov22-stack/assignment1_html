@@ -1,444 +1,127 @@
 'use strict';
 
 /*
- Ali Nadirov About page Javascript
-*/
+ * About page jQuery features for Doner na Abaya.
+ * jQuery 3.7.1 is loaded before this file. DOM-ready ensures #about-message exists.
+ * Compared with plain JS, $() selects elements and .on() attaches events without
+ * repeated querySelector/addEventListener calls; .append() builds the same UI compactly.
+ */
 
-// Product data for Doner na Abaya
-const products = [
-    // Doners
-    {
-        id: 1,
-        name: 'Chicken doner',
-        category: 'doner',
-        size: 'M',
-        available: true
-    },
-    {
-        id: 2,
-        name: 'Beef doner',
-        category: 'doner',
-        size: 'M',
-        available: true
-    },
-    {
-        id: 3,
-        name: 'Assorted doner',
-        category: 'doner',
-        size: 'M',
-        available: true
-    },
-    {
-        id: 4,
-        name: 'Chicken doner',
-        category: 'doner',
-        size: 'S',
-        available: true
-    },
-    {
-        id: 5,
-        name: 'Beef doner',
-        category: 'doner',
-        size: 'S',
-        available: true
-    },
-    {
-        id: 6,
-        name: 'Assorted doner',
-        category: 'doner',
-        size: 'S',
-        available: true
-    },
+$(function () {
+    const products = [
+        { id: 1, name: 'Chicken doner', category: 'doner', size: 'M', available: true },
+        { id: 2, name: 'Beef doner', category: 'doner', size: 'M', available: true },
+        { id: 3, name: 'Assorted doner', category: 'doner', size: 'M', available: true },
+        { id: 4, name: 'Chicken doner', category: 'doner', size: 'S', available: true },
+        { id: 5, name: 'Beef doner', category: 'doner', size: 'S', available: true },
+        { id: 6, name: 'Assorted doner', category: 'doner', size: 'S', available: true },
+        { id: 7, name: 'Coca-Cola Zero Sugar', category: 'drink', size: '450 ml', available: true },
+        { id: 8, name: 'Coca-Cola', category: 'drink', size: '500 ml', available: true },
+        { id: 9, name: 'Fanta', category: 'drink', size: '450 ml', available: true },
+        { id: 10, name: 'Fuse Tea', category: 'drink', size: '450 ml', available: true },
+        { id: 11, name: 'Sprite', category: 'drink', size: '450 ml', available: true },
+        { id: 12, name: 'Coca-Cola Zero Sugar', category: 'drink', size: '500 ml', available: true },
+        { id: 13, name: 'Fanta', category: 'drink', size: '500 ml', available: true },
+        { id: 14, name: 'Sprite', category: 'drink', size: '500 ml', available: true },
+        { id: 15, name: 'Fuse Tea', category: 'drink', size: '500 ml', available: true },
+        { id: 16, name: 'Bonaqua', category: 'drink', size: '500 ml', available: true },
+        { id: 17, name: 'Airyan', category: 'drink', size: '300 ml', available: true },
+        { id: 18, name: 'Extra beef', category: 'addition', size: 'Extra portion', available: true },
+        { id: 19, name: 'Extra chicken', category: 'addition', size: 'Extra portion', available: true },
+        { id: 20, name: 'Peppers', category: 'addition', size: 'Extra portion', available: true },
+        { id: 21, name: 'Red sauce', category: 'addition', size: 'Extra portion', available: true },
+        { id: 22, name: 'White sauce', category: 'addition', size: 'Extra portion', available: true }
+    ];
 
-    // Drinks
-    {
-        id: 7,
-        name: 'Coca-Cola Zero Sugar',
-        category: 'drink',
-        size: '450 ml',
-        available: true
-    },
-    {
-        id: 8,
-        name: 'Coca-Cola',
-        category: 'drink',
-        size: '500 ml',
-        available: true
-    },
-    {
-        id: 9,
-        name: 'Fanta',
-        category: 'drink',
-        size: '450 ml',
-        available: true
-    },
-    {
-        id: 10,
-        name: 'Fuse Tea',
-        category: 'drink',
-        size: '450 ml',
-        available: true
-    },
-    {
-        id: 11,
-        name: 'Sprite',
-        category: 'drink',
-        size: '450 ml',
-        available: true
-    },
-    {
-        id: 12,
-        name: 'Coca-Cola Zero Sugar',
-        category: 'drink',
-        size: '500 ml',
-        available: true
-    },
-    {
-        id: 13,
-        name: 'Fanta',
-        category: 'drink',
-        size: '500 ml',
-        available: true
-    },
-    {
-        id: 14,
-        name: 'Sprite',
-        category: 'drink',
-        size: '500 ml',
-        available: true
-    },
-    {
-        id: 15,
-        name: 'Fuse Tea',
-        category: 'drink',
-        size: '500 ml',
-        available: true
-    },
-    {
-        id: 16,
-        name: 'Bonaqua',
-        category: 'drink',
-        size: '500 ml',
-        available: true
-    },
-    {
-        id: 17,
-        name: 'Airyan',
-        category: 'drink',
-        size: '300 ml',
-        available: true
-    },
+    const $aboutMessage = $('#about-message');
+    if (!$aboutMessage.length) return;
 
-    // Additions
-    {
-        id: 18,
-        name: 'Extra beef',
-        category: 'addition',
-        size: 'Extra portion',
-        available: true
-    },
-    {
-        id: 19,
-        name: 'Extra chicken',
-        category: 'addition',
-        size: 'Extra portion',
-        available: true
-    },
-    {
-        id: 20,
-        name: 'Peppers',
-        category: 'addition',
-        size: 'Extra portion',
-        available: true
-    },
-    {
-        id: 21,
-        name: 'Red sauce',
-        category: 'addition',
-        size: 'Extra portion',
-        available: true
-    },
-    {
-        id: 22,
-        name: 'White sauce',
-        category: 'addition',
-        size: 'Extra portion',
-        available: true
-    }
-];
-
-// Get all available products
-function getAvailableProducts(items) {
-    return items.filter(function (product) {
-        return product.available === true;
-    });
-}
-
-// Find a product by ID
-function findProductById(items, productId) {
-    return items.find(function (product) {
-        return product.id === productId;
-    });
-}
-
-// Count products in a category
-function countProductsByCategory(items, category) {
-    let count = 0;
-
-    for (let i = 0; i < items.length; i++) {
-        if (items[i].category === category) {
-            count++;
-        }
-    }
-
-    return count;
-}
-
-// Calculate product statistics
-function getProductStatistics(items) {
-    const availableItems = getAvailableProducts(items);
-
-    return {
-        total: items.length,
-        available: availableItems.length,
-        unavailable: items.length - availableItems.length
+    const countProductsByCategory = (items, category) => items.filter(item => item.category === category).length;
+    const findProductById = (items, id) => items.find(item => item.id === id);
+    const getAvailableProducts = items => items.filter(item => item.available);
+    const searchProducts = (items, query) => {
+        const normalizedQuery = query.trim().toLowerCase();
+        return items.filter(item => item.name.toLowerCase().includes(normalizedQuery));
     };
-}
+    const getRandomDoner = items => {
+        const availableDoners = items.filter(item => item.category === 'doner' && item.available);
+        return availableDoners.length ? availableDoners[Math.floor(Math.random() * availableDoners.length)] : null;
+    };
 
-// Search products by name
-function searchProducts(items, searchText) {
-    const query = searchText.trim().toLowerCase();
+    const stats = {
+        total: products.length,
+        available: getAvailableProducts(products).length,
+        doners: countProductsByCategory(products, 'doner'),
+        drinks: countProductsByCategory(products, 'drink')
+    };
+    console.log('About page product statistics:', stats);
+    console.log('Example product lookup:', findProductById(products, 3));
 
-    return items.filter(function (product) {
-        return product.name.toLowerCase().includes(query);
+    // Build the search interface from JS data rather than adding new static HTML.
+    const $searchSection = $('<section>', { class: 'mt-4 mb-4', 'aria-labelledby': 'product-search-heading' });
+    const $heading = $('<h2>', { id: 'product-search-heading', class: 'h3 mb-3' }).text('Find a Product');
+    const $label = $('<label>', { for: 'product-search', class: 'form-label' }).text('Search products in our menu for availability');
+    const $searchInput = $('<input>', {
+        type: 'search', id: 'product-search', class: 'form-control mb-3',
+        placeholder: 'Enter a product name', autocomplete: 'off', 'aria-label': 'Search menu products'
     });
-}
+    const $resultCount = $('<p>', { class: 'mt-3', 'aria-live': 'polite' }).text('Start typing a product name to search.');
+    const $searchResults = $('<ul>', { class: 'mt-2', 'aria-live': 'polite' });
+    const $emptyMessage = $('<p>', { class: 'hidden mt-2', role: 'status' }).text('No products match your search.');
+    const $menuLink = $('<a>', { href: 'menu.html', class: 'btn btn-outline-danger mt-3' }).text('View the full menu and prices');
+    const $recommendButton = $('<button>', { type: 'button', class: 'btn btn-warning mt-4' }).text('Get a Doner Recommendation');
+    const $recommendationMessage = $('<p>', { class: 'mt-3', 'aria-live': 'polite' });
 
-// Select a random available doner
-function getRandomDoner(items) {
-    const availableDoners = items.filter(function (product) {
-        return product.category === 'doner' &&
-            product.available === true;
-    });
+    // Three-method chain: append all controls, reveal the existing container, then animate it in.
+    // jQuery chaining is clearer than multiple appendChild/classList calls in plain JS.
+    $searchSection.append($heading, $label, $searchInput, $resultCount, $searchResults, $emptyMessage, $menuLink, $recommendButton, $recommendationMessage)
+        .addClass('border rounded p-3')
+        .hide()
+        .appendTo($aboutMessage);
+    $aboutMessage.removeClass('hidden').fadeIn(250);
+    $searchSection.slideDown(250);
 
-    if (availableDoners.length === 0) {
-        return null;
-    }
-
-    const randomIndex = Math.floor(
-        Math.random() * availableDoners.length
-    );
-
-    return availableDoners[randomIndex];
-}
-
-// Display product statistics in the browser console
-console.log(
-    'Product statistics:',
-    getProductStatistics(products)
-);
-
-console.log(
-    'Number of doners:',
-    countProductsByCategory(products, 'doner')
-);
-
-console.log(
-    'Number of drinks:',
-    countProductsByCategory(products, 'drink')
-);
-
-const selectedProduct = findProductById(products, 3);
-
-if (selectedProduct !== undefined) {
-    console.log('Found product:', selectedProduct.name);
-} else {
-    console.log('Product not found');
-}
-
-// Find the existing About message container
-const aboutMessage = document.getElementById('about-message');
-
-if (aboutMessage !== null) {
-    aboutMessage.classList.remove('hidden');
-
-    // Create the product search section
-    const searchSection = document.createElement('section');
-    searchSection.classList.add('mt-4', 'mb-4');
-    searchSection.setAttribute(
-        'aria-labelledby',
-        'product-search-heading'
-    );
-
-    // Create the search heading
-    const searchHeading = document.createElement('h2');
-    searchHeading.id = 'product-search-heading';
-    searchHeading.textContent = 'Find a Product';
-    searchHeading.classList.add('h3', 'mb-3');
-
-    // Create the search label
-    const searchLabel = document.createElement('label');
-    searchLabel.htmlFor = 'product-search';
-    searchLabel.textContent = 'Search products in our menu for availability';
-    searchLabel.classList.add('form-label');
-
-    // Create the search input
-    const searchInput = document.createElement('input');
-    searchInput.type = 'search';
-    searchInput.id = 'product-search';
-    searchInput.classList.add('form-control', 'mb-3');
-    searchInput.placeholder = 'Enter a product name';
-    searchInput.setAttribute('autocomplete', 'off');
-
-    // Create the result count
-    const resultCount = document.createElement('p');
-    resultCount.classList.add('mt-3');
-    resultCount.setAttribute('aria-live', 'polite');
-    resultCount.textContent =
-        'Start typing a product name to search.';
-
-    // Create a simple list of search results
-    const searchResults = document.createElement('ul');
-    searchResults.classList.add('mt-2');
-    searchResults.setAttribute('aria-live', 'polite');
-
-    // Create the no-results message
-    const emptyMessage = document.createElement('p');
-    emptyMessage.textContent =
-        'No products match your search.';
-    emptyMessage.classList.add('hidden', 'mt-2');
-    emptyMessage.setAttribute('role', 'status');
-
-    // Create a link to the Menu page
-    const menuLink = document.createElement('a');
-    menuLink.href = 'menu.html';
-    menuLink.textContent = 'View the full menu and prices';
-    menuLink.classList.add(
-        'btn',
-        'btn-outline-danger',
-        'mt-3'
-    );
-
-    // Add the search elements to the section
-    searchSection.appendChild(searchHeading);
-    searchSection.appendChild(searchLabel);
-    searchSection.appendChild(searchInput);
-    searchSection.appendChild(resultCount);
-    searchSection.appendChild(searchResults);
-    searchSection.appendChild(emptyMessage);
-    searchSection.appendChild(menuLink);
-
-    // Add the search section to the About page
-    aboutMessage.appendChild(searchSection);
-
-    // Update results when the user searches
     function updateSearchResults() {
-        searchResults.replaceChildren();
+        const query = $searchInput.val().trim();
+        $searchResults.empty();
 
-        const searchText = searchInput.value.trim();
-
-        // Show instructions when the search is empty
-        if (searchText === '') {
-            resultCount.textContent =
-                'Start typing a product name to search.';
-
-            emptyMessage.classList.add('hidden');
+        if (!query) {
+            $resultCount.text('Start typing a product name to search.');
+            $emptyMessage.addClass('hidden');
             return;
         }
 
-        // Find matching products
-        const matchingProducts = searchProducts(
-            products,
-            searchText
-        );
+        const matches = searchProducts(products, query);
+        $resultCount.text('Products found: ' + matches.length);
+        $emptyMessage.toggleClass('hidden', matches.length > 0);
 
-        // Display the number of matching products
-        resultCount.textContent =
-            'Products found: ' + matchingProducts.length;
-
-        // Show or hide the no-results message
-        emptyMessage.classList.toggle(
-            'hidden',
-            matchingProducts.length !== 0
-        );
-
-        // Display products as a simple text list
-        matchingProducts.forEach(function (product) {
-            const resultItem = document.createElement('li');
-
-            let availabilityText;
-
-            if (product.available === true) {
-                availabilityText = 'Available';
-            } else {
-                availabilityText = 'Currently unavailable';
-            }
-
-            resultItem.textContent =
-                product.name +
-                ' (' + product.size + ')' +
-                ' — ' + availabilityText;
-
-            searchResults.appendChild(resultItem);
+        // Build each result with .append(); text() avoids interpreting user input as HTML.
+        $.each(matches, function (_, product) {
+            const status = product.available ? 'Available' : 'Currently unavailable';
+            $('<li>').text(product.name + ' (' + product.size + ') — ' + status).appendTo($searchResults);
         });
     }
 
-    // Search when the user types
-    searchInput.addEventListener(
-        'input',
-        updateSearchResults
-    );
+    // Input event updates search results as the user types.
+    $searchInput.on('input', function () {
+        updateSearchResults();
+        $(this).toggleClass('selected', $(this).val().trim().length > 0);
+    });
 
-    // Create the random doner recommendation button
-    const recommendationButton =
-        document.createElement('button');
+    $recommendButton.on('click', function () {
+        const $button = $(this); // $(this) used to access the button that was clicked.
+        const recommendation = getRandomDoner(products);
+        const message = recommendation
+            ? "Today's Doner Recommendation: " + recommendation.name + ' (' + recommendation.size + ') — Available'
+            : 'Sorry, no doners are currently available.';
+        $recommendationMessage.stop(true, true).text(message).hide().fadeIn(350, function () {
+            $button.attr('aria-pressed', 'true');
+        });
+        $button.toggleClass('selected');
+    });
 
-    recommendationButton.type = 'button';
-
-    recommendationButton.textContent =
-        'Get a Doner Recommendation';
-
-    recommendationButton.classList.add(
-        'btn',
-        'btn-warning',
-        'mt-4'
-    );
-
-    // Create the recommendation message
-    const recommendationMessage =
-        document.createElement('p');
-
-    recommendationMessage.classList.add('mt-3');
-
-    recommendationMessage.setAttribute(
-        'aria-live',
-        'polite'
-    );
-
-    // Add the recommendation elements to the page
-    aboutMessage.appendChild(recommendationButton);
-    aboutMessage.appendChild(recommendationMessage);
-
-    // Recommend a random available doner
-    recommendationButton.addEventListener(
-        'click',
-        function () {
-            const recommendedDoner = getRandomDoner(products);
-
-            if (recommendedDoner !== null) {
-                recommendationMessage.textContent =
-                    "Today's Doner Recommendation: " +
-                    recommendedDoner.name +
-                    ' (' + recommendedDoner.size + ') — Available';
-            } else {
-                recommendationMessage.textContent =
-                    'Sorry, no doners are currently available.';
-            }
-        }
-    );
-
-} else {
-    console.error(
-        'About message container was not found.'
-    );
-}
+    // Attribute selector and :not filter demonstrate jQuery filtering on existing page links.
+    $('a[href^="menu.html"]:not(.btn)').each(function () {
+        $(this).attr('title', 'Open the menu page');
+    });
+});
