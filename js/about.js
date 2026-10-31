@@ -2,9 +2,11 @@
 
 /*
  * About page jQuery features for Doner na Abaya.
- * jQuery 3.7.1 is loaded before this file. DOM-ready ensures #about-message exists.
- * Compared with plain JS, $() selects elements and .on() attaches events without
- * repeated querySelector/addEventListener calls; .append() builds the same UI compactly.
+ * jQuery version: 3.7.1.
+ * DOM-ready ensures that #about-message exists before the script uses it.
+ * jQuery selectors, .on(), .append(), and .text() replace repeated
+ * querySelector(), addEventListener(), appendChild(), and textContent calls.
+ * The jQuery version is shorter and easier to read.
  */
 
 $(function () {
@@ -34,55 +36,141 @@ $(function () {
     ];
 
     const $aboutMessage = $('#about-message');
+
     if (!$aboutMessage.length) return;
 
-    const countProductsByCategory = (items, category) => items.filter(item => item.category === category).length;
-    const findProductById = (items, id) => items.find(item => item.id === id);
-    const getAvailableProducts = items => items.filter(item => item.available);
+    // Product helper functions.
+    const countProductsByCategory = (items, category) =>
+        items.filter(item => item.category === category).length;
+
+    const findProductById = (items, id) =>
+        items.find(item => item.id === id);
+
+    const getAvailableProducts = items =>
+        items.filter(item => item.available);
+
     const searchProducts = (items, query) => {
         const normalizedQuery = query.trim().toLowerCase();
-        return items.filter(item => item.name.toLowerCase().includes(normalizedQuery));
-    };
-    const getRandomDoner = items => {
-        const availableDoners = items.filter(item => item.category === 'doner' && item.available);
-        return availableDoners.length ? availableDoners[Math.floor(Math.random() * availableDoners.length)] : null;
+
+        return items.filter(item =>
+            item.name.toLowerCase().includes(normalizedQuery)
+        );
     };
 
+    const getRandomDoner = items => {
+        const availableDoners = items.filter(
+            item => item.category === 'doner' && item.available
+        );
+
+        return availableDoners.length
+            ? availableDoners[Math.floor(Math.random() * availableDoners.length)]
+            : null;
+    };
+
+    // Display product statistics in the browser console.
     const stats = {
         total: products.length,
         available: getAvailableProducts(products).length,
         doners: countProductsByCategory(products, 'doner'),
         drinks: countProductsByCategory(products, 'drink')
     };
+
     console.log('About page product statistics:', stats);
     console.log('Example product lookup:', findProductById(products, 3));
 
-    // Build the search interface from JS data rather than adding new static HTML.
-    const $searchSection = $('<section>', { class: 'mt-4 mb-4', 'aria-labelledby': 'product-search-heading' });
-    const $heading = $('<h2>', { id: 'product-search-heading', class: 'h3 mb-3' }).text('Find a Product');
-    const $label = $('<label>', { for: 'product-search', class: 'form-label' }).text('Search products in our menu for availability');
-    const $searchInput = $('<input>', {
-        type: 'search', id: 'product-search', class: 'form-control mb-3',
-        placeholder: 'Enter a product name', autocomplete: 'off', 'aria-label': 'Search menu products'
-    });
-    const $resultCount = $('<p>', { class: 'mt-3', 'aria-live': 'polite' }).text('Start typing a product name to search.');
-    const $searchResults = $('<ul>', { class: 'mt-2', 'aria-live': 'polite' });
-    const $emptyMessage = $('<p>', { class: 'hidden mt-2', role: 'status' }).text('No products match your search.');
-    const $menuLink = $('<a>', { href: 'menu.html', class: 'btn btn-outline-danger mt-3' }).text('View the full menu and prices');
-    const $recommendButton = $('<button>', { type: 'button', class: 'btn btn-warning mt-4' }).text('Get a Doner Recommendation');
-    const $recommendationMessage = $('<p>', { class: 'mt-3', 'aria-live': 'polite' });
+    /*
+     * Rewritten with jQuery.
+     * $('<element>'), .append(), .text(), and .addClass()
+     * replace document.createElement(), appendChild(), textContent,
+     * and classList.add(). The jQuery version is shorter and clearer.
+     */
 
-    // Three-method chain: append all controls, reveal the existing container, then animate it in.
-    // jQuery chaining is clearer than multiple appendChild/classList calls in plain JS.
-    $searchSection.append($heading, $label, $searchInput, $resultCount, $searchResults, $emptyMessage, $menuLink, $recommendButton, $recommendationMessage)
+    // Build the search interface dynamically from JavaScript data.
+    const $searchSection = $('<section>', {
+        class: 'mt-4 mb-4',
+        'aria-labelledby': 'product-search-heading'
+    });
+
+    const $heading = $('<h2>', {
+        id: 'product-search-heading',
+        class: 'h3 mb-3'
+    }).text('Find a Product');
+
+    const $label = $('<label>', {
+        for: 'product-search',
+        class: 'form-label'
+    }).text('Search products in our menu for availability');
+
+    const $searchInput = $('<input>', {
+        type: 'search',
+        id: 'product-search',
+        class: 'form-control mb-3',
+        placeholder: 'Enter a product name',
+        autocomplete: 'off',
+        'aria-label': 'Search menu products'
+    });
+
+    const $resultCount = $('<p>', {
+        class: 'mt-3',
+        'aria-live': 'polite'
+    }).text('Start typing a product name to search.');
+
+    const $searchResults = $('<ul>', {
+        class: 'mt-2',
+        'aria-live': 'polite'
+    });
+
+    const $emptyMessage = $('<p>', {
+        class: 'hidden mt-2',
+        role: 'status'
+    }).text('No products match your search.');
+
+    const $menuLink = $('<a>', {
+        href: 'menu.html',
+        class: 'btn btn-outline-danger'
+    }).text('View the full menu and prices');
+
+    const $recommendButton = $('<button>', {
+        type: 'button',
+        class: 'btn btn-warning'
+    }).text('Get a Doner Recommendation');
+
+    const $recommendationMessage = $('<p>', {
+        class: 'mt-3',
+        'aria-live': 'polite'
+    });
+
+    // Separate the buttons into a vertical group with spacing.
+    const $buttonGroup = $('<div>', {
+        class: 'd-flex flex-column align-items-start gap-3 mt-3'
+    });
+
+    $buttonGroup.append($menuLink, $recommendButton);
+
+    // Three-method chain: build, style, hide, and insert the search section.
+    // Chaining keeps related DOM operations together and reduces repeated calls.
+    $searchSection
+        .append(
+            $heading,
+            $label,
+            $searchInput,
+            $resultCount,
+            $searchResults,
+            $emptyMessage,
+            $buttonGroup,
+            $recommendationMessage
+        )
         .addClass('border rounded p-3')
         .hide()
         .appendTo($aboutMessage);
+
     $aboutMessage.removeClass('hidden').fadeIn(250);
     $searchSection.slideDown(250);
 
+    // Update search results when the visitor enters a product name.
     function updateSearchResults() {
         const query = $searchInput.val().trim();
+
         $searchResults.empty();
 
         if (!query) {
@@ -92,36 +180,59 @@ $(function () {
         }
 
         const matches = searchProducts(products, query);
+
         $resultCount.text('Products found: ' + matches.length);
         $emptyMessage.toggleClass('hidden', matches.length > 0);
 
-        // Build each result with .append(); text() avoids interpreting user input as HTML.
+        // Build each result with .append(); .text() prevents HTML interpretation.
         $.each(matches, function (_, product) {
-            const status = product.available ? 'Available' : 'Currently unavailable';
-            $('<li>').text(product.name + ' (' + product.size + ') — ' + status).appendTo($searchResults);
+            const status = product.available
+                ? 'Available'
+                : 'Currently unavailable';
+
+            $('<li>')
+                .text(product.name + ' (' + product.size + ') — ' + status)
+                .appendTo($searchResults);
         });
     }
 
-    // Input event updates search results as the user types.
+    // Event 1: input.
     $searchInput.on('input', function () {
         updateSearchResults();
-        $(this).toggleClass('selected', $(this).val().trim().length > 0);
+
+        $(this).toggleClass(
+            'selected',
+            $(this).val().trim().length > 0
+        );
     });
 
+    // Event 2: click.
     $recommendButton.on('click', function () {
-        const $button = $(this); // $(this) used to access the button that was clicked.
+        const $button = $(this);
         const recommendation = getRandomDoner(products);
+
         const message = recommendation
-            ? "Today's Doner Recommendation: " + recommendation.name + ' (' + recommendation.size + ') — Available'
+            ? "Today's Doner Recommendation: " +
+              recommendation.name +
+              ' (' + recommendation.size + ') — Available'
             : 'Sorry, no doners are currently available.';
-        $recommendationMessage.stop(true, true).text(message).hide().fadeIn(350, function () {
-            $button.attr('aria-pressed', 'true');
-        });
+
+        $recommendationMessage
+            .stop(true, true)
+            .text(message)
+            .hide()
+            .fadeIn(350, function () {
+                $button.attr('aria-pressed', 'true');
+            });
+
         $button.toggleClass('selected');
     });
 
-    // Attribute selector and :not filter demonstrate jQuery filtering on existing page links.
-    $('a[href^="menu.html"]:not(.btn)').each(function () {
-        $(this).attr('title', 'Open the menu page');
-    });
+    // Attribute selector and :not() filter demonstrate jQuery selectors.
+    // :first selects the first matching menu link.
+    $('a[href^="menu.html"]:not(.btn)')
+        .filter(':first')
+        .each(function () {
+            $(this).attr('title', 'Open the menu page');
+        });
 });
