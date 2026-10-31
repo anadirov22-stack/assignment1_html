@@ -67,3 +67,7 @@ mark {
 .form-select.success {
     border-color: #1B5E20;
 }
+.card-img-top {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
