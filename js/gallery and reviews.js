@@ -242,7 +242,8 @@ if ($('#review-controls').length || $('#review-search').length) return;
         });
     });
 
-    // Delegation: cards are recreated by renderReviews(), so direct click handlers would be lost.
+// Delegation is used because review cards are created dynamically.
+// Direct handlers would not work for cards added later by renderReviews().
     $reviewList.on('click keydown', '.review-card', function (event) {
         if (event.type === 'keydown' && event.key !== 'Enter' && event.key !== ' ') return;
         if (event.type === 'keydown') event.preventDefault();
