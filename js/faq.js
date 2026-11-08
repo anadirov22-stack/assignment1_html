@@ -1,13 +1,30 @@
 'use strict';
-/*
-    Mazhit Nurasyl-
-    FAQ page JavaScript
-*/
+/*Mazhit Nurasyl */
 const faqData=[
-	{ id:'question-one',category:'order',question:'Can I order online?',keywords:['order','online','food'] },
-	{ id:'question-two',category:'order',question:'Do you have delivery?',keywords:['delivery','order'] },
-	{ id:'question-three',category:'menu',question:'Where can I see the menu?',keywords:['menu','food','price'] },
-	{ id:'question-four',category:'restaurant',question:'What are your opening hours?',keywords:['hours','open','time'] }
+	{
+		id:'question-one',
+		category:'order',
+		question:'Can I order online?',
+		keywords:['order','online','food']
+	},
+	{
+		id:'question-two',
+		category:'order',
+		question:'Do you have delivery?',
+		keywords:['delivery','order','pickup']
+	},
+	{
+		id:'question-three',
+		category:'menu',
+		question:'Where can I see the menu?',
+		keywords:['menu','food','price','doner','drink']
+	},
+	{
+		id:'question-four',
+		category:'restaurant',
+		question:'What are your opening hours?',
+		keywords:['hours','open','time','friday','break']
+	}
 ];
 $(function(){
 	const $faqAccordion=$('#faq-accordion');
@@ -30,78 +47,160 @@ $(function(){
 			return (questionMatches||keywordMatches)&&categoryMatches;
 		});
 	}
-	/* Feature 3 rewritten with jQuery: FAQ search/filter/show-hide.
-	   jQuery replaces createElement(), querySelector(), classList and addEventListener().
-	   It is shorter because selectors, traversal, effects and events use one consistent API. */
 	function createFaqSearch(){
-		const $controls=$('<div>').attr('id','faq-search-controls').addClass('row g-3 align-items-end mb-4');
-		const $searchColumn=$('<div>').addClass('col-12 col-md-6');
-		$('<label>').addClass('form-label').attr('for','faq-search').text('Search FAQ').appendTo($searchColumn);
-		$faqSearchInput=$('<input>').attr({id:'faq-search',type:'search','aria-label':'Search FAQ questions',placeholder:'Type order, delivery, menu...'}).addClass('form-control').appendTo($searchColumn);
-		const $categoryColumn=$('<div>').addClass('col-12 col-md-3');
-		$('<label>').addClass('form-label').attr('for','faq-category').text('Category').appendTo($categoryColumn);
-		$faqCategorySelect=$('<select>').attr('id','faq-category').addClass('form-select').appendTo($categoryColumn);
-		$.each([
+		const $controls=$('<div>')
+			.attr('id','faq-search-controls')
+			.addClass('row g-3 align-items-end mb-4');
+		const $searchColumn=$('<div>')
+			.addClass('col-12 col-md-6');
+		$('<label>')
+			.addClass('form-label')
+			.attr('for','faq-search')
+			.text('Search FAQ')
+			.appendTo($searchColumn);
+		$faqSearchInput=$('<input>')
+			.attr({
+				id:'faq-search',
+				type:'search',
+				placeholder:'Type order, delivery, menu...'
+			})
+			.addClass('form-control')
+			.appendTo($searchColumn);
+		const $categoryColumn=$('<div>')
+			.addClass('col-12 col-md-3');
+		$('<label>')
+			.addClass('form-label')
+			.attr('for','faq-category')
+			.text('Category')
+			.appendTo($categoryColumn);
+		$faqCategorySelect=$('<select>')
+			.attr('id','faq-category')
+			.addClass('form-select')
+			.appendTo($categoryColumn);
+		const categories=[
 			{value:'all',label:'All categories'},
 			{value:'order',label:'Order'},
 			{value:'menu',label:'Menu'},
 			{value:'restaurant',label:'Restaurant'}
-		],function(index,category){
-			$('<option>').val(category.value).text(category.label).appendTo($faqCategorySelect);
+		];
+		$.each(categories,function(index,category){
+			$('<option>')
+				.val(category.value)
+				.text(category.label)
+				.appendTo($faqCategorySelect);
 		});
-		const $resetColumn=$('<div>').addClass('col-12 col-md-3');
-		$faqResetButton=$('<button>').attr({id:'faq-reset',type:'button'}).addClass('btn btn-outline-danger w-100').text('Reset').appendTo($resetColumn);
-		$faqResultCount=$('<p>').attr('id','faq-result-count').addClass('small text-secondary mb-2');
-		$faqNoResults=$('<div>').attr({id:'faq-no-results',role:'status'}).addClass('alert alert-warning d-none').text('No FAQ results found.');
-		$controls.append($searchColumn,$categoryColumn,$resetColumn);
-		$faqAccordion.before($controls,$faqResultCount,$faqNoResults);
+		const $resetColumn=$('<div>')
+			.addClass('col-12 col-md-3');
+		$faqResetButton=$('<button>')
+			.attr({
+				id:'faq-reset',
+				type:'button'
+			})
+			.addClass('btn btn-outline-danger w-100')
+			.text('Reset')
+			.appendTo($resetColumn);
+		$faqResultCount=$('<p>')
+			.attr('id','faq-result-count')
+			.addClass('small text-secondary mb-2');
+		$faqNoResults=$('<div>')
+			.attr({
+				id:'faq-no-results',
+				role:'status'
+			})
+			.addClass('alert alert-warning d-none')
+			.text('No FAQ results found.');
+		$controls.append(
+			$searchColumn,
+			$categoryColumn,
+			$resetColumn
+		);
+		$faqAccordion.before(
+			$controls,
+			$faqResultCount,
+			$faqNoResults
+		);
 	}
 	function updateFaqDisplay(results){
 		$faqAccordion.find('.accordion-item').each(function(){
 			const $item=$(this);
-			const questionId=$item.find('.accordion-collapse').attr('id');
+			const questionId=$item
+				.find('.accordion-collapse')
+				.attr('id');
 			const matches=$.grep(results,function(result){
 				return result.id===questionId;
 			}).length>0;
 			if(matches===true){
-				$item.stop(true,true).slideDown(250);
+				$item
+					.stop(true,true)
+					.slideDown(250);
 			}else{
-				$item.stop(true,true).slideUp(250);
+				$item
+					.stop(true,true)
+					.slideUp(250);
 			}
 		});
 		const count=results.length;
-		$faqResultCount.html('<strong>Results:</strong> '+count+' of '+faqData.length);
+		$faqResultCount
+			.text('Results: '+count+' of '+faqData.length);
 		if(count===0){
-			$faqNoResults.removeClass('d-none').stop(true,true).fadeIn(300);
+			$faqNoResults
+				.removeClass('d-none')
+				.stop(true,true)
+				.fadeIn(250);
 		}else{
-			$faqNoResults.stop(true,true).fadeOut(200,function(){
-				$(this).addClass('d-none');
-			});
+			$faqNoResults
+				.stop(true,true)
+				.fadeOut(200,function(){
+					$(this).addClass('d-none');
+				});
 		}
 	}
 	function applyFaqFilters(){
-		const results=filterFaq($faqSearchInput.val(),$faqCategorySelect.val());
+		const results=filterFaq(
+			$faqSearchInput.val(),
+			$faqCategorySelect.val()
+		);
 		updateFaqDisplay(results);
 	}
 	function resetFaqSearch(){
-		/* Chain: select the search input -> clear its value -> remove error styling -> focus it. */
-		$('#faq-search').val('').removeClass('is-invalid').trigger('focus');
+		$faqSearchInput
+			.val('')
+			.removeClass('is-invalid')
+			.trigger('focus');
 		$faqCategorySelect.val('all');
 		updateFaqDisplay(faqData);
 	}
 	createFaqSearch();
 	updateFaqDisplay(faqData);
 	$faqSearchInput.on('input',function(){
-		const typedText=$(this).val();
-		const results=filterFaq(typedText,$faqCategorySelect.val());
+		const searchText=$(this).val();
+		const results=filterFaq(
+			searchText,
+			$faqCategorySelect.val()
+		);
 		updateFaqDisplay(results);
 	});
-	$faqCategorySelect.on('change',applyFaqFilters);
-	$faqResetButton.on('click',resetFaqSearch);
-	$faqAccordion.on('click','.accordion-button',function(){
-		const $button=$(this);
-		$button.closest('.accordion-item').toggleClass('state-selected',$button.hasClass('collapsed')!==true);
+	$faqSearchInput.on('keydown',function(event){
+		if(event.key==='Escape'){
+			resetFaqSearch();
+		}
 	});
-	$('a[href="order.html"]').attr('data-jquery-link','order');
-	$('button:first').attr('data-first-button','true');
+	$faqCategorySelect.on('change',function(){
+		applyFaqFilters();
+	});
+	$faqResetButton.on('click',function(){
+		resetFaqSearch();
+	});
+	$faqAccordion.on(
+		'shown.bs.collapse hidden.bs.collapse',
+		'.accordion-collapse',
+		function(event){
+			$(this)
+				.closest('.accordion-item')
+				.toggleClass(
+					'border-danger',
+					event.type==='shown'
+				);
+		}
+	);
 });
