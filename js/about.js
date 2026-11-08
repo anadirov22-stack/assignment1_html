@@ -1,12 +1,8 @@
 'use strict';
 
 /*
- * About page jQuery features for Doner na Abaya.
- * jQuery version: 3.7.1.
- * DOM-ready ensures that #about-message exists before the script uses it.
- * jQuery selectors, .on(), .append(), and .text() replace repeated
- * querySelector(), addEventListener(), appendChild(), and textContent calls.
- * The jQuery version is shorter and easier to read.
+ * Ali Nadirov — About page jQuery features.
+ * jQuery 3.7.1 must be loaded before this file.
  */
 
 $(function () {
@@ -39,54 +35,49 @@ $(function () {
 
     if (!$aboutMessage.length) return;
 
-    // Product helper functions.
-    const countProductsByCategory = (items, category) =>
-        items.filter(item => item.category === category).length;
+    function getAvailableProducts(items) {
+        return items.filter(function (product) {
+            return product.available === true;
+        });
+    }
 
-    const findProductById = (items, id) =>
-        items.find(item => item.id === id);
+    function countProductsByCategory(items, category) {
+        return items.filter(function (product) {
+            return product.category === category;
+        }).length;
+    }
 
-    const getAvailableProducts = items =>
-        items.filter(item => item.available);
+    function searchProducts(items, searchText) {
+        const query = searchText.trim().toLowerCase();
 
-    const searchProducts = (items, query) => {
-        const normalizedQuery = query.trim().toLowerCase();
+        return items.filter(function (product) {
+            return (product.name + ' ' + product.size + ' ' + product.category)
+                .toLowerCase().includes(query);
+        });
+    }
 
-        return items.filter(item =>
-            item.name.toLowerCase().includes(normalizedQuery)
-        );
-    };
+    function getRandomDoner(items) {
+        const availableDoners = getAvailableProducts(items).filter(function (product) {
+            return product.category === 'doner';
+        });
 
-    const getRandomDoner = items => {
-        const availableDoners = items.filter(
-            item => item.category === 'doner' && item.available
-        );
+        if (!availableDoners.length) return null;
 
-        return availableDoners.length
-            ? availableDoners[Math.floor(Math.random() * availableDoners.length)]
-            : null;
-    };
+        return availableDoners[
+            Math.floor(Math.random() * availableDoners.length)
+        ];
+    }
 
-    // Display product statistics in the browser console.
     const stats = {
         total: products.length,
         available: getAvailableProducts(products).length,
         doners: countProductsByCategory(products, 'doner'),
-        drinks: countProductsByCategory(products, 'drink')
+        drinks: countProductsByCategory(products, 'drink'),
+        additions: countProductsByCategory(products, 'addition')
     };
 
-    console.log('About page product statistics:', stats);
-    console.log('Example product lookup:', findProductById(products, 3));
-
-    /*
-     * Rewritten with jQuery.
-     * $('<element>'), .append(), .text(), and .addClass()
-     * replace document.createElement(), appendChild(), textContent,
-     * and classList.add(). The jQuery version is shorter and clearer.
-     */
-
-    // Build the search interface dynamically from JavaScript data.
-    const $searchSection = $('<section>', {
+    const $section = $('<section>', {
+        id: 'product-search-section',
         class: 'mt-4 mb-4',
         'aria-labelledby': 'product-search-heading'
     });
@@ -101,138 +92,191 @@ $(function () {
         class: 'form-label'
     }).text('Search products in our menu for availability');
 
-    const $searchInput = $('<input>', {
+    const $input = $('<input>', {
         type: 'search',
         id: 'product-search',
-        class: 'form-control mb-3',
+        class: 'form-control',
         placeholder: 'Enter a product name',
         autocomplete: 'off',
-        'aria-label': 'Search menu products'
+        'aria-label': 'Search products'
     });
 
-    const $resultCount = $('<p>', {
+    const $stats = $('<p>', {
+        class: 'small text-muted mt-2',
+        'aria-live': 'polite'
+    }).text(
+        'Catalog: ' + stats.total + ' products — ' +
+        stats.doners + ' doners, ' +
+        stats.drinks + ' drinks, ' +
+        stats.additions + ' additions.'
+    );
+
+    const $count = $('<p>', {
         class: 'mt-3',
         'aria-live': 'polite'
     }).text('Start typing a product name to search.');
 
-    const $searchResults = $('<ul>', {
-        class: 'mt-2',
+    const $results = $('<ul>', {
+        id: 'product-search-results',
+        class: 'list-group mt-2',
         'aria-live': 'polite'
     });
 
-    const $emptyMessage = $('<p>', {
-        class: 'hidden mt-2',
+    const $empty = $('<p>', {
+        class: 'alert alert-warning mt-2',
         role: 'status'
-    }).text('No products match your search.');
+    }).text('No products match your search.').hide();
 
     const $menuLink = $('<a>', {
         href: 'menu.html',
-        class: 'btn btn-outline-danger'
+        class: 'btn btn-outline-danger mt-3'
     }).text('View the full menu and prices');
 
     const $recommendButton = $('<button>', {
         type: 'button',
-        class: 'btn btn-warning'
+        id: 'recommend-doner',
+        class: 'btn btn-warning mt-3 ms-2'
     }).text('Get a Doner Recommendation');
 
-    const $recommendationMessage = $('<p>', {
+    const $recommendation = $('<p>', {
+        id: 'doner-recommendation',
         class: 'mt-3',
         'aria-live': 'polite'
     });
 
-    // Separate the buttons into a vertical group with spacing.
-    const $buttonGroup = $('<div>', {
-        class: 'd-flex flex-column align-items-start gap-3 mt-3'
-    });
+    $section.append(
+        $heading,
+        $label,
+        $input,
+        $stats,
+        $count,
+        $results,
+        $empty,
+        $menuLink,
+        $recommendButton,
+        $recommendation
+    );
 
-    $buttonGroup.append($menuLink, $recommendButton);
+    if (!$('#product-search-section').length) {
+        $aboutMessage
+            .append($section)
+            .removeClass('hidden')
+            .hide()
+            .fadeIn(250);
+    }
 
-    // Three-method chain: build, style, hide, and insert the search section.
-    // Chaining keeps related DOM operations together and reduces repeated calls.
-    $searchSection
-        .append(
-            $heading,
-            $label,
-            $searchInput,
-            $resultCount,
-            $searchResults,
-            $emptyMessage,
-            $buttonGroup,
-            $recommendationMessage
-        )
-        .addClass('border rounded p-3')
-        .hide()
-        .appendTo($aboutMessage);
-
-    $aboutMessage.removeClass('hidden').fadeIn(250);
-    $searchSection.slideDown(250);
-
-    // Update search results when the visitor enters a product name.
-    function updateSearchResults() {
-        const query = $searchInput.val().trim();
-
-        $searchResults.empty();
+    function renderSearchResults(query) {
+        $results.empty();
 
         if (!query) {
-            $resultCount.text('Start typing a product name to search.');
-            $emptyMessage.addClass('hidden');
+            $count.text('Start typing a product name to search.');
+            $empty.stop(true, true).hide();
             return;
         }
 
         const matches = searchProducts(products, query);
 
-        $resultCount.text('Products found: ' + matches.length);
-        $emptyMessage.toggleClass('hidden', matches.length > 0);
+        $count.text('Products found: ' + matches.length);
 
-        // Build each result with .append(); .text() prevents HTML interpretation.
+        if (!matches.length) {
+            $empty.stop(true, true).fadeIn(150);
+            return;
+        }
+
+        $empty.stop(true, true).hide();
+
         $.each(matches, function (_, product) {
-            const status = product.available
+            const availability = product.available
                 ? 'Available'
                 : 'Currently unavailable';
 
-            $('<li>')
-                .text(product.name + ' (' + product.size + ') — ' + status)
-                .appendTo($searchResults);
+            const $item = $('<li>', {
+                class: 'list-group-item product-result',
+                tabindex: '0',
+                role: 'button',
+                'data-product-id': product.id
+            }).text(
+                product.name + ' (' + product.size + ') — ' + availability
+            );
+
+            $results.append($item);
         });
     }
 
-    // Event 1: input.
-    $searchInput.on('input', function () {
-        updateSearchResults();
+    $input.on('input', function () {
+        renderSearchResults(
+            String($(this).val() || '').trim()
+        );
 
         $(this).toggleClass(
             'selected',
-            $(this).val().trim().length > 0
+            String($(this).val()).trim().length > 0
         );
     });
 
-    // Event 2: click.
-    $recommendButton.on('click', function () {
-        const $button = $(this);
-        const recommendation = getRandomDoner(products);
+    // Delegated event handler for dynamically created search results.
+    $aboutMessage.on(
+        'click keydown',
+        '.product-result',
+        function (event) {
+            if (
+                event.type === 'keydown' &&
+                event.key !== 'Enter' &&
+                event.key !== ' '
+            ) {
+                return;
+            }
 
-        const message = recommendation
-            ? "Today's Doner Recommendation: " +
-              recommendation.name +
-              ' (' + recommendation.size + ') — Available'
-            : 'Sorry, no doners are currently available.';
+            if (event.type === 'keydown') {
+                event.preventDefault();
+            }
 
-        $recommendationMessage
-            .stop(true, true)
-            .text(message)
-            .hide()
-            .fadeIn(350, function () {
-                $button.attr('aria-pressed', 'true');
+            const productId = Number(
+                $(this).attr('data-product-id')
+            );
+
+            const product = products.find(function (item) {
+                return item.id === productId;
             });
 
-        $button.toggleClass('selected');
+            if (product) {
+                $results.find('.product-result').removeClass('selected');
+
+                $(this).addClass('selected');
+
+                $input.val(product.name);
+
+                $count.text(
+                    'Selected: ' +
+                    product.name +
+                    ' (' + product.size + ').'
+                );
+            }
+        }
+    );
+
+    $recommendButton.on('click', function () {
+        const product = getRandomDoner(products);
+
+        if (!product) {
+            $recommendation.text(
+                'Sorry, no doners are currently available.'
+            );
+            return;
+        }
+
+        $recommendation
+            .text(
+                "Today's Doner Recommendation: " +
+                product.name +
+                ' (' + product.size + ') — Available'
+            )
+            .addClass('selected')
+            .hide()
+            .fadeIn(250);
     });
 
-    // Attribute selector and :not() filter demonstrate jQuery selectors.
-    // :first selects the first matching menu link.
-    $('a[href^="menu.html"]:not(.btn)')
+    $('a[href="menu.html"]')
         .filter(':first')
-        .each(function () {
-            $(this).attr('title', 'Open the menu page');
-        });
+        .attr('title', 'Open the full menu');
 });
