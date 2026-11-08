@@ -1,5 +1,4 @@
 'use strict';
-/*Mazhit Nurasyl */
 const products=[
 	{id:'chicken-standard',name:'Chicken Doner — Standard',category:'doner',price:1895},
 	{id:'chicken-large',name:'Chicken Doner — Large',category:'doner',price:2195},
@@ -32,16 +31,13 @@ const extras=[
 const cart=[];
 $(function(){
 	const $orderForm=$('#order-form');
-	if($orderForm.length===0){
-		return;
-	}
+	if($orderForm.length===0){return;}
 	const $foodSelect=$('#food');
 	const $sizeSelect=$('#food-size');
 	const $donerQuantity=$('#quantity');
 	const $drinkSelect=$('#drink');
 	const $drinkQuantity=$('#drink-quantity');
 	const $nameInput=$('#name');
-	const $emailInput=$('#email');
 	const $phoneInput=$('#phone');
 	const $dateInput=$('#order-date');
 	const $timeInput=$('#order-time');
@@ -87,9 +83,7 @@ $(function(){
 		$errorBox.stop(true,true).text(message).removeClass('state-hidden').hide().fadeIn(250);
 	}
 	function showConfirmation(message){
-		$confirmationBox.stop(true,true).text(message).removeClass('state-hidden').hide().fadeIn(300,function(){
-			$(this).attr('data-effect-complete','true');
-		});
+		$confirmationBox.stop(true,true).text(message).removeClass('state-hidden').hide().fadeIn(300);
 	}
 	function clearFieldErrors(){
 		$('.js-field-error').remove();
@@ -105,30 +99,23 @@ $(function(){
 	function clearOneFieldError($field){
 		$field.removeClass('is-invalid');
 		$field.siblings('.js-field-error').remove();
-		$field.closest('.col-12').find('.js-field-error').stop(true,true).fadeOut(150,function(){
+		$field.closest('.col-12').find('.js-field-error').fadeOut(150,function(){
 			$(this).remove();
 		});
-	}
-	function isValidEmail(email){
-		return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 	}
 	function isValidPhone(phone){
 		const cleanPhone=phone.replace(/[\s()-]/g,'');
 		return /^\+?[0-9]{10,15}$/.test(cleanPhone);
 	}
 	function isPastDate(dateValue){
-		if(dateValue===''){
-			return false;
-		}
+		if(dateValue===''){return false;}
 		const selectedDate=new Date(dateValue+'T00:00:00');
 		const today=new Date();
 		today.setHours(0,0,0,0);
 		return selectedDate<today;
 	}
 	function isFridayBreak(dateValue,timeValue){
-		if(dateValue===''||timeValue===''){
-			return false;
-		}
+		if(dateValue===''||timeValue===''){return false;}
 		const selectedDate=new Date(dateValue+'T00:00:00');
 		return selectedDate.getDay()===5&&timeValue>='12:30'&&timeValue<'14:00';
 	}
@@ -143,16 +130,20 @@ $(function(){
 		if(existingItem!==undefined){
 			existingItem.quantity=Math.min(existingItem.quantity+quantity,10);
 		}else{
-			cart.push({id:item.id,name:item.name,category:item.category,price:item.price,quantity:quantity});
+			cart.push({
+				id:item.id,
+				name:item.name,
+				category:item.category,
+				price:item.price,
+				quantity:quantity
+			});
 		}
 	}
 	function getSelectedExtras(){
 		const selected=[];
 		$('[name="extras"]:checked').each(function(){
 			const extra=findItemById(extras,$(this).val());
-			if(extra!==undefined){
-				selected.push(extra);
-			}
+			if(extra!==undefined){selected.push(extra);}
 		});
 		return selected;
 	}
@@ -199,7 +190,7 @@ $(function(){
 			const $price=$('<p>').addClass('mb-2 mt-2').text(item.price+' KZT × '+item.quantity+' = '+calculateItemTotal(item.price,item.quantity)+' KZT');
 			const $controls=$('<div>').addClass('d-flex flex-wrap align-items-center gap-2');
 			$('<button>').attr('type','button').addClass('btn btn-outline-dark btn-sm cart-control cart-decrease').text('−').appendTo($controls);
-			$('<span>').addClass('badge text-bg-dark').text(String(item.quantity)).appendTo($controls);
+			$('<span>').addClass('badge text-bg-dark').text(item.quantity).appendTo($controls);
 			$('<button>').attr('type','button').addClass('btn btn-outline-dark btn-sm cart-control cart-increase').text('+').appendTo($controls);
 			$('<button>').attr('type','button').addClass('btn btn-outline-danger btn-sm cart-control cart-remove').text('Remove').appendTo($controls);
 			$item.append($top,$price,$controls).appendTo($cartItems).fadeIn(200);
@@ -287,11 +278,6 @@ $(function(){
 			firstInvalid=$nameInput;
 			valid=false;
 		}
-		if(isValidEmail($emailInput.val().trim())!==true){
-			addFieldError($emailInput,'Please enter a valid email address.');
-			firstInvalid=firstInvalid||$emailInput;
-			valid=false;
-		}
 		if(isValidPhone($phoneInput.val().trim())!==true){
 			addFieldError($phoneInput,'Please enter a valid phone number.');
 			firstInvalid=firstInvalid||$phoneInput;
@@ -350,9 +336,7 @@ $(function(){
 		const $button=$(this);
 		const $item=$button.closest('.cart-item');
 		const index=Number($item.attr('data-index'));
-		if(Number.isInteger(index)!==true||cart[index]===undefined){
-			return;
-		}
+		if(Number.isInteger(index)!==true||cart[index]===undefined){return;}
 		if($button.hasClass('cart-increase')&&cart[index].quantity<10){
 			cart[index].quantity+=1;
 			renderCart();
@@ -365,7 +349,7 @@ $(function(){
 		}
 		if($button.hasClass('cart-remove')){
 			const removedName=cart[index].name;
-			$item.stop(true,true).fadeOut(250,function(){
+			$item.fadeOut(250,function(){
 				cart.splice(index,1);
 				renderCart();
 				showConfirmation(removedName+' was removed from the cart.');
@@ -411,6 +395,4 @@ $(function(){
 	$onlinePaymentButton.prop('disabled',false).removeClass('btn-secondary').addClass('btn-outline-secondary').on('click',function(){
 		showConfirmation('Online payment is not available in this demo. Use Submit Order to test the order process.');
 	});
-	$('a[href="menu.html"]').attr('data-jquery-link','menu');
-	$('button:first').attr('data-first-button','true');
 });
