@@ -345,20 +345,3 @@ if (!dateValue || Number.isNaN(visitDate.getTime())) {
 
     renderReviews();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
