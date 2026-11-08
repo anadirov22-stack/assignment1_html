@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- * Gallery and Reviews page — jQuery version for Assignment 4.
+ * Gallery and Reviews page — jQuery version for Assignment 6.
  * jQuery 3.7.1 is loaded before this file. DOM-ready is required because the form,
  * review list, and status boxes must exist before the script attaches handlers.
  * Compared with plain JS, jQuery selectors/events and .append() reduce repeated
@@ -50,14 +50,14 @@ if ($('#review-controls').length || $('#review-search').length) return;
     $form.prop('noValidate', true);
 
     function loadSavedReviews() {
-        try {
-            const raw = window.localStorage.getItem(STORAGE_KEY);
-            return raw ? JSON.parse(raw) : [];
-        } catch (error) {
-            console.warn('Saved reviews could not be read from this browser.');
-            return [];
-        }
+    try {
+        const raw = window.localStorage.getItem(STORAGE_KEY);
+        const reviews = raw ? JSON.parse(raw) : [];
+        return Array.isArray(reviews) ? reviews : [];
+    } catch (error) {
+        return [];
     }
+}
 
     function saveReviews(reviews) {
         try {
@@ -133,8 +133,10 @@ if ($('#review-controls').length || $('#review-search').length) return;
     const $resetButton = $('<button>', { type: 'button', class: 'btn btn-outline-dark w-100' }).text('Reset filters');
     const $resetColumn = $('<div>', { class: 'col-6 col-md-2' }).append($resetButton);
     const $toggleButton = $('<button>', { type: 'button', class: 'btn btn-outline-danger w-100', 'aria-expanded': 'true' }).text('Hide reviews');
-    const $toggleColumn = $('<div>', { class: 'col-12 col-md-2' }).append($toggleButton);
+     const $toggleColumn = $('<div>', { class: 'col-12 col-md-2' }).append($toggleButton);
+
     $controls.append($searchColumn, $ratingColumn, $resetColumn, $toggleColumn).insertBefore($reviewSummary);
+
 
     const $emptyMessage = $('<p>', { class: 'alert alert-warning hidden', role: 'status' }).text('No reviews match your search.');
     $emptyMessage.insertBefore($reviewList);
@@ -160,6 +162,8 @@ if ($('#review-controls').length || $('#review-search').length) return;
         $reviewList.find('.review-card:first').attr('data-position', 'first');
         $reviewList.find('.review-card:last').attr('data-position', 'last');
     }
+
+
 
     function fieldContainer($field) {
         if ($field.is('[name="rating"]') || $field.attr('id') === 'rating-group') {
@@ -196,15 +200,27 @@ if ($('#review-controls').length || $('#review-search').length) return;
 
         if (nameValue.length < 2) errors.push({ field: $name, message: 'Name must be at least 2 characters.' });
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) errors.push({ field: $email, message: 'Please enter a valid email address.' });
-        if (phoneValue && !/^\+?[0-9\s()\-]{7,20}$/.test(phoneValue)) errors.push({ field: $phone, message: 'Enter a valid phone number (7–20 digits/characters).'});
-        if (!dateValue) {
-            errors.push({ field: $date, message: 'Please select your visit date.' });
-        } else if (new Date(dateValue + 'T00:00:00') > new Date()) {
-            errors.push({ field: $date, message: 'Visit date cannot be in the future.' });
-        }
-        if (waitValue && (!/^\d+$/.test(waitValue) || Number(waitValue) < 0 || Number(waitValue) > 120)) {
-            errors.push({ field: $wait, message: 'Waiting time must be a whole number from 0 to 120.' });
-        }
+        const phoneDigits = phoneValue.replace(/\D/g, '');
+
+if (!phoneValue || !/^\+?[0-9\s()\-]+$/.test(phoneValue) ||
+    phoneDigits.length < 7 || phoneDigits.length > 15) {
+    errors.push({
+        field: $phone,
+        message: 'Enter a valid phone number.'
+    });
+}
+      const visitDate = new Date(dateValue + 'T00:00:00');
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+
+if (!dateValue || Number.isNaN(visitDate.getTime())) {
+    errors.push({ field: $date, message: 'Please select a valid visit date.' });
+} else if (visitDate > today) {
+    errors.push({ field: $date, message: 'Visit date cannot be in the future.' });
+}
+        if (!/^\d+$/.test(waitValue) || Number(waitValue) < 0 || Number(waitValue) > 120) {
+    errors.push({ field: $wait, message: 'Waiting time must be a whole number from 0 to 120.' });
+}
         if (!donerValue) errors.push({ field: $doner, message: 'Please choose a doner.' });
         if (!ratingValue) errors.push({ field: $ratingGroup, message: 'Please select a rating.' });
         if (reviewValue.length < 10) {
@@ -291,7 +307,7 @@ if ($('#review-controls').length || $('#review-search').length) return;
             name: String($name.val()).trim(),
             doner: donerText,
             rating: ratingValue,
-            wait: Number($wait.val()) || 15,
+            wait: Number($wait.val()),
             date: String($date.val()) + ' (Added ' + new Date().toLocaleTimeString() + ')',
             text: String($reviewText.val()).trim()
         };
@@ -329,3 +345,20 @@ if ($('#review-controls').length || $('#review-search').length) return;
 
     renderReviews();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
