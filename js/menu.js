@@ -40,21 +40,15 @@ $(function () {
             .attr('data-id', item.id)
             .toggleClass('selected', item.id === selectedCardId);
 
-        $('<img>')
-            .attr({ src: item.img, alt: item.name })
-            .addClass('card-img-top img-fluid rounded-4')
-            .appendTo($card);
+        $('<img>').attr({ src: item.img, alt: item.name }).addClass('card-img-top img-fluid rounded-4').appendTo($card);
 
-        const $body = $('<div>').addClass('card-body d-flex flex-column px-2 pb-2');
-        $('<h4>').addClass('h5 fw-bold mb-1').text(item.name).appendTo($body);
-        $('<p>').addClass('small text-secondary mb-1').text(item.size).appendTo($body);
-        $('<p>').addClass('small text-muted mb-3').text(item.desc).appendTo($body);
-
-        // .html() is used intentionally for the static HTML currency entity (&nbsp;&#8376;)
-        $('<span>')
-            .addClass('badge rounded-pill text-bg-danger fs-6 px-3 py-2 mt-auto align-self-start')
-            .html('from ' + item.price + '&nbsp;&#8376;')
-            .appendTo($body);
+        // .html() is used intentionally on the badge for the static HTML currency entity (&nbsp;&#8376;)
+        const $body = $('<div>').addClass('card-body d-flex flex-column px-2 pb-2').append(
+            $('<h4>').addClass('h5 fw-bold mb-1').text(item.name),
+            $('<p>').addClass('small text-secondary mb-1').text(item.size),
+            $('<p>').addClass('small text-muted mb-3').text(item.desc),
+            $('<span>').addClass('badge rounded-pill text-bg-danger fs-6 px-3 py-2 mt-auto align-self-start').html('from ' + item.price + '&nbsp;&#8376;')
+        );
 
         $card.append($body).appendTo($col);
         return $col;
@@ -65,54 +59,33 @@ $(function () {
         jQuery .slideToggle(), .fadeIn(), .fadeOut() and .empty() replaced plain JS
         classList.toggle('hidden') and replaceChildren(). It is shorter and adds smooth animations.
     */
-    const $toggleBtn = $('<button>')
-        .attr('type', 'button')
-        .addClass('btn btn-sm btn-outline-danger mt-3 mb-2')
-        .text('Hide Filters');
-
+    const $toggleBtn = $('<button>').attr('type', 'button').addClass('btn btn-sm btn-outline-danger mt-3 mb-2').text('Hide Filters');
     const $filterForm = $('<form>').attr({ id: 'menu-filter-form', novalidate: 'novalidate' }).addClass('row g-2 mb-3');
-
-    const $searchInput = $('<input>')
-        .attr({ type: 'search', id: 'menu-search', placeholder: 'Search menu (e.g. chicken, ayran)...', required: 'required' })
-        .addClass('form-control');
-
+    const $searchInput = $('<input>').attr({ type: 'search', id: 'menu-search', placeholder: 'Search menu (e.g. chicken, ayran)...', required: 'required' }).addClass('form-control');
     const $categorySelect = $('<select>').attr('id', 'menu-category').addClass('form-select');
-    $.each([
-        { val: 'all', text: 'All Categories' },
-        { val: 'doner', text: 'Doners' },
-        { val: 'drink', text: 'Drinks' },
-        { val: 'extra', text: 'Extras' }
-    ], function (i, opt) {
-        $('<option>').val(opt.val).text(opt.text).appendTo($categorySelect);
-    });
-
     const $sortSelect = $('<select>').attr('id', 'menu-sort').addClass('form-select');
-    $.each([
-        { val: 'default', text: 'Default Sort' },
-        { val: 'asc', text: 'Price: Low to High' },
-        { val: 'desc', text: 'Price: High to Low' }
-    ], function (i, opt) {
-        $('<option>').val(opt.val).text(opt.text).appendTo($sortSelect);
+    const $resetBtn = $('<button>').attr('type', 'button').addClass('btn btn-outline-dark w-100').text('Reset');
+    const $budgetCheck = $('<input>').attr({ type: 'checkbox', id: 'budget-only' }).addClass('form-check-input me-2');
+
+    $.each([['all', 'All Categories'], ['doner', 'Doners'], ['drink', 'Drinks'], ['extra', 'Extras']], function (i, opt) {
+        $('<option>').val(opt[0]).text(opt[1]).appendTo($categorySelect);
     });
 
-    const $resetBtn = $('<button>').attr('type', 'button').addClass('btn btn-outline-dark w-100').text('Reset');
+    $.each([['default', 'Default Sort'], ['asc', 'Price: Low to High'], ['desc', 'Price: High to Low']], function (i, opt) {
+        $('<option>').val(opt[0]).text(opt[1]).appendTo($sortSelect);
+    });
 
-    // Checkbox to demonstrate .prop('checked') vs .attr()
-    const $budgetCheck = $('<input>').attr({ type: 'checkbox', id: 'budget-only' }).addClass('form-check-input me-2');
-    const $budgetLabel = $('<label>').attr('for', 'budget-only').addClass('form-check-label small text-muted').text('Under 1000 ₸ only');
-    const $checkWrap = $('<div>').addClass('col-12').append($budgetCheck, $budgetLabel);
+    $filterForm.append(
+        $('<div>').addClass('col-12 col-md-4').append($searchInput),
+        $('<div>').addClass('col-6 col-md-3').append($categorySelect),
+        $('<div>').addClass('col-6 col-md-3').append($sortSelect),
+        $('<div>').addClass('col-12 col-md-2').append($resetBtn),
+        $('<div>').addClass('col-12').append($budgetCheck, $('<label>').attr('for', 'budget-only').addClass('form-check-label small text-muted').text('Under 1000 ₸ only'))
+    );
 
-    $('<div>').addClass('col-12 col-md-4').append($searchInput).appendTo($filterForm);
-    $('<div>').addClass('col-6 col-md-3').append($categorySelect).appendTo($filterForm);
-    $('<div>').addClass('col-6 col-md-3').append($sortSelect).appendTo($filterForm);
-    $('<div>').addClass('col-12 col-md-2').append($resetBtn).appendTo($filterForm);
-    $filterForm.append($checkWrap);
-
-    const $topBar = $('<div>').addClass('d-flex justify-content-between align-items-center mb-3');
     const $countInfo = $('<span>').addClass('small fw-bold text-muted');
     const $randomBtn = $('<button>').attr('type', 'button').addClass('btn btn-sm btn-outline-danger').text('Random Pick');
-    $topBar.append($countInfo, $randomBtn);
-
+    const $topBar = $('<div>').addClass('d-flex justify-content-between align-items-center mb-3').append($countInfo, $randomBtn);
     const $emptyBox = $('<p>').addClass('alert alert-warning hidden mb-2').text('No items found. Try another search word.');
     const $grid = $('<div>').attr('id', 'menu-cards-grid').addClass('row g-4');
 
@@ -120,30 +93,29 @@ $(function () {
 
     /*
         REWRITTEN FEATURE 3 (Filtering, Search Validation & Rendering):
-        jQuery .val(), $.trim(), .prop('checked'), .parent() and .find() replaced plain JS
+        jQuery .val(), .prop('checked'), .parent() and .find() replaced plain JS
         input.value.trim() and checkbox.checked.
         Note: Browser validation never replaces server validation because users can disable JS in DevTools.
     */
     function renderMenu() {
-        const cleanQuery = $.trim($searchInput.val()).toLowerCase();
+        const cleanQuery = $searchInput.val().trim().toLowerCase();
         const category = $categorySelect.val();
         const sortOrder = $sortSelect.val();
         const under1000 = $budgetCheck.prop('checked');
 
-        // Clear search error as soon as visitor fixes input
+        // Clear search error as soon as visitor edits input
         $searchInput.removeClass('error').parent().find('.js-err').remove();
 
         const results = menuCatalogue.filter(function (item) {
             const matchName = cleanQuery === '' || item.name.toLowerCase().includes(cleanQuery) || item.desc.toLowerCase().includes(cleanQuery);
             const matchCat = category === 'all' || item.category === category;
-            const matchBudget = !under1000 || item.price <= 1000;
-            return matchName && matchCat && matchBudget;
+            return matchName && matchCat && (!under1000 || item.price <= 1000);
         });
 
-        if (sortOrder === 'asc') {
-            results.sort(function (a, b) { return a.price - b.price; });
-        } else if (sortOrder === 'desc') {
-            results.sort(function (a, b) { return b.price - a.price; });
+        if (sortOrder !== 'default') {
+            results.sort(function (a, b) {
+                return sortOrder === 'asc' ? a.price - b.price : b.price - a.price;
+            });
         }
 
         $grid.empty();
@@ -166,7 +138,6 @@ $(function () {
             $grid.append(createMenuCard(item));
         });
 
-        // Filter selector (:first) example
         $grid.find('.menu-card:first').attr('data-first', 'true');
     }
 
@@ -186,7 +157,6 @@ $(function () {
     */
     $grid.on('click', '.menu-card', function () {
         const $clicked = $(this);
-        selectedCardId = $clicked.attr('data-id');
 
         /*
             CHAINING EXPLANATION (4 links):
@@ -197,16 +167,17 @@ $(function () {
         */
         $clicked.closest('.menu-item-col').siblings().find('.menu-card').removeClass('selected');
         $clicked.toggleClass('selected');
+        selectedCardId = $clicked.hasClass('selected') ? $clicked.attr('data-id') : '';
     });
 
     // Validate search input on form submit (when user presses Enter)
     $filterForm.on('submit', function (event) {
         // Without event.preventDefault(), pressing Enter would reload the page
         event.preventDefault();
-        const val = $.trim($searchInput.val());
+        const val = $searchInput.val().trim();
         $searchInput.parent().find('.js-err').remove();
 
-        if (val.length === 1) {
+        if (val.length < 2) {
             $searchInput.addClass('error');
             $('<div>').addClass('js-err error small mt-1').text('Please enter at least 2 characters to search.').appendTo($searchInput.parent());
             return;
@@ -214,23 +185,22 @@ $(function () {
         renderMenu();
     });
 
-    $searchInput.on('input keyup', renderMenu);
+    $searchInput.on('input', renderMenu);
     $categorySelect.on('change', renderMenu);
     $sortSelect.on('change', renderMenu);
     $budgetCheck.on('change', renderMenu);
 
     // Element + attribute selector ('table tr[data-doner]') with .each() and .siblings()
     $('table tr[data-doner]').each(function () {
-        $(this).on('mouseenter', function () {
-            $(this).addClass('active').siblings().removeClass('active');
-        }).on('mouseleave', function () {
-            $(this).removeClass('active');
-        });
+        $(this).attr('title', 'Standard: ' + $(this).attr('data-price-standard') + ' ₸');
+    }).on('mouseenter', function () {
+        $(this).addClass('active').siblings().removeClass('active');
+    }).on('mouseleave', function () {
+        $(this).removeClass('active');
     });
 
     $randomBtn.on('click', function () {
-        const picked = menuCatalogue[Math.floor(Math.random() * menuCatalogue.length)];
-        selectedCardId = picked.id;
+        selectedCardId = menuCatalogue[Math.floor(Math.random() * menuCatalogue.length)].id;
         $searchInput.val('');
         $categorySelect.val('all');
         $budgetCheck.prop('checked', false);

@@ -1,73 +1,63 @@
-/*
-    Alikhan Kuttybayev - Menu & Reviews pages.
-    Bootstrap 5.3.8 does the grid, spacing, navbar, buttons, forms, table,
-    cards and responsive layout. Only small brand touches remain here.
-*/
+/* Alikhan Kuttybayev - Custom styles & state classes (Menu & Reviews) */
 
-/* Star before each reviewer name - Bootstrap has no class for this. */
 .review-name::before {
     content: "\2605  ";
     color: #D32F2F;
 }
 
-/* Colon after each menu word - decoration, so it stays in CSS, not in HTML. */
 .term-list dt::after {
     content: ":";
 }
 
-/* Soft red highlight instead of Bootstrap's default yellow <mark>. */
 mark {
     background-color: rgba(211, 47, 47, 0.18);
 }
 
-/*
-    State classes, written in advance. Nothing uses them yet: later,
-    JavaScript will only switch these classes on and off on the elements,
-    it will not add any new CSS.
-*/
+.card-img-top {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
 
-/* hidden: a message or block that is not shown until JavaScript needs it. */
+.menu-card,
+.review-card,
+.price-row {
+    cursor: pointer;
+}
+
+/* State classes switched by JavaScript / jQuery */
 .hidden {
     display: none;
 }
 
-/* active: the item the visitor is looking at right now. */
 .review-card.active {
     box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
 }
+
 .price-row.active {
     --bs-table-bg-state: rgba(211, 47, 47, 0.1);
 }
 
-/* selected: the item the visitor has chosen. */
 .selected {
     outline: 3px solid #D32F2F;
     outline-offset: 2px;
 }
+
 .price-row.selected {
     outline: none;
     font-weight: 700;
     --bs-table-bg-state: rgba(211, 47, 47, 0.25);
 }
 
-/* error: a field or message that shows a mistake. */
-.error {
-    color: #B71C1C;
-}
+.error,
 .form-control.error,
 .form-select.error {
+    color: #B71C1C;
     border-color: #B71C1C;
 }
 
-/* success: a field or message that shows everything is fine. */
-.success {
-    color: #1B5E20;
-}
+.success,
 .form-control.success,
 .form-select.success {
+    color: #1B5E20;
     border-color: #1B5E20;
-}
-.card-img-top {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
 }
