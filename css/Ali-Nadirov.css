@@ -1,43 +1,27 @@
 /*
-    Personal styles for Ali Nadirov's About and Gallery pages.
+ * Ali Nadirov — small page-specific styles.
+ * Bootstrap 5.3.8 provides the layout, grid, spacing, colors, typography,
+ * cards, forms, borders, buttons, shadows and responsive utilities.
+ */
 
-    Bootstrap 5.3.8 handles the grid, spacing, forms, buttons,
-    responsive layout, shadows and general components.
-    This file contains only page-specific visual corrections.
-*/
+/* Image proportions */
+.gallery-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.about-photo { aspect-ratio: 3 / 4; object-fit: cover; }
 
-/* Gallery images: keep the same aspect ratio without distortion. */
-.gallery-photo {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-}
+/* Small interactions not covered by Bootstrap utilities */
+.gallery-card, .story-card, .feedback-card, .review-card { transition: transform .25s ease, box-shadow .25s ease; }
+.gallery-card:hover, .story-card:hover, .feedback-card:hover, .review-card:hover { transform: translateY(-4px); }
+.review-card { cursor: pointer; }
+.review-card.active { box-shadow: 0 0 0 .2rem rgba(211, 47, 47, .18) !important; }
+.rating-option { cursor: pointer; }
+.rating-option:has(input:checked) { border-color: #d32f2f !important; background: #fff1f1; }
+.review-name::before { content: "★ "; color: #d32f2f; }
+.review-quote { color: #555; }
+.selected { outline: 2px solid #d32f2f; outline-offset: 2px; }
+.error, .form-control.error, .form-select.error { border: 2px solid #b71c1c !important; }
+.js-err { color: #b71c1c; }
+.hidden { display: none !important; }
 
-/* About page photo: keep a consistent aspect ratio on all screens. */
-.about-photo {
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-
-/*
-    JavaScript-ready state classes.
-
-    The active state is already provided by Bootstrap,
-    so no custom .active rule is required.
-*/
-
-.hidden {
-    display: none !important;
-}
-
-.selected {
-    outline: 2px solid #D32F2F;
-    outline-offset: 2px;
-}
-
-.error {
-    border: 2px solid #D32F2F;
-}
-
-.success {
-    border: 2px solid #198754;
+@media (max-width: 767.98px) {
+    .story-card { min-height: 300px; }
 }
