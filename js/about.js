@@ -6,6 +6,7 @@
  */
 
 $(function () {
+
     const products = [
         { id: 1, name: 'Chicken doner', category: 'doner', size: 'M', available: true },
         { id: 2, name: 'Beef doner', category: 'doner', size: 'M', available: true },
@@ -31,252 +32,149 @@ $(function () {
         { id: 22, name: 'White sauce', category: 'addition', size: 'Extra portion', available: true }
     ];
 
-    const $aboutMessage = $('#about-message');
-
-    if (!$aboutMessage.length) return;
-
     function getAvailableProducts(items) {
         return items.filter(function (product) {
             return product.available === true;
         });
     }
 
-    function countProductsByCategory(items, category) {
-        return items.filter(function (product) {
-            return product.category === category;
-        }).length;
-    }
-
-    function searchProducts(items, searchText) {
-        const query = searchText.trim().toLowerCase();
-
-        return items.filter(function (product) {
-            return (product.name + ' ' + product.size + ' ' + product.category)
-                .toLowerCase().includes(query);
-        });
-    }
-
-    function getRandomDoner(items) {
+    function getRandomDoner(items, previousId) {
         const availableDoners = getAvailableProducts(items).filter(function (product) {
-            return product.category === 'doner';
+            return product.category === 'doner' &&
+                product.id !== previousId;
         });
 
         if (!availableDoners.length) return null;
 
-        return availableDoners[
-            Math.floor(Math.random() * availableDoners.length)
-        ];
+        const randomIndex = Math.floor(
+            Math.random() * availableDoners.length
+        );
+
+        return availableDoners[randomIndex];
     }
 
-    const stats = {
-        total: products.length,
-        available: getAvailableProducts(products).length,
-        doners: countProductsByCategory(products, 'doner'),
-        drinks: countProductsByCategory(products, 'drink'),
-        additions: countProductsByCategory(products, 'addition')
-    };
+    let previousDonerId = null;
 
+    // Recommendation section
     const $section = $('<section>', {
-        id: 'product-search-section',
-        class: 'mt-4 mb-4',
-        'aria-labelledby': 'product-search-heading'
+        id: 'doner-recommendation-section',
+        class: 'py-5'
+    }).css('background-color', '#F1F0EC');
+
+    const $container = $('<div>', {
+        class: 'container'
     });
+
+    const $card = $('<div>', {
+        class: 'card border-0 shadow rounded-4 overflow-hidden'
+    });
+
+    const $body = $('<div>', {
+        class: 'card-body text-center p-4 p-md-5'
+    });
+
+    const $badge = $('<span>', {
+        class: 'badge text-bg-danger mb-3 p-2'
+    }).text('A LITTLE FOOD INSPIRATION');
 
     const $heading = $('<h2>', {
-        id: 'product-search-heading',
-        class: 'h3 mb-3'
-    }).text('Find a Product');
+        class: 'display-5 fw-bold mb-3'
+    }).text('Can’t Decide What to Eat?');
 
-    const $label = $('<label>', {
-        for: 'product-search',
-        class: 'form-label'
-    }).text('Search products in our menu for availability');
+    const $description = $('<p>', {
+        class: 'lead text-secondary mb-4'
+    }).text('Let us help you find your perfect doner!');
 
-    const $input = $('<input>', {
-        type: 'search',
-        id: 'product-search',
-        class: 'form-control',
-        placeholder: 'Enter a product name',
-        autocomplete: 'off',
-        'aria-label': 'Search products'
-    });
-
-    const $stats = $('<p>', {
-        class: 'small text-muted mt-2',
-        'aria-live': 'polite'
-    }).text(
-        'Catalog: ' + stats.total + ' products — ' +
-        stats.doners + ' doners, ' +
-        stats.drinks + ' drinks, ' +
-        stats.additions + ' additions.'
-    );
-
-    const $count = $('<p>', {
-        class: 'mt-3',
-        'aria-live': 'polite'
-    }).text('Start typing a product name to search.');
-
-    const $results = $('<ul>', {
-        id: 'product-search-results',
-        class: 'list-group mt-2',
-        'aria-live': 'polite'
-    });
-
-    const $empty = $('<p>', {
-        class: 'alert alert-warning mt-2',
-        role: 'status'
-    }).text('No products match your search.').hide();
-
-    const $menuLink = $('<a>', {
-        href: 'menu.html',
-        class: 'btn btn-outline-danger mt-3'
-    }).text('View the full menu and prices');
-
-    const $recommendButton = $('<button>', {
+    const $button = $('<button>', {
         type: 'button',
         id: 'recommend-doner',
-        class: 'btn btn-warning mt-3 ms-2'
-    }).text('Get a Doner Recommendation');
+        class: 'btn btn-danger btn-lg px-5'
+    }).text('Surprise Me!');
 
-    const $recommendation = $('<p>', {
-        id: 'doner-recommendation',
-        class: 'mt-3',
+    const $result = $('<div>', {
+        id: 'doner-recommendation-result',
+        class: 'mt-4',
         'aria-live': 'polite'
     });
 
-    $section.append(
+    $body.append(
+        $badge,
         $heading,
-        $label,
-        $input,
-        $stats,
-        $count,
-        $results,
-        $empty,
-        $menuLink,
-        $recommendButton,
-        $recommendation
+        $description,
+        $button,
+        $result
     );
 
-    if (!$('#product-search-section').length) {
-        $aboutMessage
-            .append($section)
-            .removeClass('hidden')
-            .hide()
-            .fadeIn(250);
+    $card.append($body);
+    $container.append($card);
+    $section.append($container);
+
+    // Place the recommendation before the branch section.
+    const $branch = $('#branch');
+
+    if ($branch.length && !$('#doner-recommendation-section').length) {
+        $branch.before($section);
     }
 
-    function renderSearchResults(query) {
-        $results.empty();
+    // Random recommendation button.
+    $button.on('click', function () {
 
-        if (!query) {
-            $count.text('Start typing a product name to search.');
-            $empty.stop(true, true).hide();
-            return;
-        }
-
-        const matches = searchProducts(products, query);
-
-        $count.text('Products found: ' + matches.length);
-
-        if (!matches.length) {
-            $empty.stop(true, true).fadeIn(150);
-            return;
-        }
-
-        $empty.stop(true, true).hide();
-
-        $.each(matches, function (_, product) {
-            const availability = product.available
-                ? 'Available'
-                : 'Currently unavailable';
-
-            const $item = $('<li>', {
-                class: 'list-group-item product-result',
-                tabindex: '0',
-                role: 'button',
-                'data-product-id': product.id
-            }).text(
-                product.name + ' (' + product.size + ') — ' + availability
-            );
-
-            $results.append($item);
-        });
-    }
-
-    $input.on('input', function () {
-        renderSearchResults(
-            String($(this).val() || '').trim()
-        );
-
-        $(this).toggleClass(
-            'selected',
-            String($(this).val()).trim().length > 0
-        );
-    });
-
-    // Delegated event handler for dynamically created search results.
-    $aboutMessage.on(
-        'click keydown',
-        '.product-result',
-        function (event) {
-            if (
-                event.type === 'keydown' &&
-                event.key !== 'Enter' &&
-                event.key !== ' '
-            ) {
-                return;
-            }
-
-            if (event.type === 'keydown') {
-                event.preventDefault();
-            }
-
-            const productId = Number(
-                $(this).attr('data-product-id')
-            );
-
-            const product = products.find(function (item) {
-                return item.id === productId;
-            });
-
-            if (product) {
-                $results.find('.product-result').removeClass('selected');
-
-                $(this).addClass('selected');
-
-                $input.val(product.name);
-
-                $count.text(
-                    'Selected: ' +
-                    product.name +
-                    ' (' + product.size + ').'
-                );
-            }
-        }
-    );
-
-    $recommendButton.on('click', function () {
-        const product = getRandomDoner(products);
+        const product = getRandomDoner(products, previousDonerId);
 
         if (!product) {
-            $recommendation.text(
-                'Sorry, no doners are currently available.'
-            );
+            $result
+                .text('Sorry, no doners are currently available.')
+                .addClass('text-danger');
+
             return;
         }
 
-        $recommendation
-            .text(
-                "Today's Doner Recommendation: " +
-                product.name +
-                ' (' + product.size + ') — Available'
-            )
-            .addClass('selected')
+        previousDonerId = product.id;
+
+        const $resultCard = $('<div>', {
+            class: 'bg-light border rounded-4 p-4 mx-auto',
+            style: 'max-width: 450px;'
+        });
+
+        const $icon = $('<div>', {
+            class: 'display-3 mb-2'
+        }).text('🌯');
+
+        const $resultTitle = $('<h3>', {
+            class: 'h3 fw-bold text-dark mb-2'
+        }).text(product.name);
+
+        const $size = $('<p>', {
+            class: 'text-secondary mb-2'
+        }).text('Size: ' + product.size);
+
+        const $availability = $('<span>', {
+            class: 'badge text-bg-success p-2'
+        }).text('Available');
+
+        const $menuButton = $('<a>', {
+            href: 'menu.html',
+            class: 'btn btn-outline-danger mt-3'
+        }).text('View Menu');
+
+        $resultCard.append(
+            $icon,
+            $resultTitle,
+            $size,
+            $availability,
+            $('<br>'),
+            $menuButton
+        );
+
+        $result
+            .empty()
+            .append($resultCard)
             .hide()
-            .fadeIn(250);
+            .fadeIn(300);
     });
 
     $('a[href="menu.html"]')
         .filter(':first')
         .attr('title', 'Open the full menu');
+
 });
