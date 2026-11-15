@@ -1,206 +1,80 @@
 'use strict';
-/*Mazhit Nurasyl */
-const faqData=[
-	{
-		id:'question-one',
-		category:'order',
-		question:'Can I order online?',
-		keywords:['order','online','food']
-	},
-	{
-		id:'question-two',
-		category:'order',
-		question:'Do you have delivery?',
-		keywords:['delivery','order','pickup']
-	},
-	{
-		id:'question-three',
-		category:'menu',
-		question:'Where can I see the menu?',
-		keywords:['menu','food','price','doner','drink']
-	},
-	{
-		id:'question-four',
-		category:'restaurant',
-		question:'What are your opening hours?',
-		keywords:['hours','open','time','friday','break']
-	}
-];
-$(function(){
-	const $faqAccordion=$('#faq-accordion');
-	if($faqAccordion.length===0){
-		return;
-	}
-	let $faqSearchInput;
-	let $faqCategorySelect;
-	let $faqResultCount;
-	let $faqNoResults;
-	let $faqResetButton;
-	function filterFaq(searchText,category){
-		const cleanText=searchText.trim().toLowerCase();
-		return $.grep(faqData,function(item){
-			const questionMatches=cleanText===''||item.question.toLowerCase().includes(cleanText);
-			const keywordMatches=cleanText===''||$.grep(item.keywords,function(keyword){
-				return keyword.includes(cleanText);
-			}).length>0;
-			const categoryMatches=category==='all'||item.category===category;
-			return (questionMatches||keywordMatches)&&categoryMatches;
-		});
-	}
-	function createFaqSearch(){
-		const $controls=$('<div>')
-			.attr('id','faq-search-controls')
-			.addClass('row g-3 align-items-end mb-4');
-		const $searchColumn=$('<div>')
-			.addClass('col-12 col-md-6');
-		$('<label>')
-			.addClass('form-label')
-			.attr('for','faq-search')
-			.text('Search FAQ')
-			.appendTo($searchColumn);
-		$faqSearchInput=$('<input>')
-			.attr({
-				id:'faq-search',
-				type:'search',
-				placeholder:'Type order, delivery, menu...'
-			})
-			.addClass('form-control')
-			.appendTo($searchColumn);
-		const $categoryColumn=$('<div>')
-			.addClass('col-12 col-md-3');
-		$('<label>')
-			.addClass('form-label')
-			.attr('for','faq-category')
-			.text('Category')
-			.appendTo($categoryColumn);
-		$faqCategorySelect=$('<select>')
-			.attr('id','faq-category')
-			.addClass('form-select')
-			.appendTo($categoryColumn);
-		const categories=[
-			{value:'all',label:'All categories'},
-			{value:'order',label:'Order'},
-			{value:'menu',label:'Menu'},
-			{value:'restaurant',label:'Restaurant'}
-		];
-		$.each(categories,function(index,category){
-			$('<option>')
-				.val(category.value)
-				.text(category.label)
-				.appendTo($faqCategorySelect);
-		});
-		const $resetColumn=$('<div>')
-			.addClass('col-12 col-md-3');
-		$faqResetButton=$('<button>')
-			.attr({
-				id:'faq-reset',
-				type:'button'
-			})
-			.addClass('btn btn-outline-danger w-100')
-			.text('Reset')
-			.appendTo($resetColumn);
-		$faqResultCount=$('<p>')
-			.attr('id','faq-result-count')
-			.addClass('small text-secondary mb-2');
-		$faqNoResults=$('<div>')
-			.attr({
-				id:'faq-no-results',
-				role:'status'
-			})
-			.addClass('alert alert-warning d-none')
-			.text('No FAQ results found.');
-		$controls.append(
-			$searchColumn,
-			$categoryColumn,
-			$resetColumn
-		);
-		$faqAccordion.before(
-			$controls,
-			$faqResultCount,
-			$faqNoResults
-		);
-	}
-	function updateFaqDisplay(results){
-		$faqAccordion.find('.accordion-item').each(function(){
-			const $item=$(this);
-			const questionId=$item
-				.find('.accordion-collapse')
-				.attr('id');
-			const matches=$.grep(results,function(result){
-				return result.id===questionId;
-			}).length>0;
-			if(matches===true){
-				$item
-					.stop(true,true)
-					.slideDown(250);
-			}else{
-				$item
-					.stop(true,true)
-					.slideUp(250);
-			}
-		});
-		const count=results.length;
-		$faqResultCount
-			.text('Results: '+count+' of '+faqData.length);
-		if(count===0){
-			$faqNoResults
-				.removeClass('d-none')
-				.stop(true,true)
-				.fadeIn(250);
-		}else{
-			$faqNoResults
-				.stop(true,true)
-				.fadeOut(200,function(){
-					$(this).addClass('d-none');
-				});
-		}
-	}
-	function applyFaqFilters(){
-		const results=filterFaq(
-			$faqSearchInput.val(),
-			$faqCategorySelect.val()
-		);
-		updateFaqDisplay(results);
-	}
-	function resetFaqSearch(){
-		$faqSearchInput
-			.val('')
-			.removeClass('is-invalid')
-			.trigger('focus');
-		$faqCategorySelect.val('all');
-		updateFaqDisplay(faqData);
-	}
-	createFaqSearch();
-	updateFaqDisplay(faqData);
-	$faqSearchInput.on('input',function(){
-		const searchText=$(this).val();
-		const results=filterFaq(
-			searchText,
-			$faqCategorySelect.val()
-		);
-		updateFaqDisplay(results);
-	});
-	$faqSearchInput.on('keydown',function(event){
-		if(event.key==='Escape'){
-			resetFaqSearch();
-		}
-	});
-	$faqCategorySelect.on('change',function(){
-		applyFaqFilters();
-	});
-	$faqResetButton.on('click',function(){
-		resetFaqSearch();
-	});
-	$faqAccordion.on(
-		'shown.bs.collapse hidden.bs.collapse',
-		'.accordion-collapse',
-		function(event){
-			$(this)
-				.closest('.accordion-item')
-				.toggleClass(
-					'border-danger',
-					event.type==='shown'
-				);
-		}
-	);
+
+$(function () {
+    const faqData = [
+        { id: 'question-one', category: 'order', keywords: 'order online food' },
+        { id: 'question-two', category: 'order', keywords: 'delivery order pickup' },
+        { id: 'question-three', category: 'menu', keywords: 'menu food price doner drink' },
+        { id: 'question-four', category: 'restaurant', keywords: 'hours open time friday break' },
+        { id: 'question-five', category: 'restaurant', keywords: 'halal certificate certified meat ingredients' }
+    ];
+    const $accordion = $('#faq-accordion');
+    if (!$accordion.length) return;
+
+    // Keep the questions in HTML; build only the existing search controls.
+    const $controls = $('<div id="faq-search-controls" class="row g-3 align-items-end mb-4">').append(
+        $('<div class="col-12 col-md-6">').append(
+            '<label class="form-label" for="faq-search">Search FAQ</label>',
+            '<input id="faq-search" type="search" class="form-control" placeholder="Type order, delivery, menu...">'
+        ),
+        $('<div class="col-12 col-md-3">').append(
+            '<label class="form-label" for="faq-category">Category</label>',
+            '<select id="faq-category" class="form-select"><option value="all">All categories</option><option value="order">Order</option><option value="menu">Menu</option><option value="restaurant">Restaurant</option></select>'
+        ),
+        $('<div class="col-12 col-md-3">').append('<button id="faq-reset" type="button" class="btn btn-outline-danger w-100">Reset</button>')
+    );
+    const $count = $('<p id="faq-result-count" class="small text-secondary mb-2" role="status">');
+    const $empty = $('<div id="faq-no-results" class="alert alert-warning" role="status" hidden>').text('No FAQ results found.');
+    $accordion.before($controls, $count, $empty);
+    const $search = $('#faq-search');
+    const $category = $('#faq-category');
+
+    function filterFaq() {
+        const query = $search.val().trim().toLowerCase();
+        let count = 0;
+        $.each(faqData, function (_, item) {
+            const $answer = $('#' + item.id);
+            const $item = $answer.closest('.accordion-item');
+            const matches = ($category.val() === 'all' || $category.val() === item.category) &&
+                ($item.text() + ' ' + item.keywords).toLowerCase().includes(query);
+            $item.prop('hidden', !matches);
+            if (matches) count++;
+        });
+        $count.text('Results: ' + count + ' of ' + faqData.length);
+        $empty.prop('hidden', count > 0);
+    }
+
+    function resetSearch() {
+        $search.val('').trigger('focus');
+        $category.val('all');
+        filterFaq();
+    }
+    $search.on('input', filterFaq).on('keydown', function (event) {
+        if (event.key === 'Escape') resetSearch();
+    });
+    $category.on('change', filterFaq);
+    $('#faq-reset').on('click', resetSearch);
+    $accordion.on('shown.bs.collapse hidden.bs.collapse', '.accordion-collapse', function (event) {
+        $(this).closest('.accordion-item').toggleClass('border-danger', event.type === 'shown');
+    });
+    filterFaq();
+
+    const $question = $('#question-text');
+    $question.on('input', function () {
+        $('#question-counter').text($(this).val().length + ' / 300');
+        $(this).removeClass('is-invalid').removeAttr('aria-invalid');
+        $('#question-error, #question-success').prop('hidden', true);
+    });
+    $('#question-form').on('submit', function (event) {
+        event.preventDefault();
+        const length = $question.val().trim().length;
+        const valid = length >= 10 && length <= 300;
+        $('#question-error').prop('hidden', valid);
+        $('#question-success').prop('hidden', !valid);
+        $question.toggleClass('is-invalid', !valid).attr('aria-invalid', String(!valid));
+        if (!valid) { $question.trigger('focus'); return; }
+        this.reset();
+        $question.removeAttr('aria-invalid');
+        $('#question-counter').text('0 / 300');
+    });
 });

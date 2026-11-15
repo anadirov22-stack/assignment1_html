@@ -1,33 +1,35 @@
-/*
-    Base styles for the website.
-
-    Bootstrap 5.3.8 handles the grid, spacing, responsive layout,
-    navigation, forms and buttons.
-
-    Custom CSS is limited to the site's basic colors and footer.
-*/
-
-/* Site colors */
+/* Shared layout and restaurant colors; Bootstrap handles components. */
 body {
-    background-color: #F5F5F5;
-    color: #1F1F1F;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAF7F2;
+    color: #1C1F23;
 }
+main { flex: 1; }
+[hidden] { display: none !important; }
+a { color: #343a40; }
 
-a {
-    color: #D32F2F;
+.site-navbar, footer.bg-dark {
+    background-color: #1C1F23 !important;
 }
+.site-navbar .navbar-nav .nav-link.active,
+.site-navbar .navbar-nav .nav-link:hover {
+    color: #FFB800;
+    font-weight: 600;
+}
+.navbar-brand { max-width: calc(100% - 68px); }
+.navbar-brand img { flex-shrink: 0; }
+main h1, main h2 { border-left: 4px solid #FFB800; padding-left: .75rem; }
+main .bg-white.border,
+main .card:not(.border-danger) { border-color: #EAE4DC !important; }
 
-/* Keyboard focus */
-nav a:focus {
-    outline: 3px solid orange;
+nav a:focus-visible {
+    outline: 2px solid #adb5bd;
     outline-offset: 3px;
 }
-
-/* Footer links */
-footer a {
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
+footer a { text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+.menu-page .btn:focus-visible {
+    box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .25);
 }
