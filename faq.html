@@ -14,21 +14,20 @@
     <script src="js/faq.js" defer></script>
 </head>
 <body>
-     <!-- Author: Mazhit Nurasyl -->
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
         <div class="container-fluid">
-            <span class="navbar-brand fw-bold">Doner na Abaya</span>
+            <a class="navbar-brand fw-bold" href="index.html">Doner na Abaya</a>
             <button id="navigation-toggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav ms-auto gap-lg-2">
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery and reviews.html">Gallery and Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery and reviews.html">Gallery and Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="faq.html">FAQ</a></li>
                 </ul>
             </div>
         </div>
@@ -37,54 +36,31 @@
 
 <main class="container py-5">
     <section class="mb-5">
-        <div class="mb-4">
-            <h1 class="display-4 text-danger mb-2">Frequently Asked Questions</h1>
-            <p class="lead text-secondary mb-0">Find quick information about orders, food and restaurant service.</p>
-        </div>
-        <div class="row g-4 align-items-center">
-            <div class="col-12 col-lg-5 text-center">
-                <img src="images/photo_4_2026-09-11_18-56-40.jpg" class="img-fluid rounded-4 shadow-sm" alt="Doner na Abaya restaurant">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-12 col-lg-5">
+                <div class="h-100 rounded-4 overflow-hidden shadow-sm border bg-white">
+                    <img src="images/photo_4_2026-09-11_18-56-40.jpg" class="w-100 h-100 object-fit-cover" alt="Doner na Abaya restaurant">
+                </div>
             </div>
             <div class="col-12 col-lg-7">
-                <div class="bg-white border rounded-4 shadow-sm p-4">
-                    <h2 class="h3 mb-4">Quick Help</h2>
-                    <div class="row g-3">
-                        <div class="col-12 col-md-6">
-                            <div class="card h-100 border-danger shadow-sm">
-                                <div class="card-body">
-                                    <h3 class="h5 text-danger">Order Food</h3>
-                                    <p class="card-text">Choose doners, drinks and extras, add them to your cart and prepare your order.</p>
-                                    <a class="btn btn-danger" href="order.html">Go to Order</a>
-                                </div>
-                            </div>
+                <div class="h-100 rounded-4 border shadow-sm bg-white p-4 p-md-5 d-flex flex-column justify-content-center">
+                    <div class="mb-4">
+                        <span class="badge rounded-pill text-bg-danger px-3 py-2 mb-3">DONER NA ABAYA / FAQ</span>
+                        <h2 class="display-3 fw-bold lh-1 mb-3">Fast food.<br><span class="text-danger">Fast answers.</span></h2>
+                        <p class="lead text-secondary mb-0">Good service is not only about food. It is also about making things easy to understand.</p>
+                    </div>
+                    <div class="border rounded-4 p-4 bg-body-tertiary position-relative">
+                        <div class="display-6 text-danger fw-bold mb-2">“</div>
+                        <p class="fs-4 mb-3">One clear answer can make the whole ordering experience easier.</p>
+                        <div class="d-flex flex-wrap gap-2 align-items-center">
+                            <span class="badge text-bg-dark px-3 py-2">Simple</span>
+                            <span class="badge text-bg-light border text-dark px-3 py-2">Clear</span>
+                            <span class="badge text-bg-light border text-dark px-3 py-2">Useful</span>
                         </div>
-                        <div class="col-12 col-md-6">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h3 class="h5">Check the Menu</h3>
-                                    <p class="card-text">See available doners, sizes, drinks, extras and current prices.</p>
-                                    <a class="btn btn-outline-danger" href="menu.html">View Menu</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h3 class="h5">Opening Hours</h3>
-                                    <p class="card-text">The restaurant is open 24/7. On Friday there is a break from 12:30 to 14:00.</p>
-                                    <a class="btn btn-outline-dark" href="#faq-orders">Read FAQ</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="card h-100 shadow-sm">
-                                <div class="card-body">
-                                    <h3 class="h5">Delivery</h3>
-                                    <p class="card-text">Choose Delivery when you prepare your order, or select Pickup if you want to take it yourself.</p>
-                                    <a class="btn btn-outline-dark" href="order.html">Delivery Options</a>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="mt-4 d-flex align-items-center gap-3 text-secondary">
+                        <div class="border-top border-danger border-3 flex-grow-1"></div>
+                        <span class="small text-uppercase fw-semibold">Questions welcome</span>
                     </div>
                 </div>
             </div>
