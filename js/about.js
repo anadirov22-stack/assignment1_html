@@ -1038,7 +1038,7 @@ const map = $('<iframe>', {
         buttonWrapper,
         note
     );
-
+    
     section.append(container);
 
 $('#branch').after(section);}
