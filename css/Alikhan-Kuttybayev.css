@@ -1,63 +1,9 @@
-/* Alikhan Kuttybayev - Custom styles & state classes (Menu & Reviews) */
-
-.review-name::before {
-    content: "\2605  ";
-    color: #D32F2F;
-}
-
-.term-list dt::after {
-    content: ":";
-}
-
-mark {
-    background-color: rgba(211, 47, 47, 0.18);
-}
-
-.card-img-top {
-    aspect-ratio: 4 / 3;
+/* Product photos and space for the floating cart. */
+.menu-page .card-img-top {
+    width: 100%;
+    height: 220px;
     object-fit: cover;
+    object-position: center;
+    padding: 0;
 }
-
-.menu-card,
-.review-card,
-.price-row {
-    cursor: pointer;
-}
-
-/* State classes switched by JavaScript / jQuery */
-.hidden {
-    display: none;
-}
-
-.review-card.active {
-    box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
-}
-
-.price-row.active {
-    --bs-table-bg-state: rgba(211, 47, 47, 0.1);
-}
-
-.selected {
-    outline: 3px solid #D32F2F;
-    outline-offset: 2px;
-}
-
-.price-row.selected {
-    outline: none;
-    font-weight: 700;
-    --bs-table-bg-state: rgba(211, 47, 47, 0.25);
-}
-
-.error,
-.form-control.error,
-.form-select.error {
-    color: #B71C1C;
-    border-color: #B71C1C;
-}
-
-.success,
-.form-control.success,
-.form-select.success {
-    color: #1B5E20;
-    border-color: #1B5E20;
-}
+.menu-page.menu-has-cart main { padding-bottom: 5.5rem !important; }

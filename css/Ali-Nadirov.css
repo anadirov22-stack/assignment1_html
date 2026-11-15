@@ -1,27 +1,11 @@
-/*
- * Ali Nadirov — small page-specific styles.
- * Bootstrap 5.3.8 provides the layout, grid, spacing, colors, typography,
- * cards, forms, borders, buttons, shadows and responsive utilities.
- */
+/* About and Gallery image sizes. */
+#branch-photo { width: 100%; height: 340px; object-fit: cover; object-position: center; }
+.gallery-photo { width: 100%; height: 250px; object-fit: cover; }
 
-/* Image proportions */
-.gallery-photo { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-.about-photo { aspect-ratio: 3 / 4; object-fit: cover; }
-
-/* Small interactions not covered by Bootstrap utilities */
-.gallery-card, .story-card, .feedback-card, .review-card { transition: transform .25s ease, box-shadow .25s ease; }
-.gallery-card:hover, .story-card:hover, .feedback-card:hover, .review-card:hover { transform: translateY(-4px); }
+/* Review selection and validation. */
+.selected { background-color: #f1f3f5; }
 .review-card { cursor: pointer; }
-.review-card.active { box-shadow: 0 0 0 .2rem rgba(211, 47, 47, .18) !important; }
-.rating-option { cursor: pointer; }
-.rating-option:has(input:checked) { border-color: #d32f2f !important; background: #fff1f1; }
-.review-name::before { content: "★ "; color: #d32f2f; }
-.review-quote { color: #555; }
-.selected { outline: 2px solid #d32f2f; outline-offset: 2px; }
-.error, .form-control.error, .form-select.error { border: 2px solid #b71c1c !important; }
+.review-card.active { box-shadow: 0 0 0 .2rem rgba(108, 117, 125, .18) !important; }
+.form-control.error, .form-select.error { border: 2px solid #b71c1c; }
 .js-err { color: #b71c1c; }
-.hidden { display: none !important; }
-
-@media (max-width: 767.98px) {
-    .story-card { min-height: 300px; }
-}
+.review-card:hover { transform: translateY(-3px); }

@@ -6,29 +6,29 @@
     <meta name="description" content="Menu of Doner na Abaya in Astana: doner prices in tenge, portion sizes, drinks and extras.">
     <meta name="author" content="Alikhan Kuttybayev">
     <title>Menu | Doner na Abaya</title>
+    <link rel="icon" type="image/jpeg" href="images/LOGO.jpeg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/Alikhan-Kuttybayev.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="js/main.js" defer></script>
-    <script src="js/menu.js" defer></script>
 </head>
-<body>
+<body class="menu-page">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-4" aria-label="Main navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-danger border-3 site-navbar" aria-label="Main navigation">
         <div class="container-fluid">
-            <span class="navbar-brand fw-bold">Doner na Abaya</span>
+            <a class="navbar-brand fs-4 fw-bold d-flex align-items-center me-0" href="menu.html">
+                <img src="images/LOGO.jpeg" width="56" height="56" class="rounded-circle bg-white me-3 object-fit-cover" alt="">
+                <span class="text-wrap lh-sm">Doner na Abaya</span>
+            </a>
             <button id="navigation-toggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav ms-auto gap-lg-2">
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="menu.html">Menu</a></li>
-                <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="gallery and reviews.html">Gallery and Reviews</a></li>
-
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.html">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery%20and%20reviews.html">Gallery and Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                 </ul>
             </div>
         </div>
@@ -36,114 +36,62 @@
 </header>
 
 <main class="container py-4">
-    <h1 class="display-5 fw-bold text-danger text-center text-md-start">Menu of Doner na Abaya</h1>
-    <p class="lead text-center text-md-start">
-        In Russian it is called <span lang="ru" class="fst-italic">Донер на Абая</span>.
-        Jump to the <a href="#prices">prices</a>, check <a href="#drinks">menu items</a>, or go straight to the <a href="order.html">Order page</a>.
-    </p>
+    <div class="mb-4">
+        <h1 class="h2 fw-bold mb-0">Menu</h1>
+    </div>
 
-    <!-- 1. Doners and Prices -->
-    <section id="prices" class="mb-4 p-4 bg-white border rounded shadow-sm">
-        <h2 class="h3 pb-2 border-bottom border-danger border-2">Doners and Prices</h2>
-        <p class="text-muted mb-3">
-            Each doner comes in two sizes. Prices are in <abbr title="Kazakhstani tenge">KZT</abbr>, copied from the board at our branch.
-        </p>
+    <section id="drinks" aria-labelledby="menu-items-heading">
+        <h2 id="menu-items-heading" class="visually-hidden">Browse menu items</h2>
+        <!-- Search, category pills and product cards are built by jQuery. -->
+        <noscript><p class="alert alert-light border">Please enable JavaScript to browse the menu and add items to your cart.</p></noscript>
+    </section>
 
-        <div class="table-responsive">
-            <table id="price-table" class="table table-striped table-hover table-bordered align-middle w-100 mb-3">
-                <caption class="caption-top pt-0">Doner prices at our branch</caption>
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col">Doner</th>
-                        <th scope="col">Standard</th>
-                        <th scope="col">Large</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="price-row-chicken" class="price-row" data-doner="Chicken Doner" data-price-standard="1895" data-price-large="2195">
-                        <th scope="row">Chicken</th>
-                        <td>1895&nbsp;&#8376;</td>
-                        <td>2195&nbsp;&#8376;</td>
-                    </tr>
-                    <tr id="price-row-beef" class="price-row" data-doner="Beef Doner" data-price-standard="2195" data-price-large="2495">
-                        <th scope="row">Beef</th>
-                        <td>2195&nbsp;&#8376;</td>
-                        <td>2495&nbsp;&#8376;</td>
-                    </tr>
-                    <tr id="price-row-assorted" class="price-row" data-doner="Assorted Doner" data-price-standard="2095" data-price-large="2395">
-                        <th scope="row">Assorted</th>
-                        <td>2095&nbsp;&#8376;</td>
-                        <td>2395&nbsp;&#8376;</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
+    <aside class="d-flex flex-wrap align-items-center justify-content-between gap-3 p-4 mt-4 bg-white border rounded-4 shadow-sm" aria-label="Good to know">
         <div class="d-flex flex-wrap gap-2">
-            <a class="btn btn-danger" href="order.html">Order Your Doner</a>
-            <a class="btn btn-outline-dark" href="#drinks">See Drinks &amp; Extras</a>
+            <span class="badge text-bg-light border text-dark p-3">Open 24/7</span>
+            <span class="badge text-bg-light border text-dark p-3">Friday break: 12:30–14:00</span>
         </div>
-    </section>
-
-    <!-- 2. Menu Items (Populated dynamically by js/menu.js) -->
-    <section id="drinks" class="mb-4 p-4 bg-white border rounded shadow-sm">
-        <h2 class="h3 pb-2 border-bottom border-danger border-2 mb-0">Menu Items</h2>
-    </section>
-
-    <!-- 3. Menu Words -->
-    <section id="words" class="mb-4 p-4 bg-white border rounded shadow-sm">
-        <h2 class="h3 pb-2 border-bottom border-danger border-2">Menu Words</h2>
-        <dl class="row term-list mb-0">
-            <dt class="col-12 col-sm-3 text-danger">Doner</dt>
-            <dd class="col-12 col-sm-9">Grilled meat with vegetables and sauce. <i lang="tr">Döner</i> means &ldquo;turning&rdquo; in Turkish.</dd>
-            <dt class="col-12 col-sm-3 text-danger">Assorted</dt>
-            <dd class="col-12 col-sm-9">Chicken and beef together.</dd>
-            <dt class="col-12 col-sm-3 text-danger">Ayran</dt>
-            <dd class="col-12 col-sm-9 mb-0">A cold sour-milk drink.</dd>
-        </dl>
-    </section>
-
-    <!-- 4. Good to Know + Halal Certificate Photo -->
-    <aside class="position-relative mt-4 p-4 bg-light border-start border-danger border-5 rounded shadow-sm">
-        <span class="badge text-bg-danger position-absolute top-0 start-50 translate-middle">Halal certified</span>
-        <div class="row g-4 align-items-center">
-            <div class="col-12 col-md-8 col-lg-9">
-                <h2 class="h4">Good to Know</h2>
-                <p>
-                    The branch works 24/7, but <mark>on Fridays there is a break from 12:30 to 14:00</mark>.
-                    The board also carries a halal certificate.
-                </p>
-                <p>
-                    The official website <cite>Doner na Abaya</cite> says
-                    <q lang="ru" class="fst-italic">Сочные донеры от 1795 тг!</q>
-                    (&ldquo;Juicy doners from 1795 tenge!&rdquo;), but the cheapest one now costs 1895&nbsp;&#8376;.
-                    <strong>Prices change, so check before you go.</strong>
-                </p>
-                <div class="d-flex flex-wrap gap-2">
-                    <a class="btn btn-outline-danger btn-sm" href="https://doner-na-abaya.kz/" target="_blank" rel="noopener noreferrer">Official website</a>
-                    <a class="btn btn-danger btn-sm" id="go-to-order" href="order.html">Go to the Order page</a>
-                    <a class="btn btn-outline-dark btn-sm" id="read-reviews" href="reviews.html">Read reviews</a>
-                </div>
-                <p class="small text-muted mt-3 mb-0">Checked in September 2026.</p>
-            </div>
-            <div class="col-12 col-md-4 col-lg-3 text-center">
-                <img src="images/halal.jpeg" width="160" height="160" class="img-fluid rounded-circle border border-success border-2 bg-white p-1 shadow-sm" alt="Halal certified food quality stamp">
-            </div>
+        <a href="images/halal%20certificate.jpg" class="d-flex align-items-center gap-2 link-success text-decoration-none small fw-semibold" target="_blank" rel="noopener noreferrer" aria-label="View Halal certificate image">
+            <img src="images/halal.jpeg" width="44" height="44" alt="Halal certification badge">
+            <span>Halal certified</span>
+        </a>
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-dark rounded-pill px-4" href="order.html">Order</a>
+            <a class="btn btn-outline-dark rounded-pill px-4" id="read-reviews" href="gallery%20and%20reviews.html">Gallery &amp; Reviews</a>
         </div>
     </aside>
 
-    <a id="back-to-prices" class="btn btn-dark btn-sm position-fixed bottom-0 end-0 m-3 d-none d-md-inline-block" href="#prices">Back to prices</a>
+    <div>
+        <p id="menu-cart-message" class="small text-secondary mb-0" role="status" aria-live="polite"></p>
+        <button type="button" id="menu-reset-saved-cart" class="btn btn-sm btn-outline-secondary rounded-pill mt-2" hidden>Reset saved cart</button>
+    </div>
 </main>
 
-<footer class="bg-dark text-white border-top border-danger border-4 mt-5">
+<aside id="menu-mini-cart" class="position-fixed bottom-0 start-50 translate-middle-x w-100 px-3 pb-3 z-3" aria-label="Your order" hidden>
+    <div class="container"><div class="row justify-content-center"><div class="col-12 col-lg-8">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 bg-dark text-white p-3 rounded-4 shadow-lg">
+
+    <div><strong id="menu-cart-count"></strong><span id="menu-cart-total" class="d-block small"></span></div>
+    <div class="d-flex align-items-center gap-2">
+        <button type="button" id="menu-clear-cart" class="btn btn-sm btn-outline-light">Clear</button>
+        <a class="btn btn-light rounded-pill fw-semibold px-4" href="order.html">Go to Order <span aria-hidden="true">→</span></a>
+    </div>
+
+        </div>
+    </div></div></div>
+</aside>
+
+<footer class="bg-dark text-white border-top border-secondary border-3">
     <div class="container py-4 text-center">
+        <img src="images/LOGO.jpeg" width="68" height="68" class="rounded-circle bg-white mb-3 object-fit-cover" alt="Doner na Abaya logo">
         <p class="mb-2"><strong>Phone:</strong> <a class="link-light" href="tel:+77088043937">+7 708 804 39 37</a></p>
         <p class="mb-2"><strong>Instagram:</strong> <a class="link-light" href="https://www.instagram.com/doner_na_abaya_astanaa/" target="_blank" rel="noopener noreferrer">@doner_na_abaya_astanaa</a></p>
-        <p class="mb-2">Visit the <a class="link-light" href="https://doner-na-abaya.kz/" target="_blank" rel="noopener noreferrer">official website</a>.</p>
         <p class="mb-0">&copy; 2026 Doner na Abaya</p>
     </div>
 </footer>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/menu.js"></script>
 </body>
 </html>
