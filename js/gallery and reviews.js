@@ -128,12 +128,13 @@ $(function () {
         return savedReviews.concat(initialReviews);
     }
 
-    function filterReviews(items, minRating) {
-        const minimum = Number(minRating);
-        return items.filter(function (item) {
-            return minimum === 0 || Number(item.rating) >= minimum;
-        });
-    }
+    function filterReviews(items, selectedRating) {
+    const rating = Number(selectedRating);
+
+    return items.filter(function (item) {
+        return rating === 0 || Number(item.rating) === rating;
+    });
+}
 
     function getAverageRating(items) {
         if (!items.length) {
